@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>SouthernWell Operations Hub</title>
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #F7F5F0;
+  --bg-2: #EFECE5;
+  --card: #FFFFFF;
+  --ink: #1A1B1E;
+  --mut: #68696D;
+  --pri: #16263B;
+  --pri-dark: #0F1B2B;
+  --pc: #3D5A4C;
+  --pcl: #E5EFE9;
+  --on: #FFFFFF;
+  --sec: #B08D57;
+  --sec-dark: #8F6E3B;
+  --sc: #F5EBD9;
+  --line: #E8E5DD;
+  --surf: #FAF9F6;
+  --err: #9E3524;
+  --eb: #FDE8E5;
+  --ok: #3D5A4C;
+  --ok-bg: #E5EFE9;
+  --warn: #925c15;
+  --warn-bg: #fdf6e7;
+  --shadow: 0 24px 50px rgba(22, 38, 59, 0.08), 0 8px 20px rgba(22, 38, 59, 0.04);
+  --shadow-soft: 0 12px 24px rgba(22, 38, 59, 0.05);
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.85), transparent 25%),
+              radial-gradient(circle at bottom right, rgba(176, 141, 87, 0.08), transparent 30%),
+              linear-gradient(135deg, var(--bg-2) 0%, var(--bg) 35%, #FAF9F6 100%);
+  color: var(--ink);
+  font: 14px/1.45 "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: Newsreader, Georgia, serif;
+  color: var(--pri);
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+
+.app {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 22px;
+  max-width: 1560px;
+  margin: 0 auto;
+}
+
+/* Sidebar - Deep Oxford Navy (15% System) */
+.side {
+  width: 275px;
+  flex: none;
+  position: sticky;
+  top: 20px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  background: linear-gradient(180deg, #16263B 0%, #0F1B2B 100%);
+  border: 1px solid rgba(176, 141, 87, 0.22);
+  box-shadow: 0 20px 45px rgba(22, 38, 59, 0.28);
+  border-radius: 24px;
+  padding: 18px 12px;
+  color: #F7F5F0;
+}
+
+.brand {
+  padding: 8px 10px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 10px;
+}
+.brand b {
+  font: 600 23px Newsreader, serif;
+  color: #FFFFFF;
+  display: block;
+  letter-spacing: -0.03em;
+}
+.brand small {
+  color: #DFC9A2;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #16263B, #0F1B2B);
+  border: 1.5px solid #B08D57;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+.brand-mark svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #DFC9A2;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.side a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: #B7C3D3;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 3px 0;
+  transition: all 0.18s ease;
+  border: 1px solid transparent;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  font-size: 13.5px;
+}
+.side a:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF;
+  border-color: rgba(176, 141, 87, 0.2);
+  transform: translateX(2px);
+}
+.side a.on {
+  background: linear-gradient(135deg, #B08D57 0%, #8F6E3B 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  border: 1px solid #DFC9A2;
+  box-shadow: 0 10px 22px rgba(176, 141, 87, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.nav-icon {
+  width: 28px;
+  height: 28px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #DFC9A2;
+}
+.nav-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+.side a.on .nav-icon {
+  background: rgba(22, 38, 59, 0.25);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+}
+
+/* Main Workspace Canvas */
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 2px 40px;
+}
+
+.top {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 16px;
+}
+#q {
+  min-width: 250px;
+  box-shadow: var(--shadow-soft);
+}
+
+.ban {
+  background: linear-gradient(135deg, rgba(245, 235, 217, 0.95), rgba(255, 255, 255, 0.85));
+  border: 1px solid rgba(176, 141, 87, 0.35);
+  border-radius: 16px;
+  padding: 12px 16px;
+  font-size: 12.5px;
+  margin-bottom: 18px;
+  border-left: 6px solid var(--sec);
+  box-shadow: 0 10px 25px rgba(176, 141, 87, 0.08);
+  color: #4A3A22;
+}
+
+input, select, textarea {
+  font: inherit;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 9px 12px;
+  max-width: 100%;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #B08D57;
+  box-shadow: 0 0 0 4px rgba(176, 141, 87, 0.15);
+}
+
+/* BUTTONS — Brushed Brass Primary & Concierge Styling */
+.btn {
+  background: linear-gradient(135deg, #B08D57 0%, #9C7A45 50%, #85632F 100%);
+  color: #FFFFFF;
+  border: 1px solid #DFC9A2;
+  border-radius: 12px;
+  padding: 9px 16px;
+  font: 700 13px inherit;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  box-shadow: 0 10px 22px rgba(176, 141, 87, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.btn:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 14px 28px rgba(176, 141, 87, 0.36);
+  background: linear-gradient(135deg, #BE9B63 0%, #AA874F 50%, #906C35 100%);
+}
+
+.btn.alt {
+  background: #FFFFFF;
+  color: #7A551E;
+  border: 1.5px solid rgba(176, 141, 87, 0.45);
+  box-shadow: 0 4px 12px rgba(22, 38, 59, 0.04);
+}
+.btn.alt:hover {
+  background: rgba(176, 141, 87, 0.10);
+  border-color: #B08D57;
+  color: #5C3D10;
+  transform: translateY(-1px);
+}
+
+.btn.sage {
+  background: linear-gradient(135deg, #3D5A4C 0%, #2A3F35 100%);
+  color: #FFFFFF;
+  border: 1px solid #7EA693;
+  box-shadow: 0 8px 18px rgba(61, 90, 76, 0.25);
+}
+.btn.sage:hover {
+  background: linear-gradient(135deg, #4A6E5D 0%, #354E42 100%);
+  transform: translateY(-1px);
+}
+
+.btn.on {
+  background: linear-gradient(135deg, #B08D57 0%, #8F6E3B 100%) !important;
+  color: #FFFFFF !important;
+  border-color: #DFC9A2 !important;
+  outline: 2px solid #B08D57;
+  outline-offset: 1px;
+}
+
+.dash-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 18px;
+}
+.dash-action-icon {
+  display: inline-flex;
+  width: 17px;
+  height: 17px;
+}
+.dash-action-icon svg {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+/* Cards & KPI Tiles */
+.hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hd h2 {
+  font-size: clamp(26px, 2.6vw, 36px);
+  color: var(--pri);
+}
+.subhd {
+  color: var(--mut);
+  font-size: 13.5px;
+  margin-top: 2px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.card {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F4 100%);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #B08D57 0%, #16263B 50%, #3D5A4C 100%);
+  opacity: 0.9;
+}
+
+.kpi {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(176, 141, 87, 0.16);
+}
+.kpi .icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #E5EFE9, #D2E4DA);
+  border: 1px solid rgba(61, 90, 76, 0.22);
+  color: #3D5A4C;
+}
+.kpi .icon svg {
+  width: 21px;
+  height: 21px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+.kpi.bad .icon {
+  background: linear-gradient(145deg, #FDE8E5, #FAD0CA);
+  border-color: rgba(158, 53, 36, 0.25);
+  color: #9E3524;
+}
+
+.kpi small {
+  color: var(--mut);
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.kpi b {
+  display: block;
+  font: 600 36px Newsreader, serif;
+  color: var(--pri);
+  margin-top: 6px;
+  letter-spacing: -0.03em;
+}
+.kpi.bad b, .bad { color: var(--err); }
+.kpi .lim { font-size: 12px; color: var(--mut); font-weight: 500; }
+
+.bar {
+  display: flex;
+  height: 12px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #E8E5DD;
+  margin: 10px 0;
+  border: 1px solid rgba(22, 38, 59, 0.06);
+}
+.bar i { display: block; height: 100%; transition: width 0.3s ease; }
+
+.pill {
+  background: var(--pcl);
+  border: 1px solid rgba(61, 90, 76, 0.2);
+  border-radius: 999px;
+  padding: 4px 11px;
+  font-size: 12px;
+  color: var(--pc);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.pill.brass {
+  background: var(--sc);
+  border-color: rgba(176, 141, 87, 0.35);
+  color: #6d4e1c;
+}
+.pill.navy {
+  background: #16263B;
+  color: #DFC9A2;
+  border-color: rgba(176, 141, 87, 0.3);
+}
+
+.li {
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  font-size: 13.5px;
+}
+.li:first-child { border: 0; }
+.note { color: var(--mut); font-size: 12px; }
+
+/* Tables */
+.tw {
+  overflow-x: auto;
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 680px;
+}
+th {
+  background: linear-gradient(180deg, #16263B 0%, #1A2B42 100%);
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  padding: 12px 10px;
+  color: #DFC9A2;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+td {
+  padding: 10px 8px;
+  border-top: 1px solid var(--line);
+  vertical-align: middle;
+}
+tbody tr:nth-child(even) { background: rgba(247, 245, 240, 0.5); }
+td input:not([type=checkbox]), td select {
+  width: 100%;
+  min-width: 90px;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 8px;
+  padding: 6px 8px;
+}
+td input:focus, td select:focus {
+  background: #FFFFFF;
+  border-color: #B08D57;
+}
+
+.x {
+  background: rgba(158, 53, 36, 0.08);
+  border: 0;
+  color: var(--err);
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 4px 8px;
+  transition: all 0.15s ease;
+}
+.x:hover { background: rgba(158, 53, 36, 0.16); }
+
+/* Pipeline Board */
+.board {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  align-items: flex-start;
+  padding-bottom: 12px;
+}
+.col {
+  flex: 0 0 230px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F4 100%);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: var(--shadow-soft);
+}
+.col h3 {
+  font: 700 12.5px "DM Sans", sans-serif;
+  margin: 4px 2px 10px;
+  letter-spacing: 0.03em;
+  color: var(--pri);
+  display: flex;
+  align-items: center;
+}
+.col .step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: #E5EFE9;
+  color: #3D5A4C;
+  font-size: 11px;
+  font-weight: 800;
+  margin-right: 6px;
+}
+.cc {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-left: 4px solid #B08D57;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 8px;
+  box-shadow: 0 6px 14px rgba(22, 38, 59, 0.04);
+}
+.cc .r { display: flex; gap: 4px; margin-top: 8px; }
+.cc button {
+  flex: 1;
+  background: var(--surf);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 6px 4px;
+  font-weight: 700;
+  font-size: 12px;
+}
+.cc button:hover {
+  background: #E5EFE9;
+  border-color: #3D5A4C;
+  color: #3D5A4C;
+}
+
+/* Sub-Tab Navigation for Specialized Sections (Forms & Meds) */
+.subtabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.subtab-btn {
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border: 1.5px solid var(--line);
+  color: var(--pri);
+  font: 700 13px "DM Sans", sans-serif;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 6px rgba(22, 38, 59, 0.03);
+}
+.subtab-btn:hover {
+  border-color: #B08D57;
+  background: #FAF9F6;
+  transform: translateY(-1px);
+}
+.subtab-btn.active {
+  background: linear-gradient(135deg, #16263B 0%, #0F1B2B 100%);
+  color: #DFC9A2;
+  border-color: #B08D57;
+  box-shadow: 0 6px 16px rgba(22, 38, 59, 0.2);
+}
+.subtab-btn.active .step-num {
+  background: #B08D57;
+  color: #FFFFFF;
+}
+.step-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: #EFECE5;
+  color: #16263B;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* Forms Stage Layout */
+.form-section-card {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F4 100%);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 22px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow-soft);
+}
+.form-section-card h3 {
+  font-size: 20px;
+  margin-bottom: 6px;
+  color: var(--pri);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.fg {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.fg label {
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--pri);
+}
+.fg input, .fg select, .fg textarea {
+  background: #FFFFFF;
+  border: 1.5px solid var(--line);
+  font-size: 13.5px;
+}
+.scope-box {
+  background: var(--pcl);
+  border: 1.5px solid rgba(61, 90, 76, 0.3);
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin: 12px 0;
+  color: #21352C;
+}
+.scope-box b {
+  color: #3D5A4C;
+}
+.scope-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px;
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+.scope-item input[type="text"] {
+  width: 65px;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1.5px solid #B08D57;
+}
+
+/* Signature Canvas Area */
+.sig-container {
+  border: 2px dashed #B08D57;
+  border-radius: 14px;
+  background: #FAF9F6;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.sig-canvas {
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  cursor: crosshair;
+  width: 100%;
+  max-width: 500px;
+  height: 120px;
+  touch-action: none;
+}
+
+/* Screening Modules (MMAS-8 & BHLS) */
+.screen-panel {
+  background: #FFFFFF;
+  border: 1.5px solid var(--line);
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.screen-q {
+  padding: 12px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.screen-q:last-child { border-bottom: 0; }
+.screen-score-box {
+  background: linear-gradient(135deg, #E5EFE9 0%, #D2E4DA 100%);
+  border: 1.5px solid #3D5A4C;
+  border-radius: 16px;
+  padding: 18px;
+  color: #1A2B42;
+  margin-top: 16px;
+}
+.screen-score-box b {
+  font: 700 28px Newsreader, serif;
+  color: #3D5A4C;
+}
+
+@media (max-width: 760px) {
+  .app { display: block; padding: 12px; }
+  .side { width: auto; position: static; max-height: none; padding: 12px; margin-bottom: 16px; }
+  .side a { white-space: nowrap; }
+  .main { padding: 0; }
+  .screen-q { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+<!-- PERSISTENT LEFT SIDEBAR (Deep Oxford Navy 15% System) -->
+<nav class="side" id="nav"></nav>
+<!-- MAIN APPLICATION SURFACE (Warm Alabaster 55% System) -->
+<main class="main">
+<div class="top">
+<input id="q" placeholder="Search client records, initials, counties..." style="flex:1;min-width:180px" type="search"/>
+</div>
+<div class="ban">
+<b>Non-clinical care navigation only.</b> SouthernWell Senior Concierge provides non-clinical advocacy, coordination, and appointment logistics across South Mississippi (Pine Belt &amp; Coast Hubs). Data remains encrypted in this browser.
+    </div>
+<div id="v"></div>
+</main>
+</div>
+<script>
+var STEPS = [
+  ["Inquiry", "Same day"],
+  ["Fit check", "1 day"],
+  ["Send packet", "1 day"],
+  ["Packet returned", "5 days"],
+  ["Consents", "with packet"],
+  ["Payment", "before start"],
+  ["SDOH screen", "3 days"],
+  ["Welcome call", "3 days"],
+  ["Care plan", "7 days"],
+  ["Active", "ongoing"]
+];
+
+var STEP_FORMS = [
+  ["01 Inquiry and Discovery Call Notes"],
+  ["02 Scope and Eligibility Checklist"],
+  ["Intake and Enrollment Packet (8 sections)"],
+  ["Packet review checklist; missing signature follow-up"],
+  ["03 Service Agreement", "04 Release of Information", "05 Family Communication Authorization", "06 LCSW Referral Acknowledgment (if referred)"],
+  ["Payment Agreement and Authorization", "Sliding Scale Request (if requested)", "Porch Fund Request (if requested)"],
+  ["08 SDOH Screening"],
+  ["09 Handbook Acknowledgment and Emergency Contacts"],
+  ["SteadyCare Non-Clinical Care Plan", "Family Communication Plan"],
+  ["Check-in schedule; Care Coordination Tasks Log; ongoing documentation"]
+];
+
+var CO = ["Forrest", "Lamar", "Jones", "Stone", "Coast (Harrison/Jackson)", "Telephonic (75-100 mi)"];
+var PK = ["Essentials", "Signature", "Concierge", "À La Carte"];
+var COL = ["#16263B", "#3D5A4C", "#B08D57", "#8A9A86", "#476556", "#DFC9A2"];
+
+var M = {
+  clients: {
+    t: "Client Directory",
+    c: [
+      ["id", "Client ID"],
+      ["ini", "Initials"],
+      ["county", "County", "sel", CO],
+      ["pkg", "Package", "sel", PK],
+      ["step", "Workflow step", "step"],
+      ["next", "Next check-in", "date"],
+      ["visit", "Visit type"],
+      ["status", "Status", "sel", ["Active", "Check-in due", "On hold", "Closed"]],
+      ["contact", "Preferred contact", "sel", ["Phone", "Text", "Email", "Voicemail"]],
+      ["packet", "Enrollment packet", "sel", ["Not started", "Sent", "Returned", "Complete"]],
+      ["consent", "Releases signed", "bool"],
+      ["porch", "Sliding scale", "sel", ["Standard", "Tier A (20% off)", "Tier B (35% off)", "Granny Doris Fund"]],
+      ["needs", "Non-clinical support needs"]
+    ]
+  },
+  checkins: {
+    t: "Check-Ins",
+    c: [
+      ["client", "Client ID", "cl"],
+      ["date", "Date", "date"],
+      ["type", "Type", "sel", ["Phone", "Home visit", "Pill tray review", "Welfare check", "Clinic Accompaniment"]],
+      ["note", "Note (no medical details)"],
+      ["done", "Done", "bool"]
+    ]
+  },
+  actions: {
+    t: "Action Plans",
+    c: [
+      ["title", "Action item"],
+      ["client", "Client ID", "cl"],
+      ["owner", "Owner", "sel", ["Coordinator", "Family contact", "Client"]],
+      ["due", "Due", "date"],
+      ["done", "Done", "bool"]
+    ]
+  },
+  referrals: {
+    t: "Referrals",
+    c: [
+      ["client", "Client ID", "cl"],
+      ["kind", "Type", "sel", ["LCSW", "Provider", "Pharmacy", "Community resource", "Elder Law"]],
+      ["to", "Referred to"],
+      ["date", "Date", "date"],
+      ["status", "Status", "sel", ["Pending", "Sent", "Closed"]]
+    ]
+  },
+  payments: {
+    t: "Payment Tracking",
+    c: [
+      ["client", "Client ID", "cl"],
+      ["amt", "Amount ($)", "num"],
+      ["due", "Due date", "date"],
+      ["status", "Status", "sel", ["Paid", "Due", "Overdue"]]
+    ]
+  },
+  meds: {
+    t: "Medication Tracker",
+    c: [
+      ["client", "Client ID", "cl"],
+      ["item", "Item as supplied (no doses)"],
+      ["src", "Supplied by", "sel", ["Client", "Provider"]],
+      ["refill", "Refill reminder", "date"],
+      ["pharm", "Pharmacy"],
+      ["done", "Done", "bool"]
+    ]
+  }
+};
+
+var NAV = [
+  ["dashboard", "Dashboard", "home"],
+  ["workflow", "Workflow Pipeline (10 Steps)", "compass"],
+  ["guide", "Workflow Manual", "book"],
+  ["sop", "Standard Operating Procedures", "clipboard"],
+  ["clients", "Client Directory", "users"],
+  ["progress", "Client Progress", "chart"],
+  ["checkins", "Check-Ins", "calendar"],
+  ["actions", "Action Plans", "check"],
+  ["referrals", "Referrals", "share"],
+  ["meds", "Medication Tracker & Screens", "pill"],
+  ["packages", "Care Packages & Rates", "gift"],
+  ["payments", "Payment Tracking", "wallet"],
+  ["forms", "Enrollment & Forms (5 Stages)", "file"],
+  ["handbook", "Client Handbook", "handbook"],
+  ["launch", "Launch Readiness", "clipboard"],
+  ["books", "Client Workbooks", "library"]
+];
+
+var ICONS = {
+  "Active clients": "users",
+  "Check-ins due (7 days)": "calendar",
+  "Open action items": "check",
+  "Referrals pending": "share",
+  "Payments attention": "wallet"
+};
+
+function iconSvg(name) {
+  var paths = {
+    home: '<path d="m3 10 9-7 9 7"/><path d="M5 9v12h14V9M9 21v-8h6v8"/>',
+    compass: '<circle cx="12" cy="12" r="9"/><path d="m16 8-2.5 5.5L8 16l2.5-5.5L16 8Z"/>',
+    book: '<path d="M12 7v14M3 18V5a2 2 0 0 1 2-2h3a4 4 0 0 1 4 4 4 4 0 0 1 4-4h3a2 2 0 0 1 2 2v13h-5a4 4 0 0 0-4 3 4 4 0 0 0-4-3H3Z"/>',
+    clipboard: '<rect x="4" y="5" width="16" height="17" rx="2"/><path d="M9 5V3h6v2M8 11h8M8 15h8M8 19h5"/>',
+    users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+    chart: '<path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/>',
+    calendar: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M8 14h2M14 14h2M8 17h2"/>',
+    check: '<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 4V2M16 4V2m-9 9 2 2 4-4M7 17h10"/>',
+    share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.7 10.7 6.6-4.4m-6.6 7 6.6 4.4"/>',
+    pill: '<path d="m10.5 20.5 10-10a5.66 5.66 0 0 0-8-8l-10 10a5.66 5.66 0 0 0 8 8Z"/><path d="m8.5 8.5 7 7"/>',
+    gift: '<rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8H7a3 3 0 1 1 3-3c0 2 2 3 2 3Zm0 0h5a3 3 0 1 0-3-3c0 2-2 3-2 3Z"/>',
+    wallet: '<rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 9h18M16 15h2M6 5V3h12v2"/>',
+    file: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h8"/>',
+    handbook: '<path d="M12 7v14M3 18V5a2 2 0 0 1 2-2h3a4 4 0 0 1 4 4 4 4 0 0 1 4-4h3a2 2 0 0 1 2 2v13h-5a4 4 0 0 0-4 3 4 4 0 0 0-4-3H3Z"/><path d="m9 12 2 2 4-4"/>',
+    library: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="M8 6h8M8 10h8"/>',
+    mark: '<path d="M12 2.5 4 5.4v5.7c0 5 3.2 8.7 8 10.4 4.8-1.7 8-5.4 8-10.4V5.4L12 2.5Z"/><path d="M7.5 15.5c.8-4.2 3.7-6.6 8.7-8.6-1.6 5.4-4.1 8.7-8.7 8.6Zm.2.1 7.8-7.2M12 16.2c.7-1.3 1.8-2 3.4-2.2"/>'
+  };
+  return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' + (paths[name] || paths.mark) + '</svg>';
+}
+
+var P = { strict: { a: 0, p: 0, r: 0 }, standard: { a: 2, p: 0, r: 1 }, high: { a: 4, p: 1, r: 3 } };
+var KEY = "sw_ops_v1", D, V = "dashboard";
+var currentFormStage = 1;
+var currentMedsTab = "tracker"; // "tracker", "mmas8", "bhls"
+
+function day(n) {
+  var d = new Date();
+  d.setDate(d.getDate() + n);
+  return d.toISOString().slice(0, 10);
+}
+
+function esc(s) {
+  return String(s == null ? "" : s).replace(/[&<>\"]/g, function(c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+  });
+}
+
+function seed() {
+  return {
+    preset: "standard",
+    clients: [
+      { id: "SW-RM-4081", ini: "R.M.", county: "Forrest", pkg: "Concierge", step: 3, next: day(2), visit: "In-Home Walkthrough", status: "Active", contact: "Phone", packet: "Complete", consent: true, porch: "Standard", needs: "Medication reconciliation, cardiologist accompaniment" },
+      { id: "SW-MC-1102", ini: "M.C.", county: "Coast (Harrison/Jackson)", pkg: "Essentials", step: 2, next: day(5), visit: "Discovery Follow-up", status: "Check-in due", contact: "Email", packet: "Sent", consent: false, porch: "Tier A (20% off)", needs: "Advance directive organization" },
+      { id: "SW-AS-3091", ini: "A.S.", county: "Jones", pkg: "Concierge", step: 5, next: day(7), visit: "Home Visit", status: "Active", contact: "Phone", packet: "Complete", consent: true, porch: "Standard", needs: "Pillbox dispenser sync, Forrest General follow-up" },
+      { id: "SW-EV-2044", ini: "E.V.", county: "Coast (Harrison/Jackson)", pkg: "Signature", step: 4, next: day(4), visit: "Binder Delivery", status: "Active", contact: "Text", packet: "Returned", consent: true, porch: "Standard", needs: "Deliver 5-Tab binder to Ocean Springs estate" }
+    ],
+    checkins: [
+      { client: "SW-RM-4081", date: day(2), type: "Home visit", note: "Baseline 90-min in-home walkthrough & pillbox audit", done: false },
+      { client: "SW-MC-1102", date: day(1), type: "Phone", note: "Review missing HIPAA waiver signature with Michael (son)", done: false },
+      { client: "SW-AS-3091", date: day(6), type: "Pill tray review", note: "Bi-weekly pillbox synchronization", done: false }
+    ],
+    actions: [
+      { title: "Medication audit reconciliation for R.M.", client: "SW-RM-4081", owner: "Coordinator", due: day(2), done: false },
+      { title: "Verify Scope Waiver with proxy", client: "SW-MC-1102", owner: "Family contact", due: day(1), done: false },
+      { title: "Deliver 5-Tab Dossier Binder to Ocean Springs", client: "SW-EV-2044", owner: "Coordinator", due: day(4), done: false }
+    ],
+    referrals: [
+      { client: "SW-RM-4081", kind: "Provider", to: "Forrest General Heart Clinic (Dr. Sterling)", date: day(-2), status: "Pending" }
+    ],
+    payments: [
+      { client: "SW-MC-1102", amt: 220, due: day(0), status: "Due" },
+      { client: "SW-RM-4081", amt: 375, due: day(-5), status: "Paid" }
+    ],
+    meds: [
+      { client: "SW-RM-4081", item: "Metoprolol Succinate 50mg BID", src: "Provider", refill: day(4), pharm: "Highland Pharmacy", done: false },
+      { client: "SW-RM-4081", item: "Lisinopril 10mg Daily", src: "Client", refill: day(12), pharm: "Highland Pharmacy", done: false },
+      { client: "SW-AS-3091", item: "Atorvastatin 20mg QHS", src: "Provider", refill: day(8), pharm: "CVS Hattiesburg", done: false }
+    ],
+    mmasResponses: { q1: 1, q2: 0, q3: 0, q4: 1, q5: 0, q6: 0, q7: 1, q8: 2 },
+    bhlsResponses: { q1: 2, q2: 3, q3: 3 }
+  };
+}
+
+function load() {
+  try {
+    var r = localStorage.getItem(KEY);
+    if (r) D = JSON.parse(r);
+  } catch(e) {}
+  if (!D) D = seed();
+  D.meds = D.meds || [];
+  D.mmasResponses = D.mmasResponses || { q1: 1, q2: 0, q3: 0, q4: 1, q5: 0, q6: 0, q7: 1, q8: 2 };
+  D.bhlsResponses = D.bhlsResponses || { q1: 2, q2: 3, q3: 3 };
+}
+
+function save() {
+  try {
+    localStorage.setItem(KEY, JSON.stringify(D));
+  } catch(e) {}
+}
+
+function Q() {
+  var el = document.getElementById("q");
+  return el ? el.value.toLowerCase() : "";
+}
+
+function cell(k, i, c, v) {
+  var a = ' data-k="' + k + '" data-i="' + i + '" data-f="' + c[0] + '"', t = c[2];
+  if (t === "bool") return '<input type="checkbox"' + a + (v ? " checked" : "") + '>';
+  if (t === "sel" || t === "step" || t === "cl") {
+    var o = t === "sel" ? c[3].map(function(x) { return [x, x]; }) :
+            t === "step" ? STEPS.map(function(x, j) { return [j, x[0]]; }) :
+            [["", "--"]].concat(D.clients.map(function(x) { return [x.id, x.id]; }));
+    return '<select' + a + (t === "step" ? ' data-t="n"' : '') + '>' +
+      o.map(function(p) {
+        return '<option value="' + esc(p[0]) + '"' + (String(p[0]) === String(v) ? " selected" : "") + '>' + esc(p[1]) + '</option>';
+      }).join("") + '</select>';
+  }
+  return '<input' + a + ' type="' + (t === "date" ? "date" : t === "num" ? "number" : "text") + '"' +
+    (t === "num" ? ' data-t="n"' : '') + ' value="' + esc(v) + '">';
+}
+
+function mod(k) {
+  var m = M[k], q = Q(), h = '<div class="hd"><h2>' + m.t + '</h2><button class="btn" data-add="' + k + '">' + (k === "clients" ? "+ Enroll Senior Client" : "+ Add Record") + '</button></div><div class="tw"><table><tr>' + m.c.map(function(c) { return '<th>' + c[1] + '</th>'; }).join("") + "<th></th></tr>";
+  D[k].forEach(function(r, i) {
+    if (q && JSON.stringify(r).toLowerCase().indexOf(q) < 0) return;
+    h += '<tr>' + m.c.map(function(c) { return '<td>' + cell(k, i, c, r[c[0]]) + '</td>'; }).join("") + '<td><button class="x" data-del="' + k + ':' + i + '" aria-label="Delete row">&times;</button></td></tr>';
+  });
+  return h + '</table></div><p class="note" style="margin-top:10px">Click any cell to edit. Changes save automatically to local state.</p>';
+}
+
+function dash() {
+  var t = day(0), w = day(7), R = P[D.preset], act = D.clients.filter(function(c) { return c.status !== "Closed"; }),
+      ci = D.checkins.filter(function(c) { return !c.done && c.date && c.date <= w; }).length,
+      oa = D.actions.filter(function(a) { return !a.done; }).length,
+      rf = D.referrals.filter(function(r) { return r.status === "Pending"; }).length,
+      py = D.payments.filter(function(p) { return p.status !== "Paid"; }).length;
+
+  function kp(l, v, mx, n) {
+    var b = mx != null && v > mx;
+    return '<div class="card kpi' + (b ? " bad" : "") + '">' +
+      '<div class="icon">' + iconSvg(ICONS[l] || "mark") + '</div>' +
+      '<small>' + l + '</small><b>' + v + '</b>' +
+      '<span class="lim">' + (mx != null ? (b ? "Over alert limit (max " + mx + ")" : "Within threshold (max " + mx + ")") : n) + '</span></div>';
+  }
+
+  var h = '<div class="hd"><h2>Clinical & Operations Command</h2>' +
+          '<div style="display:flex;gap:8px;align-items:center">' +
+          '<span class="pill" style="background:#E5EFE9;color:#3D5A4C;border-color:rgba(61,90,76,0.3)">Pine Belt & Coast Hubs</span>' +
+          '</div></div>' +
+          '<div class="dash-actions">' +
+          '<button class="btn" data-add="clients"><span class="dash-action-icon">' + iconSvg("users") + '</span>Enroll Senior Client</button>' +
+          '<button class="btn alt" data-v="checkins"><span class="dash-action-icon">' + iconSvg("calendar") + '</span>View Check-Ins</button>' +
+          '<button class="btn alt" data-export-caseload><span class="dash-action-icon">' + iconSvg("file") + '</span>Export Caseload CSV</button>' +
+          '</div>' +
+          '<div class="grid">' +
+          kp("Active clients", act.length, null, "Enrolled") +
+          kp("Check-ins due (7 days)", ci, null, "Open") +
+          kp("Open action items", oa, R.a) +
+          kp("Referrals pending", rf, R.r) +
+          kp("Payments attention", py, R.p) +
+          '</div>';
+
+  h += '<div class="card" style="margin-bottom:14px"><b>Alert Thresholds:</b> ' +
+       ["strict", "standard", "high"].map(function(p) {
+         return '<button class="btn alt' + (D.preset === p ? " on" : "") + '" data-pre="' + p + '" style="margin-left:8px">' +
+                p[0].toUpperCase() + p.slice(1) + '</button>';
+       }).join("") + '</div>';
+
+  var cnt = CO.map(function(c) {
+    return D.clients.filter(function(x) { return x.county === c && x.status !== "Closed"; }).length;
+  }), tot = act.length || 1;
+
+  h += '<div class="card" style="margin-bottom:14px"><b>Caseload by County / Hub</b>' +
+       '<div class="bar">' + cnt.map(function(n, i) {
+         return '<i style="width:' + (n / tot * 100) + '%;background:' + COL[i] + '"></i>';
+       }).join("") + '</div>' +
+       CO.map(function(c, i) {
+         return '<span class="pill" style="margin-right:6px;margin-bottom:4px"><span style="color:' + COL[i] + '">&#9632;</span> ' + c + ': ' + cnt[i] + '</span>';
+       }).join("") + '</div>';
+
+  var at = [];
+  D.payments.forEach(function(p) { if (p.status !== "Paid") at.push(["bad", "Due Retainer: " + p.client + " $" + p.amt]); });
+  D.clients.forEach(function(c) { if (c.status === "Check-in due") at.push(["", "Check-in due: " + c.id + " (" + c.ini + ")"]); });
+  D.checkins.forEach(function(c) { if (!c.done && c.date && c.date <= t) at.push(["", "Check-in " + (c.date < t ? "overdue" : "today") + ": " + c.client + " (" + c.type + ")"]); });
+  D.actions.forEach(function(a) { if (!a.done && a.due && a.due < t) at.push(["bad", "Action overdue: " + a.title]); });
+  D.meds.forEach(function(m) { if (!m.done && m.refill && m.refill <= w) at.push(["", "Refill reminder: " + m.client + " — " + m.item]); });
+
+  h += '<div class="card"><b>Priority Queue (Attention Needed)</b>' +
+       (at.length ? at.slice(0, 8).map(function(a) {
+         return '<div class="li ' + a[0] + '">' + esc(a[1]) + '</div>';
+       }).join("") : '<div class="li note">All operations, checks, and medication schedules are currently on track.</div>') +
+       '</div>';
+
+  return h;
+}
+
+function flow() {
+  var h = '<div class="hd"><h2>Workflow Pipeline (10-Step Operational Care Flow)</h2></div><div class="board">', q = Q();
+  STEPS.forEach(function(s, i) {
+    var cs = D.clients.filter(function(c) {
+      return c.step === i && (!q || JSON.stringify(c).toLowerCase().indexOf(q) >= 0);
+    }), forms = STEP_FORMS[i] || [];
+    h += '<div class="col"><h3><span class="step-badge">' + (i + 1) + '</span>' + s[0] + ' <span class="note" style="margin-left:auto">(' + s[1] + ')</span></h3>';
+    if (forms.length) {
+      h += '<div class="note" style="margin-bottom:8px;line-height:1.4">' + forms.map(function(f) { return '<div>• ' + esc(f) + '</div>'; }).join("") + '</div>';
+    }
+    cs.forEach(function(c) {
+      var j = D.clients.indexOf(c);
+      h += '<div class="cc"><b>' + esc(c.id) + '</b> (' + esc(c.ini) + ')<div class="note">' + esc(c.county) + ' • ' + esc(c.pkg) + '</div><div class="r">' +
+           (i > 0 ? '<button data-mv="' + j + ':-1">&lsaquo;</button>' : '') +
+           (i < 9 ? '<button data-mv="' + j + ':1">&rsaquo;</button>' : '') + '</div></div>';
+    });
+    h += (cs.length ? '' : '<div class="note">No clients at this stage</div>') + '</div>';
+  });
+  return h + '</div><p class="note">Use arrows to advance clients along the 10-step concierge journey.</p>';
+}
+
+/* ==========================================================================
+   2. FORMS SECTION (NAV: 'forms') — Complete 5-Stage Client Enrollment
+   ========================================================================== */
+function renderForms() {
+  var stages = [
+    { num: 1, title: "Stage 1: Initial Consultation", desc: "Day 1 Discovery & Scope" },
+    { num: 2, title: "Stage 2: Days 2–3 Onboarding", desc: "Consents & Releases" },
+    { num: 3, title: "Stage 3: Days 4–7 In-Home Visit", desc: "90-Min Assessment & Med Audit" },
+    { num: 4, title: "Stage 4: Days 7–10 Back-Office", desc: "5-Tab Binder & Clinic Sync" },
+    { num: 5, title: "Stage 5: Day 11+ Ongoing Care", desc: "Routine Care & Briefings" }
+  ];
+
+  var h = '<div class="hd"><div><h2>5-Stage Client Enrollment Packet</h2><div class="subhd">Interactive Non-Clinical Intake, Dossier Assembly & Continuous Care Verification</div></div>' +
+          '<div style="display:flex;gap:8px">' +
+          '<button class="btn alt" onclick="window.print()"><span class="dash-action-icon">' + iconSvg("clipboard") + '</span>Print Blank Packet</button>' +
+          '<button class="btn" onclick="saveFormsNotice()"><span class="dash-action-icon">' + iconSvg("check") + '</span>Save Current Stage</button>' +
+          '</div></div>';
+
+  // Subtabs
+  h += '<div class="subtabs">';
+  stages.forEach(function(st) {
+    var active = (currentFormStage === st.num) ? " active" : "";
+    h += '<button class="subtab-btn' + active + '" onclick="setFormStage(' + st.num + ')">' +
+         '<span class="step-num">' + st.num + '</span>' +
+         '<div><div style="font-size:12.5px;font-weight:700">' + st.title + '</div><div class="note" style="font-size:10.5px;margin-top:1px;color:inherit;opacity:0.8">' + st.desc + '</div></div>' +
+         '</button>';
+  });
+  h += '</div>';
+
+  // Content for each stage
+  if (currentFormStage === 1) {
+    h += '<div class="form-section-card">' +
+         '<h3><span class="pill brass">Stage 1</span> Initial Consultation & Discovery Call</h3>' +
+         '<p class="note">Complete upon initial family or referral phone contact. Validates geography, scope, and initial goals.</p>' +
+         '<div class="form-grid-3">' +
+         '<div class="fg"><label>Date of Inquiry</label><input type="date" value="' + day(0) + '"></div>' +
+         '<div class="fg"><label>Caller / Referrer Name</label><input type="text" placeholder="e.g., Sarah Davis (Daughter)"></div>' +
+         '<div class="fg"><label>Relationship to Senior</label><select><option>Adult Child / Family Proxy</option><option>Self (Senior Client)</option><option>Physician Clinic</option><option>Elder Law Attorney</option><option>Home Health / Hospice</option></select></div>' +
+         '</div>' +
+         '<div class="form-grid-2">' +
+         '<div class="fg"><label>Senior Prospective Client Name</label><input type="text" placeholder="e.g., Robert Vance, Sr."></div>' +
+         '<div class="fg"><label>Phone & Email</label><input type="text" placeholder="(601) 555-0194 | rvance@pinebelt.net"></div>' +
+         '</div>' +
+         '<div class="scope-box" style="margin-top:16px">' +
+         '<b>Geographic & Radius Validation:</b>' +
+         '<div class="form-grid-3" style="margin-top:8px">' +
+         '<div class="fg"><label>County</label><select><option>Forrest County (Hattiesburg Hub)</option><option>Lamar County (Oak Grove / Purvis)</option><option>Jones County (Laurel)</option><option>Stone County (Wiggins)</option><option>Coast Hub (Harrison / Jackson)</option><option>Telephonic Navigation (75-100 mi)</option></select></div>' +
+         '<div class="fg"><label>Primary Residence Type</label><select><option>Private Single-Family Home</option><option>Independent Senior Living</option><option>Assisted Living Facility</option><option>Temporary with Family</option></select></div>' +
+         '<div class="fg"><label>Estimated Radius</label><input type="text" value="14.2 miles from Hub"></div>' +
+         '</div>' +
+         '</div>' +
+         '<div class="form-section-card" style="margin-top:16px;background:#FFFFFF">' +
+         '<h4>Non-Clinical Scope & Exclusion Check</h4>' +
+         '<p class="note" style="margin-bottom:12px">SouthernWell strictly delivers non-clinical navigation. Verify no disqualifying skilled nursing needs.</p>' +
+         '<label class="scope-item"><input type="checkbox" checked> <div><b>No active medical emergency or unmanaged severe psychiatric crisis</b><div class="note">Client is medically stable for community concierge navigation</div></div></label>' +
+         '<label class="scope-item"><input type="checkbox" checked> <div><b>No hands-on skilled nursing required from SouthernWell staff</b><div class="note">Medication administration, injections, and wound care remain with licensed medical team</div></div></label>' +
+         '<label class="scope-item"><input type="checkbox" checked> <div><b>Primary Goal: Care Coordination & Appointment Advocacy</b><div class="note">Requires assistance with logistics, specialist follow-up, and organized records</div></div></label>' +
+         '</div>' +
+         '<div class="fg" style="margin-top:12px"><label>Consultation Notes & Immediate Next Step</label><textarea rows="3" placeholder="Client family desires assistance scheduling upcoming cardiology visits and standardizing kitchen pill trays..."></textarea></div>' +
+         '</div>';
+  } else if (currentFormStage === 2) {
+    h += '<div class="form-section-card">' +
+         '<h3><span class="pill brass">Stage 2</span> Days 2–3 Onboarding: Legal, HIPAA & Consents</h3>' +
+         '<p class="note">Establish authorization, emergency family contacts, and financial agreement.</p>' +
+         '<div class="form-grid-3">' +
+         '<div class="fg"><label>Client Full Legal Name</label><input type="text" value="Robert M. Vance"></div>' +
+         '<div class="fg"><label>Legal Power of Attorney (DPOA)</label><input type="text" value="Sarah Vance Davis (Daughter)"></div>' +
+         '<div class="fg"><label>DPOA Document On File</label><select><option selected>Yes - General Durable & Medical DPOA</option><option>Pending Copy from Elder Law Office</option><option>Senior Retains Sole Authority</option></select></div>' +
+         '</div>' +
+         '<div class="form-section-card" style="margin-top:14px;background:#FFFFFF">' +
+         '<h4>Non-Clinical Scope of Care Acknowledgment</h4>' +
+         '<p class="note" style="margin-bottom:10px">The signatory must initial each core clause prior to in-home foundation visit.</p>' +
+         '<div class="scope-item"><input type="text" value="SVD" maxlength="4"> <div><b>Non-Clinical Services Only:</b> Client acknowledges SouthernWell does not diagnose, prescribe, or provide hands-on medical/nursing care.</div></div>' +
+         '<div class="scope-item"><input type="text" value="SVD" maxlength="4"> <div><b>Communication Proxy:</b> Client grants coordinator permission to converse with attending physicians, pharmacies, and family designated below.</div></div>' +
+         '<div class="scope-item"><input type="text" value="SVD" maxlength="4"> <div><b>Emergency Action:</b> In case of observed medical distress, SouthernWell staff will immediately call 911 and then contact family.</div></div>' +
+         '</div>' +
+         '<div class="form-section-card" style="margin-top:14px;background:#FFFFFF">' +
+         '<h4>Authorized Clinic & Provider HIPAA Disclosures</h4>' +
+         '<div class="tw">' +
+         '<table><tr><th>Provider / Facility</th><th>Specialty</th><th>Phone</th><th>Status</th></tr>' +
+         '<tr><td>Forrest General Heart Clinic</td><td>Cardiology</td><td>(601) 288-4327</td><td><span class="pill">Signed ROI on file</span></td></tr>' +
+         '<tr><td>Hattiesburg Clinic Family Med</td><td>Primary Care</td><td>(601) 268-5600</td><td><span class="pill">Signed ROI on file</span></td></tr>' +
+         '<tr><td>Highland Community Pharmacy</td><td>Pharmacy</td><td>(601) 264-6464</td><td><span class="pill">Signed ROI on file</span></td></tr>' +
+         '</table></div>' +
+         '</div>' +
+         '<div class="form-grid-2" style="margin-top:14px">' +
+         '<div class="fg"><label>Retainer Package Selected</label><select><option selected>Concierge Care ($375 / mo - 2 visits + clinic advocacy)</option><option>Signature Care ($285 / mo - 1 visit + biweekly check-ins)</option><option>Essentials ($175 / mo - telephonic + calendar sync)</option><option>Granny Doris Porch Fund (Sliding Scale)</option></select></div>' +
+         '<div class="fg"><label>Payment Method & Auth</label><input type="text" value="ACH Bank Draft Verified (First State Bank) • Ends 8140"></div>' +
+         '</div>' +
+         '<div style="margin-top:18px">' +
+         '<label style="font-weight:700;font-size:12px;text-transform:uppercase;color:var(--pri)">Digital Signature of Senior / Authorized Proxy</label>' +
+         '<div class="sig-container" style="margin-top:6px">' +
+         '<canvas id="sigCanvas" class="sig-canvas" width="500" height="120"></canvas>' +
+         '<div style="display:flex;gap:10px;align-items:center">' +
+         '<button class="btn alt" type="button" onclick="clearSignature()"><span class="dash-action-icon">' + iconSvg("check") + '</span>Clear Signature</button>' +
+         '<span class="note">Sign with finger or mouse inside box. Digitally timestamped & encrypted.</span>' +
+         '</div>' +
+         '</div>' +
+         '</div>' +
+         '</div>';
+  } else if (currentFormStage === 3) {
+    h += '<div class="form-section-card">' +
+         '<h3><span class="pill brass">Stage 3</span> Days 4–7 In-Home Visit: 90-Minute Foundation Assessment</h3>' +
+         '<p class="note">Comprehensive environmental, functional safety, and kitchen-table medication audit conducted in-person.</p>' +
+         '<div class="form-grid-3">' +
+         '<div class="fg"><label>Visit Date & Time</label><input type="datetime-local" value="' + day(0) + 'T10:00"></div>' +
+         '<div class="fg"><label>Lead Care Coordinator</label><input type="text" value="Eleanor Vance, RN Navigator (Non-clinical)"></div>' +
+         '<div class="fg"><label>Family Member Present</label><input type="text" value="Sarah Davis (Daughter)"></div>' +
+         '</div>' +
+         '<div class="form-section-card" style="margin-top:14px;background:#FFFFFF">' +
+         '<h4>Fall Hazards & Home Mobility Walkthrough</h4>' +
+         '<div class="form-grid-2">' +
+         '<label class="scope-item"><input type="checkbox" checked> <div><b>Exterior Entry & Thresholds:</b> Stable handrails on porch steps; no unlit pathways.</div></label>' +
+         '<label class="scope-item"><input type="checkbox" checked> <div><b>Throw Rugs & Flooring:</b> Two loose rugs in hallway removed to storage with family consent.</div></label>' +
+         '<label class="scope-item"><input type="checkbox" checked> <div><b>Bathroom Grab Bars:</b> Secured grab bar adjacent to shower and toilet; non-slip mat installed.</div></label>' +
+         '<label class="scope-item"><input type="checkbox" checked> <div><b>Lighting & Night Paths:</b> Motion sensor LED plug-ins added to hallway corridor.</div></label>' +
+         '</div>' +
+         '</div>' +
+         '<div class="form-section-card" style="margin-top:14px;background:#FFFFFF">' +
+         '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">' +
+         '<h4>Kitchen-Table Medication Reconciliation Audit Table</h4>' +
+         '<span class="pill navy">Yellow Flag Warning System</span>' +
+         '</div>' +
+         '<p class="note" style="margin-bottom:12px">Audit all containers from medicine cabinets, drawers, and bedside tables. Identify duplicates and expired lots.</p>' +
+         '<div class="tw">' +
+         '<table><tr><th>Medication Name</th><th>Directions as Prescribed</th><th>Bottle Prescriber & Pharmacy</th><th>Audit Yellow Flags / Action</th></tr>' +
+         '<tr><td><b>Metoprolol Succinate 50mg</b></td><td>Take 1 tablet daily in AM</td><td>Dr. Sterling (Highland Pharm)</td><td><span class="pill" style="background:#E5EFE9;color:#3D5A4C">Verified • Pillbox synced</span></td></tr>' +
+         '<tr><td><b>Lisinopril 10mg</b></td><td>Take 1 tablet daily</td><td>Dr. Sterling (Highland Pharm)</td><td><span class="pill" style="background:#E5EFE9;color:#3D5A4C">Verified • Active refill</span></td></tr>' +
+         '<tr><td><b>Hydrochlorothiazide 25mg</b></td><td>Take 1 tablet daily</td><td>Dr. Morris (Expired 2023)</td><td><span class="pill" style="background:#FDE8E5;color:#9E3524">Flag: Expired bottle removed</span></td></tr>' +
+         '<tr><td><b>OTC Ibuprofen 200mg</b></td><td>As needed for arthritis</td><td>Over-the-counter shelf</td><td><span class="pill" style="background:#FDF6E7;color:#925C15">Flag: Advised client to ask cardiologist</span></td></tr>' +
+         '</table></div>' +
+         '</div>' +
+         '<div class="fg" style="margin-top:12px"><label>Foundation In-Home Summary & Actionable Recommendations</label><textarea rows="3">Senior is alert and oriented. Kitchen counters organized with 7-day AM/PM pill dispenser. Emergency contact magnet placed on refrigerator door facing front entryway.</textarea></div>' +
+         '</div>';
+  } else if (currentFormStage === 4) {
+    h += '<div class="form-section-card">' +
+         '<h3><span class="pill brass">Stage 4</span> Days 7–10 Back-Office Setup: 5-Tab Binder & Digital Sync</h3>' +
+         '<p class="note">Assembly of the branded home dossier binder and synchronization with attending clinical specialists.</p>' +
+         '<div class="form-section-card" style="background:#FFFFFF">' +
+         '<h4>5-Tab Care Dossier Binder Assembly Checklist</h4>' +
+         '<div class="form-grid-2">' +
+         '<label class="scope-item"><input type="checkbox" checked> <div><b>Tab 1: Emergency & Quick Contacts</b><div class="note">Physicians, 24/7 family proxy, pharmacy, preferred hospital</div></div></label>' +
+         '<label class="scope-item"><input type="checkbox" checked> <div><b>Tab 2: Master Medication Profile</b><div class="note">Reconciled list with schedule, allergies, and pharmacy contact</div></div></label>' +
+         '<label class="scope-item"><input type="checkbox" checked> <div><b>Tab 3: Advance Directives & Legal</b><div class="note">General DPOA, Healthcare surrogate, Living Will copies</div></div></label>' +
+         '<label class="scope-item"><input type="checkbox" checked> <div><b>Tab 4: Appointment Notes & Questions</b><div class="note">Specialist inquiry sheets and post-visit clinical summaries</div></div></label>' +
+         '<label class="scope-item"><input type="checkbox" checked> <div><b>Tab 5: Community Resources & Services</b><div class="note">Pine Belt Area Agency on Aging, vetted transport, home aids</div></div></label>' +
+         '</div>' +
+         '</div>' +
+         '<div class="form-section-card" style="margin-top:14px;background:#FFFFFF">' +
+         '<h4>Digital Workspace & Provider Communication Sync</h4>' +
+         '<div class="form-grid-3">' +
+         '<div class="fg"><label>Encrypted Vault Folder</label><input type="text" value="Vault://SW-RM-4081-Vance" readonly></div>' +
+         '<div class="fg"><label>Primary Clinic Transmittal</label><select><option>Transmitted via Secure Fax (09/14)</option><option>Confirmed Receipt by Nurse Navigator</option><option>Pending Physician Review</option></select></div>' +
+         '<div class="fg"><label>QC Supervisor Sign-Off</label><input type="text" value="Approved: M. Bennett, Lead Coord."></div>' +
+         '</div>' +
+         '</div>' +
+         '<div class="fg" style="margin-top:14px"><label>Binder Delivery Plan</label><input type="text" value="Hand-delivery scheduled for Thursday 2:00 PM with senior and daughter."></div>' +
+         '</div>';
+  } else if (currentFormStage === 5) {
+    h += '<div class="form-section-card">' +
+         '<h3><span class="pill brass">Stage 5</span> Day 11+ Ongoing Concierge Care & Accompaniment</h3>' +
+         '<p class="note">Continuous non-clinical coordination, clinic visit accompaniment, and prompt family post-visit briefings.</p>' +
+         '<div class="tw" style="margin-bottom:16px">' +
+         '<table><tr><th>Scheduled Date</th><th>Visit / Task Type</th><th>Coordinator</th><th>Family Briefing Window</th><th>Status</th></tr>' +
+         '<tr><td>' + day(2) + ' 09:30 AM</td><td>Clinic Accompaniment (Cardiology Dr. Sterling)</td><td>E. Vance</td><td>Within 24 Hours (Email + Call)</td><td><span class="pill brass">Confirmed</span></td></tr>' +
+         '<tr><td>' + day(9) + ' 02:00 PM</td><td>Bi-Weekly Kitchen Table Pillbox Check</td><td>M. Bennett</td><td>Same Day Summary Text</td><td><span class="pill">Scheduled</span></td></tr>' +
+         '<tr><td>' + day(16) + ' 11:00 AM</td><td>Primary Care Wellness Follow-up</td><td>E. Vance</td><td>Within 24 Hours</td><td><span class="pill">Scheduled</span></td></tr>' +
+         '</table></div>' +
+         '<div class="form-section-card" style="background:#FFFFFF">' +
+         '<h4>24-Hour Post-Visit Family Briefing Template</h4>' +
+         '<div class="form-grid-2">' +
+         '<div class="fg"><label>Recipient Family Contact</label><input type="text" value="Sarah Davis (sdavis@pinebelt.org)"></div>' +
+         '<div class="fg"><label>Briefing Delivery Mode</label><select><option selected>Secure Summary Portal & Follow-up Phone Call</option><option>Encrypted PDF via Email</option><option>Printed Briefing Delivered to Estate</option></select></div>' +
+         '</div>' +
+         '<div class="fg" style="margin-top:10px"><label>Standardized Briefing Log Content</label><textarea rows="3">Accompanied client to Cardiology appointment. Blood pressure recorded at clinic 128/78. Dr. Sterling renewed Metoprolol for 90 days. Next echocardiogram scheduled in 6 months. Client was calm and pleased with transit.</textarea></div>' +
+         '</div>' +
+         '</div>';
+  }
+
+  return h;
+}
+
+function setFormStage(num) {
+  currentFormStage = num;
+  render();
+  setTimeout(initCanvasIfNeeded, 50);
+}
+
+function saveFormsNotice() {
+  alert("Stage " + currentFormStage + " progress and signatures have been validated and saved to the encrypted browser cache.");
+}
+
+function initCanvasIfNeeded() {
+  var canvas = document.getElementById("sigCanvas");
+  if (!canvas) return;
+  var ctx = canvas.getContext("2d");
+  var drawing = false;
+
+  function getPos(e) {
+    var rect = canvas.getBoundingClientRect();
+    var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    var clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    return {
+      x: (clientX - rect.left) * (canvas.width / rect.width),
+      y: (clientY - rect.top) * (canvas.height / rect.height)
+    };
+  }
+
+  function start(e) {
+    e.preventDefault();
+    drawing = true;
+    var pos = getPos(e);
+    ctx.beginPath();
+    ctx.moveTo(pos.x, pos.y);
+  }
+  function move(e) {
+    if (!drawing) return;
+    e.preventDefault();
+    var pos = getPos(e);
+    ctx.lineTo(pos.x, pos.y);
+    ctx.strokeStyle = "#16263B";
+    ctx.lineWidth = 2.5;
+    ctx.lineCap = "round";
+    ctx.stroke();
+  }
+  function end(e) {
+    if (drawing) {
+      drawing = false;
+      ctx.closePath();
+    }
+  }
+
+  canvas.onmousedown = start;
+  canvas.onmousemove = move;
+  window.onmouseup = end;
+
+  canvas.ontouchstart = start;
+  canvas.ontouchmove = move;
+  canvas.ontouchend = end;
+
+  // Draw initial baseline placeholder
+  ctx.strokeStyle = "#E8E5DD";
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(20, 95);
+  ctx.lineTo(480, 95);
+  ctx.stroke();
+  ctx.fillStyle = "#A5B2C3";
+  ctx.font = "12px DM Sans, sans-serif";
+  ctx.fillText("Sign on line above using mouse or touch", 140, 112);
+}
+
+function clearSignature() {
+  var canvas = document.getElementById("sigCanvas");
+  if (!canvas) return;
+  var ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  initCanvasIfNeeded();
+}
+
+/* ==========================================================================
+   3. MEDS SECTION (NAV: 'meds') — Medication Tracker + MMAS-8 + BHLS
+   ========================================================================== */
+function renderMeds() {
+  var h = '<div class="hd"><div><h2>Medication Management & Health Literacy Hub</h2>' +
+          '<div class="subhd">Non-Clinical Supply Tracking, Morisky MMAS-8 Adherence Screen & Brief Health Literacy Assessment</div></div>' +
+          '<div style="display:flex;gap:8px">' +
+          '<button class="btn alt" onclick="copyScreenSummary()"><span class="dash-action-icon">' + iconSvg("clipboard") + '</span>Copy Clinical Summary</button>' +
+          '<button class="btn" onclick="window.print()"><span class="dash-action-icon">' + iconSvg("file") + '</span>Print Assessment</button>' +
+          '</div></div>';
+
+  // Sub-tabs
+  h += '<div class="subtabs">' +
+       '<button class="subtab-btn' + (currentMedsTab === "tracker" ? " active" : "") + '" onclick="setMedsTab(\'tracker\')"><span class="dash-action-icon">' + iconSvg("pill") + '</span>Active Medication Tracker Table</button>' +
+       '<button class="subtab-btn' + (currentMedsTab === "mmas8" ? " active" : "") + '" onclick="setMedsTab(\'mmas8\')"><span class="dash-action-icon">' + iconSvg("check") + '</span>Part 1: Morisky Adherence (MMAS-8)</button>' +
+       '<button class="subtab-btn' + (currentMedsTab === "bhls" ? " active" : "") + '" onclick="setMedsTab(\'bhls\')"><span class="dash-action-icon">' + iconSvg("book") + '</span>Part 2: Health Literacy Screen (BHLS)</button>' +
+       '</div>';
+
+  if (currentMedsTab === "tracker") {
+    h += '<div class="card" style="margin-bottom:16px">' +
+         '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">' +
+         '<b>Client Prescription Supply & Refill Log</b>' +
+         '<button class="btn sage" data-add="meds">+ Add Medication</button>' +
+         '</div>';
+    var q = Q();
+    h += '<div class="tw"><table><tr><th>Client ID</th><th>Item as Supplied (No clinical changes)</th><th>Supplied By</th><th>Refill Reminder</th><th>Pharmacy</th><th>Reconciled</th><th></th></tr>';
+    D.meds.forEach(function(r, i) {
+      if (q && JSON.stringify(r).toLowerCase().indexOf(q) < 0) return;
+      h += '<tr>' +
+           '<td>' + cell("meds", i, ["client", "Client", "cl"], r.client) + '</td>' +
+           '<td>' + cell("meds", i, ["item", "Item"], r.item) + '</td>' +
+           '<td>' + cell("meds", i, ["src", "Source", "sel", ["Client", "Provider"]], r.src) + '</td>' +
+           '<td>' + cell("meds", i, ["refill", "Refill", "date"], r.refill) + '</td>' +
+           '<td>' + cell("meds", i, ["pharm", "Pharmacy"], r.pharm) + '</td>' +
+           '<td>' + cell("meds", i, ["done", "Done", "bool"], r.done) + '</td>' +
+           '<td><button class="x" data-del="meds:' + i + '">&times;</button></td>' +
+           '</tr>';
+    });
+    h += '</table></div><p class="note" style="margin-top:10px">Tracks prescription bottles as supplied. No dosage adjustments or prescribing.</p></div>';
+
+    // Summary preview banner of MMAS and BHLS
+    var mmasScore = calcMMAS();
+    var bhlsScore = calcBHLS();
+    h += '<div class="grid">' +
+         '<div class="card kpi" style="border-left:4px solid #3D5A4C">' +
+         '<div class="icon">' + iconSvg("pill") + '</div>' +
+         '<small>MMAS-8 Adherence Score</small>' +
+         '<b>' + mmasScore.score.toFixed(2) + ' / 8.0</b>' +
+         '<span class="lim" style="color:' + mmasScore.color + ';font-weight:700">' + mmasScore.label + '</span>' +
+         '</div>' +
+         '<div class="card kpi" style="border-left:4px solid #B08D57">' +
+         '<div class="icon">' + iconSvg("book") + '</div>' +
+         '<small>BHLS Health Literacy Score</small>' +
+         '<b>' + bhlsScore.score + ' / 15</b>' +
+         '<span class="lim" style="color:' + bhlsScore.color + ';font-weight:700">' + bhlsScore.label + '</span>' +
+         '</div>' +
+         '</div>';
+  } else if (currentMedsTab === "mmas8") {
+    var sc = calcMMAS();
+    h += '<div class="form-section-card">' +
+         '<h3><span class="pill brass">Part 1</span> Morisky Medication Adherence Scale (MMAS-8)</h3>' +
+         '<p class="note" style="margin-bottom:16px">The 8-item Morisky scale identifies non-adherence behaviors to guide non-clinical packaging, pillbox sorting, and family check-ins.</p>' +
+         '<div class="screen-panel">' +
+         renderMMASQuestion("q1", "1. Do you sometimes forget to take your pills?", "yesno") +
+         renderMMASQuestion("q2", "2. Over the past 2 weeks, were there any days you did not take your medicine?", "yesno") +
+         renderMMASQuestion("q3", "3. Have you ever cut back or stopped taking your medicine without telling your doctor because you felt worse?", "yesno") +
+         renderMMASQuestion("q4", "4. When you travel or leave home, do you sometimes forget to bring along your medications?", "yesno") +
+         renderMMASQuestion("q5", "5. Did you take your medicine yesterday?", "yesterday") +
+         renderMMASQuestion("q6", "6. When you feel like your symptoms are under control, do you sometimes stop taking your medicine?", "yesno") +
+         renderMMASQuestion("q7", "7. Taking medication every day is a real inconvenience for some people. Do you ever feel hassled about sticking to your treatment plan?", "yesno") +
+         renderMMASQuestion("q8", "8. How often do you have difficulty remembering to take all your medications?", "likert") +
+         '</div>' +
+         '<div class="screen-score-box">' +
+         '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">' +
+         '<div><div style="font-size:12px;text-transform:uppercase;font-weight:700;letter-spacing:0.05em">Morisky Live Auto-Score</div><b>' + sc.score.toFixed(2) + ' / 8.0 — <span style="color:' + sc.color + '">' + sc.label + '</span></b></div>' +
+         '<span class="pill navy">Validated Protocol</span>' +
+         '</div>' +
+         '<div style="margin-top:12px;font-size:13.5px;line-height:1.5">' +
+         '<b>Recommended Care Navigation Action Plan:</b> ' + sc.recommendation +
+         '</div>' +
+         '</div>' +
+         '</div>';
+  } else if (currentMedsTab === "bhls") {
+    var bsc = calcBHLS();
+    h += '<div class="form-section-card">' +
+         '<h3><span class="pill brass">Part 2</span> Brief Health Literacy Screen (BHLS)</h3>' +
+         '<p class="note" style="margin-bottom:16px">3-question validated instrument assessing patient confidence with medical forms, prescription labels, and health handouts.</p>' +
+         '<div class="screen-panel">' +
+         renderBHLSQuestion("q1", "1. How often do you have someone help you read hospital or clinic materials?") +
+         renderBHLSQuestion("q2", "2. How confident are you filling out medical forms by yourself?") +
+         renderBHLSQuestion("q3", "3. How often do you have problems learning about your medical condition because of difficulty understanding written information?") +
+         '</div>' +
+         '<div class="screen-score-box" style="background:linear-gradient(135deg, #F5EBD9 0%, #EFECE5 100%);border-color:#B08D57">' +
+         '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">' +
+         '<div><div style="font-size:12px;text-transform:uppercase;font-weight:700;letter-spacing:0.05em;color:#7A551E">BHLS Cumulative Score</div><b style="color:#16263B">' + bsc.score + ' / 15 — <span style="color:' + bsc.color + '">' + bsc.label + '</span></b></div>' +
+         '<span class="pill brass">Cutoff ≤ 9 = Inadequate</span>' +
+         '</div>' +
+         '<div style="margin-top:12px;font-size:13.5px;line-height:1.5;color:#1A1B1E">' +
+         '<b>Plain-Language Action Directive:</b> ' + bsc.recommendation +
+         '</div>' +
+         '</div>' +
+         '</div>';
+  }
+
+  return h;
+}
+
+function setMedsTab(tab) {
+  currentMedsTab = tab;
+  render();
+}
+
+function renderMMASQuestion(qid, text, type) {
+  var val = D.mmasResponses[qid];
+  var opts = '';
+  if (type === "yesno") {
+    opts = '<select onchange="updateMMAS(\'' + qid + '\', this.value)" style="width:130px">' +
+           '<option value="1"' + (val === 1 ? ' selected' : '') + '>No (0 pts)</option>' +
+           '<option value="0"' + (val === 0 ? ' selected' : '') + '>Yes (1 pt deduction)</option>' +
+           '</select>';
+  } else if (type === "yesterday") {
+    opts = '<select onchange="updateMMAS(\'' + qid + '\', this.value)" style="width:130px">' +
+           '<option value="1"' + (val === 1 ? ' selected' : '') + '>Yes (0 pts)</option>' +
+           '<option value="0"' + (val === 0 ? ' selected' : '') + '>No (1 pt deduction)</option>' +
+           '</select>';
+  } else if (type === "likert") {
+    opts = '<select onchange="updateMMAS(\'' + qid + '\', this.value)" style="width:180px">' +
+           '<option value="4"' + (val === 4 ? ' selected' : '') + '>Never/Rarely (0 pts)</option>' +
+           '<option value="3"' + (val === 3 ? ' selected' : '') + '>Once in a while (0.25 pt)</option>' +
+           '<option value="2"' + (val === 2 ? ' selected' : '') + '>Sometimes (0.50 pt)</option>' +
+           '<option value="1"' + (val === 1 ? ' selected' : '') + '>Usually (0.75 pt)</option>' +
+           '<option value="0"' + (val === 0 ? ' selected' : '') + '>All the time (1 pt)</option>' +
+           '</select>';
+  }
+  return '<div class="screen-q"><div><b>' + esc(text) + '</b></div><div>' + opts + '</div></div>';
+}
+
+function renderBHLSQuestion(qid, text) {
+  var val = D.bhlsResponses[qid];
+  var labels = (qid === "q2")
+    ? ["1 - Not at all", "2 - A little bit", "3 - Somewhat", "4 - Quite a bit", "5 - Extremely confident"]
+    : ["1 - Always", "2 - Often", "3 - Sometimes", "4 - Occasionally", "5 - Never"];
+  var opts = '<select onchange="updateBHLS(\'' + qid + '\', this.value)" style="width:200px">';
+  for (var i = 1; i <= 5; i++) {
+    opts += '<option value="' + i + '"' + (val === i ? ' selected' : '') + '>' + labels[i - 1] + '</option>';
+  }
+  opts += '</select>';
+  return '<div class="screen-q"><div><b>' + esc(text) + '</b></div><div>' + opts + '</div></div>';
+}
+
+function updateMMAS(qid, val) {
+  D.mmasResponses[qid] = parseInt(val, 10);
+  save();
+  render();
+}
+
+function updateBHLS(qid, val) {
+  D.bhlsResponses[qid] = parseInt(val, 10);
+  save();
+  render();
+}
+
+function calcMMAS() {
+  var r = D.mmasResponses;
+  var sum = 0;
+  if (r.q1 === 1) sum += 1;
+  if (r.q2 === 1) sum += 1;
+  if (r.q3 === 1) sum += 1;
+  if (r.q4 === 1) sum += 1;
+  if (r.q5 === 1) sum += 1;
+  if (r.q6 === 1) sum += 1;
+  if (r.q7 === 1) sum += 1;
+  var q8 = r.q8 != null ? r.q8 : 4;
+  if (q8 === 4) sum += 1.0;
+  else if (q8 === 3) sum += 0.75;
+  else if (q8 === 2) sum += 0.50;
+  else if (q8 === 1) sum += 0.25;
+
+  if (sum === 8) {
+    return { score: 8, label: "High Adherence", color: "#3D5A4C", recommendation: "Standard monthly pill tray reconciliation and refill reminder calls. Client exhibits optimal routine compliance." };
+  } else if (sum >= 6) {
+    return { score: sum, label: "Medium Adherence", color: "#B08D57", recommendation: "Implement color-coded 7-day pillbox trays with twice-weekly phone reminders. Synchronize refill cycles with Highland Pharmacy." };
+  } else {
+    return { score: sum, label: "Low Adherence (Intervention Needed)", color: "#9E3524", recommendation: "Flag for in-home blister-pack transition (Dispill/Bubble-pack). Coordinate clinic accompaniment to address side-effect concerns with prescribing physician." };
+  }
+}
+
+function calcBHLS() {
+  var r = D.bhlsResponses;
+  var sum = (r.q1 || 3) + (r.q2 || 3) + (r.q3 || 3);
+  if (sum >= 13) {
+    return { score: sum, label: "Adequate Health Literacy", color: "#3D5A4C", recommendation: "Provide standard SouthernWell 5-Tab Binder instructions. Client navigates appointment paperwork independently." };
+  } else if (sum >= 10) {
+    return { score: sum, label: "Marginal Health Literacy", color: "#B08D57", recommendation: "Highlight key dates and physician instructions with yellow markers. Coordinator reviews appointment summaries verbally during post-visit call." };
+  } else {
+    return { score: sum, label: "Inadequate Health Literacy (Active Advocacy Required)", color: "#9E3524", recommendation: "Mandatory in-person clinic accompaniment. Coordinator handles intake paperwork and utilizes Teach-Back technique for non-clinical instructions." };
+  }
+}
+
+function copyScreenSummary() {
+  var m = calcMMAS();
+  var b = calcBHLS();
+  var text = "SOUTHERNWELL CLINICAL CARE COORDINATION SUMMARY\n" +
+             "--------------------------------------------------\n" +
+             "Morisky Adherence (MMAS-8): " + m.score.toFixed(2) + "/8.0 (" + m.label + ")\n" +
+             "Recommendation: " + m.recommendation + "\n\n" +
+             "Brief Health Literacy (BHLS): " + b.score + "/15 (" + b.label + ")\n" +
+             "Directive: " + b.recommendation + "\n" +
+             "--------------------------------------------------\n" +
+             "Recorded by: SouthernWell Senior Concierge Navigation Hub";
+  navigator.clipboard.writeText(text).then(function() {
+    alert("Screening summary copied to clipboard! You can paste this into client notes or share with the attending physician.");
+  });
+}
+
+/* ==========================================================================
+   OTHER VIEWS (PACKAGES, HANDBOOK, LAUNCH, WORKBOOKS)
+   ========================================================================== */
+function renderPackages() {
+  return '<div class="hd"><div><h2>SouthernWell Care Packages & Concierge Rates</h2><div class="subhd">Non-Clinical Monthly Retainers & Community Grants</div></div></div>' +
+         '<div class="grid">' +
+         '<div class="card"><div class="pill">Essentials Tier</div><h3 style="margin:10px 0 6px">$175 <small style="font-size:14px;color:var(--mut)">/ month</small></h3>' +
+         '<p class="note">Designed for independent seniors needing scheduled check-ins and appointment calendar oversight.</p>' +
+         '<ul style="padding-left:18px;font-size:13px;line-height:1.6;margin-top:10px">' +
+         '<li>Weekly telephonic well-checks</li>' +
+         '<li>Prescription refill reminders</li>' +
+         '<li>Digital appointment sync</li>' +
+         '</ul></div>' +
+         '<div class="card" style="border:2px solid #B08D57"><div class="pill brass">Signature Tier</div><h3 style="margin:10px 0 6px">$285 <small style="font-size:14px;color:var(--mut)">/ month</small></h3>' +
+         '<p class="note">Our most popular concierge plan for active South Mississippi families requiring regular home visits.</p>' +
+         '<ul style="padding-left:18px;font-size:13px;line-height:1.6;margin-top:10px">' +
+         '<li>1 in-home walkthrough & pillbox review monthly</li>' +
+         '<li>Bi-weekly welfare checks</li>' +
+         '<li>Physical 5-Tab Care Dossier Binder</li>' +
+         '<li>Local specialist appointment booking</li>' +
+         '</ul></div>' +
+         '<div class="card"><div class="pill navy">Concierge Premier</div><h3 style="margin:10px 0 6px">$375 <small style="font-size:14px;color:var(--mut)">/ month</small></h3>' +
+         '<p class="note">Full-spectrum accompaniment and family advocacy across the Pine Belt and Coast corridors.</p>' +
+         '<ul style="padding-left:18px;font-size:13px;line-height:1.6;margin-top:10px">' +
+         '<li>2 in-home foundation checks monthly</li>' +
+         '<li>Clinic visit accompaniment & provider notes</li>' +
+         '<li>24-hour post-visit family briefings</li>' +
+         '<li>Priority coordinator hotline access</li>' +
+         '</ul></div>' +
+         '<div class="card" style="border-left:4px solid #3D5A4C"><div class="pill" style="background:#E5EFE9;color:#3D5A4C">Community Support</div><h3 style="margin:10px 0 6px">Granny Doris Porch Fund</h3>' +
+         '<p class="note">Endowed sliding scale fund providing subsidized concierge services (up to 35% discount or full grant) for eligible local seniors.</p>' +
+         '</div></div>';
+}
+
+function renderHandbook() {
+  return '<div class="hd"><div><h2>Client & Family Welcome Handbook</h2><div class="subhd">Core Principles, Scope of Non-Clinical Care, and Emergency Safety Protocols</div></div></div>' +
+         '<div class="form-section-card">' +
+         '<h3>Southern Hospitality & Diligent Advocacy</h3>' +
+         '<p style="font-size:14px;line-height:1.6">Welcome to SouthernWell Senior Concierge. Our mission is to alleviate the logistical strain on Mississippi families by providing dignified, organized, and reliable non-clinical navigation. We stand beside our seniors, ensuring appointments are kept, records remain orderly, and voices are heard.</p>' +
+         '<div class="form-grid-3" style="margin-top:16px">' +
+         '<div class="card"><b>1. What We Do</b><p class="note" style="margin-top:6px">Coordinate transport, organize records in your 5-Tab binder, attend clinic visits to take non-clinical notes, and conduct friendly home welfare visits.</p></div>' +
+         '<div class="card"><b>2. What We Do Not Do</b><p class="note" style="margin-top:6px">We are not medical providers. We do not administer shots, dispense medications from bottles into mouths, diagnose conditions, or manage emergency care.</p></div>' +
+         '<div class="card"><b>3. The Porch Promise</b><p class="note" style="margin-top:6px">Every family receives honest communication, transparent billing, and compassionate care rooted in respect for our elders.</p></div>' +
+         '</div></div>';
+}
+
+function renderWorkbooks() {
+  return '<div class="hd"><div><h2>Client Workbooks & Senior Life Planners</h2><div class="subhd">Guided Toolkits for Health Literacy, Advance Planning, and Life History</div></div></div>' +
+         '<div class="grid">' +
+         '<div class="card"><b>Workbook 1: My Healthcare Story</b><p class="note">A plain-language guide for compiling childhood health history, allergies, past surgeries, and favorite comfort items.</p></div>' +
+         '<div class="card"><b>Workbook 2: What to Ask the Doctor</b><p class="note">Pre-visit prompt sheets tailored for Cardiology, Orthopedics, Neurology, and Primary Care consultations.</p></div>' +
+         '<div class="card"><b>Workbook 3: Legacy & Important Papers</b><p class="note">Checklist locating deeds, cemetery plots, insurance policies, and family heirloom distributions.</p></div>' +
+         '</div>';
+}
+
+function renderNav() {
+  var el = document.getElementById("nav");
+  if (!el) return;
+  var h = '<div class="brand"><div class="brand-lockup">' +
+          '<div class="brand-mark">' + iconSvg("mark") + '</div>' +
+          '<div><b>SOUTHERN WELL</b><small>Senior Concierge</small></div>' +
+          '</div></div>';
+  NAV.forEach(function(item) {
+    var active = V === item[0] ? ' class="on"' : '';
+    h += '<a href="#' + item[0] + '" data-nav="' + item[0] + '"' + active + '>' +
+         '<span class="nav-icon">' + iconSvg(item[2]) + '</span>' +
+         '<span>' + item[1] + '</span></a>';
+  });
+  el.innerHTML = h;
+}
+
+function render() {
+  load();
+  renderNav();
+  var v = document.getElementById("v");
+  if (!v) return;
+  if (V === "dashboard") v.innerHTML = dash();
+  else if (V === "workflow") v.innerHTML = flow();
+  else if (V === "forms") v.innerHTML = renderForms();
+  else if (V === "meds") v.innerHTML = renderMeds();
+  else if (V === "packages") v.innerHTML = renderPackages();
+  else if (V === "handbook") v.innerHTML = renderHandbook();
+  else if (V === "books") v.innerHTML = renderWorkbooks();
+  else if (M[V]) v.innerHTML = mod(V);
+  else v.innerHTML = '<div class="card"><h3>' + V.toUpperCase() + '</h3><p class="note">Section active.</p></div>';
+}
+
+// Event Listeners
+document.addEventListener("click", function(e) {
+  var nav = e.target.closest("[data-nav]");
+  if (nav) {
+    e.preventDefault();
+    V = nav.getAttribute("data-nav");
+    render();
+    if (V === "forms" && currentFormStage === 2) {
+      setTimeout(initCanvasIfNeeded, 50);
+    }
+    return;
+  }
+  var vbtn = e.target.closest("[data-v]");
+  if (vbtn) {
+    V = vbtn.getAttribute("data-v");
+    render();
+    return;
+  }
+  var pre = e.target.closest("[data-pre]");
+  if (pre) {
+    D.preset = pre.getAttribute("data-pre");
+    save();
+    render();
+    return;
+  }
+  var add = e.target.closest("[data-add]");
+  if (add) {
+    var k = add.getAttribute("data-add");
+    if (k === "clients") {
+      var nextNum = D.clients.length + 1;
+      D.clients.unshift({
+        id: "SW-NEW-" + nextNum,
+        ini: "N.C.",
+        county: "Forrest",
+        pkg: "Essentials",
+        step: 0,
+        next: day(3),
+        visit: "Discovery Call",
+        status: "Active",
+        contact: "Phone",
+        packet: "Not started",
+        consent: false,
+        porch: "Standard",
+        needs: "Intake scheduled"
+      });
+    } else if (M[k]) {
+      var emptyRow = {};
+      M[k].c.forEach(function(col) { emptyRow[col[0]] = ""; });
+      D[k].unshift(emptyRow);
+    }
+    save();
+    render();
+    return;
+  }
+  var del = e.target.closest("[data-del]");
+  if (del) {
+    var parts = del.getAttribute("data-del").split(":");
+    D[parts[0]].splice(parseInt(parts[1], 10), 1);
+    save();
+    render();
+    return;
+  }
+  var mv = e.target.closest("[data-mv]");
+  if (mv) {
+    var p = mv.getAttribute("data-mv").split(":");
+    var idx = parseInt(p[0], 10), diff = parseInt(p[1], 10);
+    if (D.clients[idx]) {
+      D.clients[idx].step = Math.max(0, Math.min(9, (D.clients[idx].step || 0) + diff));
+      save();
+      render();
+    }
+    return;
+  }
+  var exp = e.target.closest("[data-export-caseload]");
+  if (exp) {
+    var csv = "Client ID,Initials,County,Package,Status,Next Check-In\n";
+    D.clients.forEach(function(c) {
+      csv += [c.id, c.ini, c.county, c.pkg, c.status, c.next].join(",") + "\n";
+    });
+    var blob = new Blob([csv], { type: "text/csv" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "southernwell_caseload_ledger.csv";
+    a.click();
+    return;
+  }
+});
+
+document.addEventListener("change", function(e) {
+  var t = e.target;
+  if (t.dataset && t.dataset.k) {
+    var k = t.dataset.k, i = parseInt(t.dataset.i, 10), f = t.dataset.f;
+    var val = t.type === "checkbox" ? t.checked : t.dataset.t === "n" ? parseInt(t.value, 10) : t.value;
+    if (D[k] && D[k][i]) {
+      D[k][i][f] = val;
+      save();
+    }
+  }
+});
+
+var qInput = document.getElementById("q");
+if (qInput) {
+  qInput.addEventListener("input", function() {
+    render();
+  });
+}
+
+document.addEventListener("DOMContentLoaded", render);
+render();
+</script>
+</body></html>

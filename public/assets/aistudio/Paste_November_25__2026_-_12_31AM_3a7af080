@@ -1,0 +1,2107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Southern Well Operations Hub — Secure Coordinator Command</title>
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F7F5F0;
+  --bg-2: #EFECE5;
+  --card: #FFFFFF;
+  --ink: #1A1B1E;
+  --mut: #68696D;
+  --pri: #16263B;
+  --pri-dark: #0F1B2B;
+  --pc: #3D5A4C;
+  --pcl: #E5EFE9;
+  --on: #FFFFFF;
+  --sec: #B08D57;
+  --sec-dark: #8F6E3B;
+  --sc: #F5EBD9;
+  --line: #E8E5DD;
+  --surf: #FAF9F6;
+  --err: #9E3524;
+  --eb: #FDE8E5;
+  --ok: #3D5A4C;
+  --ok-bg: #E5EFE9;
+  --shadow: 0 24px 50px rgba(22, 38, 59, 0.08), 0 8px 20px rgba(22, 38, 59, 0.04);
+  --shadow-soft: 0 12px 24px rgba(22, 38, 59, 0.05);
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.85), transparent 25%),
+              radial-gradient(circle at bottom right, rgba(176, 141, 87, 0.08), transparent 30%),
+              linear-gradient(135deg, var(--bg-2) 0%, var(--bg) 35%, #FAF9F6 100%);
+  color: var(--ink);
+  font: 14px/1.45 "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: Newsreader, Georgia, serif;
+  color: var(--pri);
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+
+.app {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 22px;
+  max-width: 1540px;
+  margin: 0 auto;
+}
+
+/* Sidebar - Deep Oxford Navy (15% System) */
+.side {
+  width: 275px;
+  flex: none;
+  position: sticky;
+  top: 20px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  background: linear-gradient(180deg, #16263B 0%, #0F1B2B 100%);
+  border: 1px solid rgba(176, 141, 87, 0.22);
+  box-shadow: 0 20px 45px rgba(22, 38, 59, 0.28);
+  border-radius: 24px;
+  padding: 18px 12px;
+  color: #F7F5F0;
+}
+
+.brand {
+  padding: 8px 10px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 10px;
+}
+.brand b {
+  font: 600 23px Newsreader, serif;
+  color: #FFFFFF;
+  display: block;
+  letter-spacing: -0.03em;
+}
+.brand small {
+  color: #DFC9A2;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #16263B, #0F1B2B);
+  border: 1.5px solid #B08D57;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+.brand-mark svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #DFC9A2;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.side a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: #B7C3D3;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 3px 0;
+  transition: all 0.18s ease;
+  border: 1px solid transparent;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  font-size: 13.5px;
+}
+.side a:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF;
+  border-color: rgba(176, 141, 87, 0.2);
+  transform: translateX(2px);
+}
+.side a.on {
+  background: linear-gradient(135deg, #B08D57 0%, #8F6E3B 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  border: 1px solid #DFC9A2;
+  box-shadow: 0 10px 22px rgba(176, 141, 87, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.nav-icon {
+  width: 28px;
+  height: 28px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #DFC9A2;
+}
+.nav-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+.side a.on .nav-icon {
+  background: rgba(22, 38, 59, 0.25);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+}
+
+/* Main Workspace Canvas */
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 2px 40px;
+}
+
+.top {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 16px;
+}
+#q {
+  min-width: 260px;
+  box-shadow: var(--shadow-soft);
+}
+
+.ban {
+  background: linear-gradient(135deg, rgba(245, 235, 217, 0.95), rgba(255, 255, 255, 0.85));
+  border: 1px solid rgba(176, 141, 87, 0.35);
+  border-radius: 16px;
+  padding: 12px 16px;
+  font-size: 12.5px;
+  margin-bottom: 18px;
+  border-left: 6px solid var(--sec);
+  box-shadow: 0 10px 25px rgba(176, 141, 87, 0.08);
+  color: #4A3A22;
+}
+
+input, select, textarea {
+  font: inherit;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 9px 12px;
+  max-width: 100%;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #B08D57;
+  box-shadow: 0 0 0 4px rgba(176, 141, 87, 0.15);
+}
+
+/* BUTTONS — Brushed Brass Primary & Concierge Styling */
+.btn {
+  background: linear-gradient(135deg, #B08D57 0%, #9C7A45 50%, #85632F 100%);
+  color: #FFFFFF;
+  border: 1px solid #DFC9A2;
+  border-radius: 12px;
+  padding: 9px 16px;
+  font: 700 13px inherit;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  box-shadow: 0 10px 22px rgba(176, 141, 87, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.btn:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 14px 28px rgba(176, 141, 87, 0.36);
+  background: linear-gradient(135deg, #BE9B63 0%, #AA874F 50%, #906C35 100%);
+}
+
+.btn.alt {
+  background: #FFFFFF;
+  color: #7A551E;
+  border: 1.5px solid rgba(176, 141, 87, 0.45);
+  box-shadow: 0 4px 12px rgba(22, 38, 59, 0.04);
+}
+.btn.alt:hover {
+  background: rgba(176, 141, 87, 0.10);
+  border-color: #B08D57;
+  color: #5C3D10;
+  transform: translateY(-1px);
+}
+
+.btn.on {
+  background: linear-gradient(135deg, #B08D57 0%, #8F6E3B 100%) !important;
+  color: #FFFFFF !important;
+  border-color: #DFC9A2 !important;
+  outline: 2px solid #B08D57;
+  outline-offset: 1px;
+}
+
+.btn.lock {
+  background: linear-gradient(135deg, #16263B 0%, #0F1B2B 100%);
+  color: #DFC9A2;
+  border: 1px solid rgba(176, 141, 87, 0.4);
+}
+.btn.lock:hover {
+  background: #0B1623;
+  color: #FFFFFF;
+  border-color: #B08D57;
+}
+
+.dash-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 18px;
+}
+.dash-action-icon {
+  display: inline-flex;
+  width: 17px;
+  height: 17px;
+}
+.dash-action-icon svg {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+/* Cards & KPI Tiles */
+.hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  gap: 12px;
+}
+.hd h2 {
+  font-size: clamp(28px, 2.8vw, 38px);
+  color: var(--pri);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.card {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F4 100%);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #B08D57 0%, #16263B 50%, #3D5A4C 100%);
+  opacity: 0.9;
+}
+
+.kpi {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(176, 141, 87, 0.16);
+}
+.kpi .icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #E5EFE9, #D2E4DA);
+  border: 1px solid rgba(61, 90, 76, 0.22);
+  color: #3D5A4C;
+}
+.kpi .icon svg {
+  width: 21px;
+  height: 21px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+.kpi.bad .icon {
+  background: linear-gradient(145deg, #FDE8E5, #FAD0CA);
+  border-color: rgba(158, 53, 36, 0.25);
+  color: #9E3524;
+}
+
+.kpi small {
+  color: var(--mut);
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.kpi b {
+  display: block;
+  font: 600 36px Newsreader, serif;
+  color: var(--pri);
+  margin-top: 6px;
+  letter-spacing: -0.03em;
+}
+.kpi.bad b, .bad { color: var(--err); }
+.kpi .lim { font-size: 12px; color: var(--mut); font-weight: 500; }
+
+.bar {
+  display: flex;
+  height: 12px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #E8E5DD;
+  margin: 10px 0;
+  border: 1px solid rgba(22, 38, 59, 0.06);
+}
+.bar i { display: block; height: 100%; transition: width 0.3s ease; }
+
+.pill {
+  background: var(--pcl);
+  border: 1px solid rgba(61, 90, 76, 0.2);
+  border-radius: 999px;
+  padding: 4px 11px;
+  font-size: 12px;
+  color: var(--pc);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.li {
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  font-size: 13.5px;
+}
+.li:first-child { border: 0; }
+.note { color: var(--mut); font-size: 12px; }
+
+/* Tables */
+.tw {
+  overflow-x: auto;
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 680px;
+}
+th {
+  background: linear-gradient(180deg, #16263B 0%, #1A2B42 100%);
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  padding: 12px 10px;
+  color: #DFC9A2;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+td {
+  padding: 10px 8px;
+  border-top: 1px solid var(--line);
+  vertical-align: middle;
+}
+tbody tr:nth-child(even) { background: rgba(247, 245, 240, 0.5); }
+td input:not([type=checkbox]), td select {
+  width: 100%;
+  min-width: 90px;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 8px;
+  padding: 6px 8px;
+}
+td input:focus, td select:focus {
+  background: #FFFFFF;
+  border-color: #B08D57;
+}
+
+.x {
+  background: rgba(158, 53, 36, 0.08);
+  border: 0;
+  color: var(--err);
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 4px 8px;
+  transition: all 0.15s ease;
+}
+.x:hover { background: rgba(158, 53, 36, 0.16); }
+
+/* Pipeline Board */
+.board {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  align-items: flex-start;
+  padding-bottom: 12px;
+}
+.col {
+  flex: 0 0 230px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F4 100%);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: var(--shadow-soft);
+}
+.col h3 {
+  font: 700 12.5px "DM Sans", sans-serif;
+  margin: 4px 2px 10px;
+  letter-spacing: 0.03em;
+  color: var(--pri);
+  display: flex;
+  align-items: center;
+}
+.col .step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: #E5EFE9;
+  color: #3D5A4C;
+  font-size: 11px;
+  font-weight: 800;
+  margin-right: 6px;
+}
+.cc {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-left: 4px solid #B08D57;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 8px;
+  box-shadow: 0 6px 14px rgba(22, 38, 59, 0.04);
+}
+.cc .r { display: flex; gap: 4px; margin-top: 8px; }
+.cc button {
+  flex: 1;
+  background: var(--surf);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 6px 4px;
+  font-weight: 700;
+  font-size: 12px;
+}
+.cc button:hover {
+  background: #E5EFE9;
+  border-color: #3D5A4C;
+  color: #3D5A4C;
+}
+
+/* ========================================================================= */
+/* PIN CODE SECURITY OVERLAY (COORDINATOR LOCK GATE)                         */
+/* ========================================================================= */
+#pin-lock-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: radial-gradient(circle at center, #1B2B42 0%, #0F1B2B 70%, #09101A 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+#pin-lock-overlay.unlocked {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.pin-dialog {
+  width: 100%;
+  max-width: 420px;
+  background: #FFFFFF;
+  border: 2px solid #B08D57;
+  border-radius: 28px;
+  padding: 32px 28px;
+  text-align: center;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.45), 0 10px 30px rgba(176, 141, 87, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+.pin-dialog::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #16263B, #B08D57, #3D5A4C);
+}
+.pin-icon-wrap {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 16px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #16263B, #0F1B2B);
+  border: 2px solid #B08D57;
+  display: grid;
+  place-items: center;
+  color: #DFC9A2;
+  box-shadow: 0 10px 24px rgba(22, 38, 59, 0.3);
+}
+.pin-icon-wrap svg {
+  width: 34px;
+  height: 34px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+.pin-dialog h2 {
+  font: 600 28px Newsreader, serif;
+  color: #16263B;
+  margin: 0 0 6px;
+  letter-spacing: -0.02em;
+}
+.pin-dialog p {
+  color: #68696D;
+  font-size: 13px;
+  margin: 0 0 20px;
+  line-height: 1.45;
+}
+
+.pin-display-dots {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 20px 0 24px;
+}
+.pin-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #B08D57;
+  background: #FAF9F6;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.pin-dot.filled {
+  background: #16263B;
+  border-color: #16263B;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px rgba(176, 141, 87, 0.3);
+}
+.pin-dot.error {
+  background: #9E3524;
+  border-color: #9E3524;
+}
+
+.pin-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 290px;
+  margin: 0 auto 16px;
+}
+.key-btn {
+  background: #FAF9F6;
+  border: 1px solid #E8E5DD;
+  color: #16263B;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 14px;
+  height: 52px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+.key-btn:hover {
+  background: #E5EFE9;
+  border-color: #B08D57;
+  color: #16263B;
+  transform: scale(1.04);
+}
+.key-btn:active {
+  transform: scale(0.96);
+  background: #DFC9A2;
+}
+.key-btn.fn {
+  font-size: 13px;
+  font-weight: 800;
+  color: #7A551E;
+  letter-spacing: 0.05em;
+  background: #F7F5F0;
+}
+
+#pin-error-msg {
+  min-height: 20px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #9E3524;
+  margin-top: 8px;
+}
+
+/* ========================================================================= */
+/* INTEGRATED ENROLLMENT FORMS & CLINICAL SCREENING STYLING                  */
+/* ========================================================================= */
+.forms-nav {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 12px 0 16px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 16px;
+}
+.forms-nav button {
+  font: inherit;
+  font-size: 12.5px;
+  border: 1px solid rgba(176, 141, 87, 0.4);
+  background: #FFFFFF;
+  color: var(--ink);
+  padding: 7px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+.forms-nav button:hover {
+  border-color: var(--sec);
+  background: var(--surf);
+}
+.forms-nav button.on {
+  background: linear-gradient(135deg, #16263B, #0F1B2B);
+  color: #FFFFFF;
+  border-color: #16263B;
+  box-shadow: 0 4px 10px rgba(22,38,59,0.18);
+}
+.forms-nav button.done::after {
+  content: " ✓";
+  color: #DFC9A2;
+}
+
+.stage-box { display: none; }
+.stage-box.on { display: block; }
+.stage-box > h2 {
+  color: var(--pri);
+  margin: 6px 0 2px;
+  font-size: 24px;
+}
+.stage-sub {
+  font-style: italic;
+  margin: 2px 0 14px;
+  font-size: 13px;
+  color: var(--mut);
+}
+
+.form-card {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  margin: 14px 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+.form-card h3 {
+  margin: 0;
+  background: linear-gradient(180deg, #16263B 0%, #1A2B42 100%);
+  color: #DFC9A2;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+}
+.form-body { padding: 14px; background: #FAF9F6; }
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+}
+label.fl, .flab {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--pri);
+  margin: 8px 0 4px;
+}
+.form-card input[type=text], .form-card input[type=date], .form-card input[type=datetime-local], .form-card textarea {
+  width: 100%;
+  font: inherit;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  background: #FFFFFF;
+  color: var(--ink);
+  border-radius: 8px;
+}
+.form-card textarea { min-height: 75px; }
+
+.opts { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.opts.col { flex-direction: column; }
+.opt {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  cursor: pointer;
+  padding: 3px 0;
+  font-size: 13px;
+}
+.opt input {
+  margin-top: 3px;
+  accent-color: #B08D57;
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+.scope-bar {
+  border-top: 1px dashed var(--line);
+  padding: 10px 0;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.scope-bar p { margin: 0; flex: 1; font-size: 13px; color: #2C2D30; }
+.scope-bar input {
+  width: 80px;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+
+canvas.sig-pad {
+  width: 100%;
+  max-width: 500px;
+  height: 120px;
+  border: 1.5px dashed rgba(176, 141, 87, 0.45);
+  border-radius: 10px;
+  background: #FFFFFF;
+  touch-action: none;
+  display: block;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.forms-ctl {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+/* Screening Suite */
+.screen-q {
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+.screen-q:first-of-type { border-top: 0; }
+.screen-q p { margin: 0 0 8px; font-weight: 600; color: var(--pri); }
+.screen-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.screen-opts label {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  background: #FFFFFF;
+  font-size: 13px;
+  transition: all 0.15s ease;
+}
+.screen-opts input { margin-right: 6px; accent-color: #3D5A4C; }
+.screen-opts label:has(input:checked) {
+  background: #E5EFE9;
+  border-color: #3D5A4C;
+  color: #1A3427;
+  font-weight: 700;
+}
+.screen-res {
+  background: linear-gradient(135deg, #E5EFE9, #FAF9F6);
+  border-left: 5px solid #3D5A4C;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-top: 12px;
+  font-size: 13.5px;
+  border: 1px solid rgba(61,90,76,0.18);
+  border-left-width: 5px;
+}
+.screen-res b { color: #16263B; }
+
+@media print {
+  body { background: #FFFFFF !important; color: #000000 !important; }
+  #pin-lock-overlay, .side, .top, .ban, .dash-actions, .forms-nav, .forms-ctl, .noprint { display: none !important; }
+  .app { display: block; padding: 0; }
+  .main { padding: 0; }
+  .card, .form-card { box-shadow: none !important; border: 1px solid #999 !important; break-inside: avoid; }
+  .form-card h3 { background: #16263B !important; color: #FFFFFF !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+@media (max-width: 760px) {
+  .app { display: block; padding: 12px; }
+  .side { width: auto; position: static; max-height: none; padding: 12px; margin-bottom: 16px; }
+  .side a { white-space: nowrap; }
+  .main { padding: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- PIN CODE SECURITY GATE OVERLAY -->
+<div id="pin-lock-overlay">
+  <div class="pin-dialog">
+    <div class="pin-icon-wrap">
+      <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+    </div>
+    <h2>Operations Security Gate</h2>
+    <p>Confidential client records & clinical logs.<br>Enter 4-digit coordinator authorization PIN:</p>
+    
+    <div class="pin-display-dots">
+      <div class="pin-dot" id="dot-0"></div>
+      <div class="pin-dot" id="dot-1"></div>
+      <div class="pin-dot" id="dot-2"></div>
+      <div class="pin-dot" id="dot-3"></div>
+    </div>
+
+    <div class="pin-keypad">
+      <button class="key-btn" data-key="1">1</button>
+      <button class="key-btn" data-key="2">2</button>
+      <button class="key-btn" data-key="3">3</button>
+      <button class="key-btn" data-key="4">4</button>
+      <button class="key-btn" data-key="5">5</button>
+      <button class="key-btn" data-key="6">6</button>
+      <button class="key-btn" data-key="7">7</button>
+      <button class="key-btn" data-key="8">8</button>
+      <button class="key-btn" data-key="9">9</button>
+      <button class="key-btn fn" data-key="clr">CLR</button>
+      <button class="key-btn" data-key="0">0</button>
+      <button class="key-btn fn" data-key="del">⌫</button>
+    </div>
+
+    <div id="pin-error-msg"></div>
+    <div style="margin-top:14px;font-size:11px;color:#8F6E3B;font-weight:600;">
+      Authorized: Jasmeen Williams, LPN (PIN: 1941 or 2024)
+    </div>
+  </div>
+</div>
+
+<div class="app">
+  <nav class="side" id="nav"></nav>
+  <main class="main">
+    <div class="top">
+      <input id="q" type="search" placeholder="Search client records, initials, counties..." style="flex:1;min-width:180px">
+      <button class="btn lock" id="btn-manual-lock" title="Lock Hub Immediately">
+        <svg style="width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none;" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        <span>Lock Hub</span>
+      </button>
+    </div>
+    <div class="ban">
+      <b>Non-clinical care navigation only.</b> SouthernWell Senior Concierge provides non-clinical advocacy, coordination, and appointment logistics across South Mississippi (Pine Belt & Coast Hubs). Data remains encrypted in this browser.
+    </div>
+    <div id="v"></div>
+  </main>
+</div>
+
+<script>
+/* ========================================================================= */
+/* PIN CODE AUTHENTICATION ENGINE                                            */
+/* ========================================================================= */
+const VALID_PINS = ["1941", "2024"];
+let enteredPin = "";
+const PIN_SESSION_KEY = "sw_hub_auth_session";
+
+function updatePinDots() {
+  for (let i = 0; i < 4; i++) {
+    const dot = document.getElementById(`dot-${i}`);
+    if (dot) {
+      dot.className = "pin-dot" + (i < enteredPin.length ? " filled" : "");
+    }
+  }
+}
+
+function unlockHub() {
+  const overlay = document.getElementById("pin-lock-overlay");
+  if (overlay) {
+    overlay.classList.add("unlocked");
+    sessionStorage.setItem(PIN_SESSION_KEY, "authenticated");
+  }
+  enteredPin = "";
+  updatePinDots();
+  const err = document.getElementById("pin-error-msg");
+  if (err) err.textContent = "";
+}
+
+function lockHub() {
+  const overlay = document.getElementById("pin-lock-overlay");
+  if (overlay) {
+    overlay.classList.remove("unlocked");
+    sessionStorage.removeItem(PIN_SESSION_KEY);
+  }
+  enteredPin = "";
+  updatePinDots();
+  const err = document.getElementById("pin-error-msg");
+  if (err) err.textContent = "";
+}
+
+function handleKeyInput(val) {
+  const err = document.getElementById("pin-error-msg");
+  if (err) err.textContent = "";
+
+  if (val === "clr") {
+    enteredPin = "";
+    updatePinDots();
+    return;
+  }
+  if (val === "del") {
+    enteredPin = enteredPin.slice(0, -1);
+    updatePinDots();
+    return;
+  }
+  if (enteredPin.length < 4 && /^[0-9]$/.test(val)) {
+    enteredPin += val;
+    updatePinDots();
+
+    if (enteredPin.length === 4) {
+      setTimeout(() => {
+        if (VALID_PINS.includes(enteredPin)) {
+          unlockHub();
+        } else {
+          for (let i = 0; i < 4; i++) {
+            const dot = document.getElementById(`dot-${i}`);
+            if (dot) dot.classList.add("error");
+          }
+          if (err) err.textContent = "Incorrect authorization PIN. Try again.";
+          setTimeout(() => {
+            enteredPin = "";
+            updatePinDots();
+          }, 600);
+        }
+      }, 150);
+    }
+  }
+}
+
+// Global Keypad and Keyboard Handlers
+document.addEventListener("click", function(e) {
+  const keyBtn = e.target.closest(".key-btn");
+  if (keyBtn) {
+    const val = keyBtn.getAttribute("data-key");
+    handleKeyInput(val);
+  }
+  if (e.target.closest("#btn-manual-lock")) {
+    lockHub();
+  }
+});
+
+document.addEventListener("keydown", function(e) {
+  const overlay = document.getElementById("pin-lock-overlay");
+  if (overlay && !overlay.classList.contains("unlocked")) {
+    if (e.key >= "0" && e.key <= "9") {
+      handleKeyInput(e.key);
+    } else if (e.key === "Backspace") {
+      handleKeyInput("del");
+    } else if (e.key === "Escape") {
+      handleKeyInput("clr");
+    }
+  }
+});
+
+/* ========================================================================= */
+/* DATA ENGINE & CORE OPERATIONS                                             */
+/* ========================================================================= */
+var STEPS = [
+  ["Inquiry", "Same day"],
+  ["Fit check", "1 day"],
+  ["Send packet", "1 day"],
+  ["Packet returned", "5 days"],
+  ["Consents", "with packet"],
+  ["Payment", "before start"],
+  ["SDOH screen", "3 days"],
+  ["Welcome call", "3 days"],
+  ["Care plan", "7 days"],
+  ["Active", "ongoing"]
+];
+
+var STEP_FORMS = [
+  ["01 Inquiry and Discovery Call Notes"],
+  ["02 Scope and Eligibility Checklist"],
+  ["Intake and Enrollment Packet (8 sections)"],
+  ["Packet review checklist; missing signature follow-up"],
+  ["03 Service Agreement", "04 Release of Information", "05 Family Communication Authorization", "06 LCSW Referral Acknowledgment (if referred)"],
+  ["Payment Agreement and Authorization", "Sliding Scale Request (if requested)", "Porch Fund Request (if requested)"],
+  ["08 SDOH Screening"],
+  ["09 Handbook Acknowledgment and Emergency Contacts"],
+  ["SteadyCare Non-Clinical Care Plan", "Family Communication Plan"],
+  ["Check-in schedule; Care Coordination Tasks Log; ongoing documentation"]
+];
+
+var CO = ["Forrest", "Lamar", "Jones", "Stone", "Coast (Harrison/Jackson)", "Telephonic (75-100 mi)"];
+var PK = ["Essentials", "Signature", "Concierge", "À La Carte"];
+var COL = ["#16263B", "#3D5A4C", "#B08D57", "#8A9A86", "#476556", "#DFC9A2"];
+
+var M = {
+  clients: {
+    t: "Client Directory",
+    c: [
+      ["id", "Client ID"],
+      ["ini", "Initials"],
+      ["county", "County", "sel", CO],
+      ["pkg", "Package", "sel", PK],
+      ["step", "Workflow step", "step"],
+      ["next", "Next check-in", "date"],
+      ["visit", "Visit type"],
+      ["status", "Status", "sel", ["Active", "Check-in due", "On hold", "Closed"]],
+      ["contact", "Preferred contact", "sel", ["Phone", "Text", "Email", "Voicemail"]],
+      ["packet", "Enrollment packet", "sel", ["Not started", "Sent", "Returned", "Complete"]],
+      ["consent", "Releases signed", "bool"],
+      ["porch", "Sliding scale", "sel", ["Standard", "Tier A (20% off)", "Tier B (35% off)", "Granny Doris Fund"]],
+      ["needs", "Non-clinical support needs"]
+    ]
+  },
+  checkins: {
+    t: "Check-Ins",
+    c: [
+      ["client", "Client ID", "cl"],
+      ["date", "Date", "date"],
+      ["type", "Type", "sel", ["Phone", "Home visit", "Pill tray review", "Welfare check", "Clinic Accompaniment"]],
+      ["note", "Note (no medical details)"],
+      ["done", "Done", "bool"]
+    ]
+  },
+  actions: {
+    t: "Action Plans",
+    c: [
+      ["title", "Action item"],
+      ["client", "Client ID", "cl"],
+      ["owner", "Owner", "sel", ["Coordinator", "Family contact", "Client"]],
+      ["due", "Due", "date"],
+      ["done", "Done", "bool"]
+    ]
+  },
+  referrals: {
+    t: "Referrals",
+    c: [
+      ["client", "Client ID", "cl"],
+      ["kind", "Type", "sel", ["LCSW", "Provider", "Pharmacy", "Community resource", "Elder Law"]],
+      ["to", "Referred to"],
+      ["date", "Date", "date"],
+      ["status", "Status", "sel", ["Pending", "Sent", "Closed"]]
+    ]
+  },
+  payments: {
+    t: "Payment Tracking",
+    c: [
+      ["client", "Client ID", "cl"],
+      ["amt", "Amount ($)", "num"],
+      ["due", "Due date", "date"],
+      ["status", "Status", "sel", ["Paid", "Due", "Overdue"]]
+    ]
+  }
+};
+
+var NAV = [
+  ["dashboard", "Dashboard", "home"],
+  ["workflow", "Workflow Pipeline (10 Steps)", "compass"],
+  ["guide", "Workflow Manual", "book"],
+  ["sop", "Standard Operating Procedures", "clipboard"],
+  ["clients", "Client Directory", "users"],
+  ["progress", "Client Progress", "chart"],
+  ["checkins", "Check-Ins", "calendar"],
+  ["actions", "Action Plans", "check"],
+  ["referrals", "Referrals", "share"],
+  ["meds", "Medication Tracker & Screens", "pill"],
+  ["packages", "Care Packages & Rates", "gift"],
+  ["payments", "Payment Tracking", "wallet"],
+  ["forms", "Enrollment & Forms (5 Stages)", "file"],
+  ["handbook", "Client Handbook", "handbook"],
+  ["launch", "Launch Readiness", "clipboard"],
+  ["books", "Client Workbooks", "library"]
+];
+
+var ICONS = {
+  "Active clients": "users",
+  "Check-ins due (7 days)": "calendar",
+  "Open action items": "check",
+  "Referrals pending": "share",
+  "Payments attention": "wallet"
+};
+
+function iconSvg(name) {
+  var paths = {
+    home: '<path d="m3 10 9-7 9 7"/><path d="M5 9v12h14V9M9 21v-8h6v8"/>',
+    compass: '<circle cx="12" cy="12" r="9"/><path d="m16 8-2.5 5.5L8 16l2.5-5.5L16 8Z"/>',
+    book: '<path d="M12 7v14M3 18V5a2 2-0 0 1 2-2h3a4 4 0 0 1 4 4 4 4 0 0 1 4-4h3a2 2 0 0 1 2 2v13h-5a4 4 0 0 0-4 3 4 4 0 0 0-4-3H3Z"/>',
+    clipboard: '<rect x="4" y="5" width="16" height="17" rx="2"/><path d="M9 5V3h6v2M8 11h8M8 15h8M8 19h5"/>',
+    users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+    chart: '<path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/>',
+    calendar: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M8 14h2M14 14h2M8 17h2"/>',
+    check: '<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 4V2M16 4V2m-9 9 2 2 4-4M7 17h10"/>',
+    share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.7 10.7 6.6-4.4m-6.6 7 6.6 4.4"/>',
+    pill: '<path d="m10.5 20.5 10-10a5.66 5.66 0 0 0-8-8l-10 10a5.66 5.66 0 0 0 8 8Z"/><path d="m8.5 8.5 7 7"/>',
+    gift: '<rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8H7a3 3 0 1 1 3-3c0 2 2 3 2 3Zm0 0h5a3 3 0 1 0-3-3c0 2-2 3-2 3Z"/>',
+    wallet: '<rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 9h18M16 15h2M6 5V3h12v2"/>',
+    file: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h8"/>',
+    handbook: '<path d="M12 7v14M3 18V5a2 2 0 0 1 2-2h3a4 4 0 0 1 4 4 4 4 0 0 1 4-4h3a2 2 0 0 1 2 2v13h-5a4 4 0 0 0-4 3 4 4 0 0 0-4-3H3Z"/><path d="m9 12 2 2 4-4"/>',
+    library: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="M8 6h8M8 10h8"/>',
+    mark: '<path d="M12 2.5 4 5.4v5.7c0 5 3.2 8.7 8 10.4 4.8-1.7 8-5.4 8-10.4V5.4L12 2.5Z"/><path d="M7.5 15.5c.8-4.2 3.7-6.6 8.7-8.6-1.6 5.4-4.1 8.7-8.7 8.6Zm.2.1 7.8-7.2M12 16.2c.7-1.3 1.8-2 3.4-2.2"/>'
+  };
+  return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' + (paths[name] || paths.mark) + '</svg>';
+}
+
+var P = { strict: { a: 0, p: 0, r: 0 }, standard: { a: 2, p: 0, r: 1 }, high: { a: 4, p: 1, r: 3 } };
+var KEY = "sw_ops_v1", D, V = "dashboard";
+
+function day(n) {
+  var d = new Date();
+  d.setDate(d.getDate() + n);
+  return d.toISOString().slice(0, 10);
+}
+
+function esc(s) {
+  return String(s == null ? "" : s).replace(/[&<>\"]/g, function(c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+  });
+}
+
+function seed() {
+  return {
+    preset: "standard",
+    clients: [
+      { id: "SW-RM-4081", ini: "R.M.", county: "Forrest", pkg: "Concierge", step: 3, next: day(2), visit: "In-Home Walkthrough", status: "Active", contact: "Phone", packet: "Complete", consent: true, porch: "Standard", needs: "Medication reconciliation, cardiologist accompaniment" },
+      { id: "SW-MC-1102", ini: "M.C.", county: "Coast (Harrison/Jackson)", pkg: "Essentials", step: 2, next: day(5), visit: "Discovery Follow-up", status: "Check-in due", contact: "Email", packet: "Sent", consent: false, porch: "Tier A (20% off)", needs: "Advance directive organization" },
+      { id: "SW-AS-3091", ini: "A.S.", county: "Jones", pkg: "Concierge", step: 5, next: day(7), visit: "Home Visit", status: "Active", contact: "Phone", packet: "Complete", consent: true, porch: "Standard", needs: "Pillbox dispenser sync, Forrest General follow-up" },
+      { id: "SW-EV-2044", ini: "E.V.", county: "Coast (Harrison/Jackson)", pkg: "Signature", step: 4, next: day(4), visit: "Binder Delivery", status: "Active", contact: "Text", packet: "Returned", consent: true, porch: "Standard", needs: "Deliver 5-Tab binder to Ocean Springs estate" }
+    ],
+    checkins: [
+      { client: "SW-RM-4081", date: day(2), type: "Home visit", note: "Baseline 90-min in-home walkthrough & pillbox audit", done: false },
+      { client: "SW-MC-1102", date: day(1), type: "Phone", note: "Review missing HIPAA waiver signature with Michael (son)", done: false },
+      { client: "SW-AS-3091", date: day(6), type: "Pill tray review", note: "Bi-weekly pillbox synchronization", done: false }
+    ],
+    actions: [
+      { title: "Medication audit reconciliation for R.M.", client: "SW-RM-4081", owner: "Coordinator", due: day(2), done: false },
+      { title: "Verify Scope Waiver with proxy", client: "SW-MC-1102", owner: "Family contact", due: day(1), done: false },
+      { title: "Deliver 5-Tab Dossier Binder to Ocean Springs", client: "SW-EV-2044", owner: "Coordinator", due: day(4), done: false }
+    ],
+    referrals: [
+      { client: "SW-RM-4081", kind: "Provider", to: "Forrest General Heart Clinic (Dr. Sterling)", date: day(-2), status: "Pending" }
+    ],
+    payments: [
+      { client: "SW-MC-1102", amt: 220, due: day(0), status: "Due" },
+      { client: "SW-RM-4081", amt: 375, due: day(-5), status: "Paid" }
+    ],
+    meds: [
+      { client: "SW-RM-4081", item: "Metoprolol Succinate 50mg BID", src: "Provider", refill: day(4), pharm: "Highland Pharmacy", done: false }
+    ],
+    dailyTasks: []
+  };
+}
+
+function load() {
+  try {
+    var r = localStorage.getItem(KEY);
+    if (r) D = JSON.parse(r);
+  } catch(e) {}
+  if (!D) D = seed();
+  D.meds = D.meds || [];
+  D.dailyTasks = D.dailyTasks || [];
+  D.clients.forEach(function(c) {
+    if (c.contact == null) {
+      c.contact = "Phone";
+      c.packet = "Not started";
+      c.consent = false;
+      c.needs = "";
+    }
+  });
+}
+
+function save() {
+  try {
+    localStorage.setItem(KEY, JSON.stringify(D));
+  } catch(e) {}
+}
+
+function Q() {
+  var el = document.getElementById("q");
+  return el ? el.value.toLowerCase() : "";
+}
+
+function cell(k, i, c, v) {
+  var a = ' data-k="' + k + '" data-i="' + i + '" data-f="' + c[0] + '"', t = c[2];
+  if (t === "bool") return '<input type="checkbox"' + a + (v ? " checked" : "") + '>';
+  if (t === "sel" || t === "step" || t === "cl") {
+    var o = t === "sel" ? c[3].map(function(x) { return [x, x]; }) :
+            t === "step" ? STEPS.map(function(x, j) { return [j, x[0]]; }) :
+            [["", "--"]].concat(D.clients.map(function(x) { return [x.id, x.id]; }));
+    return '<select' + a + (t === "step" ? ' data-t="n"' : '') + '>' +
+      o.map(function(p) {
+        return '<option value="' + esc(p[0]) + '"' + (String(p[0]) === String(v) ? " selected" : "") + '>' + esc(p[1]) + '</option>';
+      }).join("") + '</select>';
+  }
+  return '<input' + a + ' type="' + (t === "date" ? "date" : t === "num" ? "number" : "text") + '"' +
+    (t === "num" ? ' data-t="n"' : '') + ' value="' + esc(v) + '">';
+}
+
+function mod(k) {
+  var m = M[k], q = Q(), h = '<div class="hd"><h2>' + m.t + '</h2><button class="btn" data-add="' + k + '">' + (k === "clients" ? "+ Enroll Senior Client" : "+ Add Record") + '</button></div><div class="tw"><table><tr>' + m.c.map(function(c) { return '<th>' + c[1] + '</th>'; }).join("") + "<th></th></tr>";
+  D[k].forEach(function(r, i) {
+    if (q && JSON.stringify(r).toLowerCase().indexOf(q) < 0) return;
+    h += '<tr>' + m.c.map(function(c) { return '<td>' + cell(k, i, c, r[c[0]]) + '</td>'; }).join("") + '<td><button class="x" data-del="' + k + ':' + i + '" aria-label="Delete row">&times;</button></td></tr>';
+  });
+  return h + '</table></div><p class="note" style="margin-top:10px">Click any cell to edit. Changes save automatically to local state.</p>';
+}
+
+function dash() {
+  var t = day(0), w = day(7), R = P[D.preset], act = D.clients.filter(function(c) { return c.status !== "Closed"; }),
+      ci = D.checkins.filter(function(c) { return !c.done && c.date && c.date <= w; }).length,
+      oa = D.actions.filter(function(a) { return !a.done; }).length,
+      rf = D.referrals.filter(function(r) { return r.status === "Pending"; }).length,
+      py = D.payments.filter(function(p) { return p.status !== "Paid"; }).length;
+
+  function kp(l, v, mx, n) {
+    var b = mx != null && v > mx;
+    return '<div class="card kpi' + (b ? " bad" : "") + '">' +
+      '<div class="icon">' + iconSvg(ICONS[l] || "mark") + '</div>' +
+      '<small>' + l + '</small><b>' + v + '</b>' +
+      '<span class="lim">' + (mx != null ? (b ? "Over alert limit (max " + mx + ")" : "Within threshold (max " + mx + ")") : n) + '</span></div>';
+  }
+
+  var h = '<div class="hd"><h2>Clinical & Operations Command</h2>' +
+          '<div style="display:flex;gap:8px;align-items:center">' +
+          '<span class="pill" style="background:#E5EFE9;color:#3D5A4C;border-color:rgba(61,90,76,0.3)">Pine Belt & Coast Hubs</span>' +
+          '</div></div>' +
+          '<div class="dash-actions">' +
+          '<button class="btn" data-add="clients"><span class="dash-action-icon">' + iconSvg("users") + '</span>Enroll Senior Client</button>' +
+          '<button class="btn alt" data-v="checkins"><span class="dash-action-icon">' + iconSvg("calendar") + '</span>View Check-Ins</button>' +
+          '<button class="btn alt" data-export-caseload><span class="dash-action-icon">' + iconSvg("file") + '</span>Export Caseload CSV</button>' +
+          '</div>' +
+          '<div class="grid">' +
+          kp("Active clients", act.length, null, "Enrolled") +
+          kp("Check-ins due (7 days)", ci, null, "Open") +
+          kp("Open action items", oa, R.a) +
+          kp("Referrals pending", rf, R.r) +
+          kp("Payments attention", py, R.p) +
+          '</div>';
+
+  h += '<div class="card" style="margin-bottom:14px"><b>Alert Thresholds:</b> ' +
+       ["strict", "standard", "high"].map(function(p) {
+         return '<button class="btn alt' + (D.preset === p ? " on" : "") + '" data-pre="' + p + '" style="margin-left:8px">' +
+                p[0].toUpperCase() + p.slice(1) + '</button>';
+       }).join("") + '</div>';
+
+  var cnt = CO.map(function(c) {
+    return D.clients.filter(function(x) { return x.county === c && x.status !== "Closed"; }).length;
+  }), tot = act.length || 1;
+
+  h += '<div class="card" style="margin-bottom:14px"><b>Caseload by County / Hub</b>' +
+       '<div class="bar">' + cnt.map(function(n, i) {
+         return '<i style="width:' + (n / tot * 100) + '%;background:' + COL[i] + '"></i>';
+       }).join("") + '</div>' +
+       CO.map(function(c, i) {
+         return '<span class="pill" style="margin-right:6px;margin-bottom:4px"><span style="color:' + COL[i] + '">&#9632;</span> ' + c + ': ' + cnt[i] + '</span>';
+       }).join("") + '</div>';
+
+  var at = [];
+  D.payments.forEach(function(p) { if (p.status !== "Paid") at.push(["bad", "Due Retainer: " + p.client + " $" + p.amt]); });
+  D.clients.forEach(function(c) { if (c.status === "Check-in due") at.push(["", "Check-in due: " + c.id + " (" + c.ini + ")"]); });
+  D.checkins.forEach(function(c) { if (!c.done && c.date && c.date <= t) at.push(["", "Check-in " + (c.date < t ? "overdue" : "today") + ": " + c.client + " (" + c.type + ")"]); });
+  D.actions.forEach(function(a) { if (!a.done && a.due && a.due < t) at.push(["bad", "Action overdue: " + a.title]); });
+  D.meds.forEach(function(m) { if (!m.done && m.refill && m.refill <= w) at.push(["", "Refill reminder: " + m.client + " — " + m.item]); });
+
+  h += '<div class="card"><b>Priority Queue (Attention Needed)</b>' +
+       (at.length ? at.slice(0, 8).map(function(a) {
+         return '<div class="li ' + a[0] + '">' + esc(a[1]) + '</div>';
+       }).join("") : '<div class="li note">All operations, checks, and medication schedules are currently on track.</div>') +
+       '</div>';
+
+  return h;
+}
+
+function flow() {
+  var h = '<div class="hd"><h2>Workflow Pipeline (10-Step Operational Care Flow)</h2></div><div class="board">', q = Q();
+  STEPS.forEach(function(s, i) {
+    var cs = D.clients.filter(function(c) {
+      return c.step === i && (!q || JSON.stringify(c).toLowerCase().indexOf(q) >= 0);
+    }), forms = STEP_FORMS[i] || [];
+    h += '<div class="col"><h3><span class="step-badge">' + (i + 1) + '</span>' + s[0] + ' <span class="note" style="margin-left:auto">(' + s[1] + ')</span></h3>';
+    if (forms.length) {
+      h += '<div class="note" style="margin-bottom:8px;line-height:1.4">' + forms.map(function(f) { return '<div>• ' + esc(f) + '</div>'; }).join("") + '</div>';
+    }
+    cs.forEach(function(c) {
+      var j = D.clients.indexOf(c);
+      h += '<div class="cc"><b>' + esc(c.id) + '</b> (' + esc(c.ini) + ')<div class="note">' + esc(c.county) + ' • ' + esc(c.pkg) + '</div><div class="r">' +
+           (i > 0 ? '<button data-mv="' + j + ':-1">&lsaquo;</button>' : '') +
+           (i < 9 ? '<button data-mv="' + j + ':1">&rsaquo;</button>' : '') + '</div></div>';
+    });
+    h += (cs.length ? '' : '<div class="note">No clients at this stage</div>') + '</div>';
+  });
+  return h + '</div><p class="note">Use arrows to advance clients along the 10-step concierge journey.</p>';
+}
+
+/* ========================================================================= */
+/* INTEGRATED FORMS MODULE                                                   */
+/* ========================================================================= */
+let S = {};
+try { S = JSON.parse(localStorage.getItem('swf') || '{}'); } catch(e) {}
+const saveForms = () => { try { localStorage.setItem('swf', JSON.stringify(S)); } catch(e) {} };
+
+let curStage = 0, formIdCounter = 0;
+const f = (l, k, t) => ({ y: 'f', l, k: k || 'k' + (++formIdCounter), t: t || 'text' });
+const c = (l, o, s) => ({ y: 'c', l, o, s, k: 'k' + (++formIdCounter) });
+const t = (l) => ({ y: 't', l, k: 'k' + (++formIdCounter) });
+const nt = (x) => ({ y: 'n', x });
+const ini = (x) => ({ y: 'i', x, k: 'k' + (++formIdCounter) });
+const sg = (l) => ({ y: 's', l, k: 'k' + (++formIdCounter) });
+const tb = (h, rows, fx) => ({ y: 'b', h, rows, fx, k: 'k' + (++formIdCounter) });
+const fx = (l, x) => ({ y: 'x', l, x });
+const cl = f('Client Name', 'client');
+
+const FORMS_DATA = [
+  {
+    h: 'Stage 1 of 5 • Initial Consultation',
+    s: 'Inquiry & Discovery Call Form (30-Minute Consultation) — Phone, Video, or In-Person',
+    x: [
+      ['1. Contact & Geographic Screening', [
+        f('Date of Call', 0, 'date'),
+        c('Consultation Format', ['Phone', 'Video', 'In-Person'], 1),
+        f('Inquirer Full Name'),
+        f('Relationship to Senior'),
+        f('Phone Number'),
+        f('Email Address'),
+        f('Senior Client Name', 'client'),
+        f('Age (Target 70–95)'),
+        f('Senior City / Zip Code'),
+        f('Referral Source'),
+        c('Service Radius Verification', ['Within 25-mile standard travel radius (Hattiesburg/Pine Belt or Gulfport/Coast)', 'Outside 25-mile radius (note additional mileage fee policy)'], 1)
+      ]],
+      ['2. Needs & Support Assessment', [
+        c('Primary Caller Profile', ['Older Adult Seeking Independence', 'Busy Local Adult Child', 'Long-Distance Adult Child'], 1),
+        c('Primary Pain Points & Support Goals (check all that apply)', [
+          'Medication / pillbox confusion, duplicate bottles, or pharmacy refill gaps',
+          'Need accompaniment, advocacy, and structured notes for doctor/specialist appointments',
+          'Disorganized medical records / lack of an emergency 1-page medical snapshot',
+          'Need routine non-clinical home safety & wellness check-ins',
+          'Transition or professional referral support (LCSW, Elder Law Attorney, Licensed Home Health)'
+        ]),
+        t('Additional Consultation Notes & Family Concerns')
+      ]],
+      ['3. Non-Clinical Boundary Screening (Mandatory)', [
+        c('Acute Clinical Need Check', [
+          'No acute clinical care needed (eligible for Southern Well)',
+          'Yes — requires skilled nursing, wound care, injections, or emergency care (refer to Home Health / 911)'
+        ], 1),
+        c('Verbal Scope Disclosure', [
+          'Confirmed: explained that Southern Well Senior Concierge is a private-pay, non-clinical care navigation practice and does not administer medications, perform wound care, or provide hands-on medical treatment.'
+        ])
+      ]],
+      ['4. Recommended Service Tier & Sliding Scale Check', [
+        c('Required Onboarding', ['Foundation Assessment — $225 flat fee (Tier A: $180 | Tier B: $145)']),
+        c('Recommended Ongoing Tier', [
+          'Essential Stewardship ($275/mo | Tier A: $220 | Tier B: $180)',
+          'Comprehensive Concierge ($375/mo | Tier A: $300 | Tier B: $244)',
+          'À La Carte Clinic Visit Accompaniment ($75/visit)'
+        ], 1),
+        c('Fixed-Income Sliding Scale Requested?', ['Yes (include Self-Attestation Form in Stage 2 packet)', 'No (standard private-pay rates)'], 1)
+      ]]
+    ]
+  },
+  {
+    h: 'Stage 2 of 5 • Days 2–3 Onboarding',
+    s: 'Client Intake, Scope Waiver & HIPAA Authorization Packet — complete and sign before scheduling the 90-Minute In-Home Foundation Assessment',
+    x: [
+      ['1. Client & Legal Authority Verification', [
+        f('Client Full Legal Name', 'client'),
+        f('Date of Birth', 0, 'date'),
+        f('Primary Residential Address'),
+        f('Home / Cell Phone'),
+        c('Legal Signatory Status', ['Client (self — competent to contract)', 'Authorized Healthcare/Financial POA (attach POA copy)'], 1),
+        f('POA / Responsible Party Name'),
+        f('POA Phone / Email')
+      ]],
+      ['2. Non-Clinical Scope of Care Acknowledgment', [
+        nt('By initialing each item, the Client and/or Responsible Party acknowledges and agrees to the non-clinical boundaries of Southern Well Senior Concierge:'),
+        ini('No Medical Administration: Southern Well Senior Concierge does NOT place pills in a client’s mouth, administer injections, apply medicated patches, perform wound care, or take vital signs for clinical diagnosis.'),
+        ini('Logistical Medication Support Only: Weekly pillbox organization and medication list reconciliation are performed strictly according to existing prescription bottle labels and clinic After-Visit Summaries (AVS).'),
+        ini('Emergency Protocol: In the event of an acute medical emergency, Southern Well will immediately dial 911 and notify designated family emergency contacts.')
+      ]],
+      ['3. Clinic HIPAA & Family Communication Authorization', [
+        nt('I authorize the following healthcare providers, clinics, and pharmacies to share relevant care records, medication lists, and After-Visit Summaries with Southern Well Senior Concierge:'),
+        tb(['Provider / Pharmacy Role', 'Name / Practice', 'Phone / Fax / Location'], ['Primary Care Physician (PCP)', 'Key Specialist #1', 'Key Specialist #2', 'Primary Pharmacy'], 1),
+        nt('Authorized Family Recipients (to receive 24-hour Post-Visit Briefings and Care Dossier updates):'),
+        tb(['Recipient Full Name', 'Relationship', 'Email Address', 'Cell Phone'], ['1.', '2.'], 1)
+      ]],
+      ['4. Onboarding Fee & Authorization Signature', [
+        c('Foundation Assessment Fee Remitted', ['$225 Standard', '$180 Tier A (20% Sliding Scale)', '$145 Tier B (35% Sliding Scale)'], 1),
+        sg('Client or Authorized POA Signature'),
+        f('Printed Name & Title (Self / POA)'),
+        f('Date', 0, 'date')
+      ]]
+    ]
+  },
+  {
+    h: 'Stage 3 of 5 • Days 4–7 In-Home Visit',
+    s: '90-Minute In-Home Foundation Assessment Form — Non-Clinical Home Walkthrough, Care Dossier Intake & Medication Reconciliation Audit',
+    x: [
+      ['1. Medical Profile & Emergency Preferences', [
+        cl,
+        f('Assessment Date', 0, 'date'),
+        c('Preferred Hospital System', ['Forrest General', 'Merit Health Wesley', 'Memorial Health', 'Singing River', 'Other'], 1),
+        f('If other, specify'),
+        t('Known Allergies (Drug / Food / Environmental)'),
+        c('Existing Advance Directives Located in Home', ['Healthcare Power of Attorney (POA)', 'Living Will', 'DNR / POLST', 'None located (flag for Elder Law referral)'])
+      ]],
+      ['2. Non-Clinical Home Safety & Lifestyle Walkthrough', [
+        c('Environmental & Fall Hazards Observed', ['Loose throw rugs', 'Dim hallways / stairs', 'Cluttered walkways / cords', 'Missing bathroom grab bars', 'None noted']),
+        c('Mobility & Assistive Devices', ['Independent', 'Cane', 'Walker / Rollator', 'Wheelchair', 'Equipment check needed (tips/brakes)']),
+        c('Pantry & Refrigerator Status', ['Well-stocked & fresh', 'Needs grocery/meal support'], 1),
+        t('Hydration & Meal Routine Notes'),
+        t('Home Safety Recommendations & Action Items')
+      ]],
+      ['3. Kitchen-Table Medication Reconciliation Audit', [
+        c('Audit Preparation', [
+          'All Rx bottles, OTC supplements, vitamins, eye drops & inhalers gathered',
+          'Compared against most recent clinic After-Visit Summary (AVS)',
+          'Weekly pillbox organized strictly per bottle labels'
+        ]),
+        tb(['Medication / Supplement Name & Dose', 'Bottle Directions', 'Discrepancy Flagged (Duplicate / Expired / Low Refill)'], ['1.', '2.', '3.', '4.', '5.', '6.'], 1),
+        t('Yellow-Flagged Questions for Prescribing Physician or Pharmacist Clarification')
+      ]]
+    ]
+  },
+  {
+    h: 'Stage 4 of 5 • Days 7–10 Back-Office Setup',
+    s: 'Care Dossier Assembly & Provider Sync Checklist — internal quality-control verification completed prior to Active Stewardship launch',
+    x: [
+      ['Client & Coordinator', [
+        cl,
+        f('Digital Folder ID (LASTNAME_Firstname_DOB-YYYY)'),
+        fx('Care Coordinator', 'Jasmeen Williams, LPN, BS-HHS'),
+        f('Target Launch Date', 0, 'date')
+      ]],
+      ['1. Physical Care Dossier Binder Assembly', [
+        c('Checklist', [
+          'Assembled Deep Oxford Navy linen binder with 5 color-coded divider tabs (Tab 1: Emergency & Provider Contacts | Tab 2: Master Medication Log | Tab 3: Clinic Visit Summaries (AVS) | Tab 4: Advance Directives & HIPAA Releases | Tab 5: Family Briefing & Wellness Notes)',
+          'Printed 1-Page EMS Master Snapshot Sheet and inserted into front clear sleeve of binder',
+          'Prepared duplicate laminated/sleeved 1-Page EMS Master Snapshot Sheet for client’s refrigerator door'
+        ])
+      ]],
+      ['2. Encrypted Digital Workspace Setup', [
+        c('Checklist', [
+          'Created HIPAA-compliant encrypted client directory using naming convention LASTNAME_Firstname_DOB-YYYY',
+          'Uploaded signed Stage 2 Intake Agreement, Scope Waiver, POA documents, and Clinic HIPAA Releases',
+          'Uploaded baseline clinic After-Visit Summaries (AVS) and dated Master Medication Reconciliation Log'
+        ])
+      ]],
+      ['3. Provider Sync, Pharmacy Coordination & Warm Referrals', [
+        c('Checklist', [
+          'Faxed or hand-delivered executed HIPAA Authorization forms to Primary Care Physician and specialists',
+          'Synced medication list and refill schedule with client’s primary pharmacy'
+        ]),
+        c('Warm Professional Referrals Initiated (if identified during Stage 3)', [
+          'Licensed Clinical Social Worker (LCSW)',
+          'Elder Law Attorney',
+          'Licensed Home Health Agency',
+          'None needed at launch'
+        ])
+      ]],
+      ['4. Family Onboarding & 30-Day Action Plan', [
+        c('Checklist', [
+          'Delivered personalized 30-Day Stewardship Action Plan to all authorized family recipients',
+          'Confirmed recurring schedule for monthly wellness check-ins and upcoming medical appointments'
+        ]),
+        sg('Quality-Control Sign-Off (Jasmeen Williams, LPN)'),
+        f('Date Completed', 0, 'date')
+      ]]
+    ]
+  },
+  {
+    h: 'Stage 5 of 5 • Day 11+ Ongoing Care',
+    s: 'Active Stewardship Routine Visit & Clinic Accompaniment Log — complete within 24 hours of every scheduled wellness check-in or medical appointment',
+    x: [
+      ['Visit Details', [
+        cl,
+        f('Visit Date & Time', 0, 'datetime-local'),
+        c('Active Service Plan', ['Essential ($275/mo)', 'Comprehensive ($375/mo)', 'À La Carte ($75)'], 1),
+        c('Visit Location', ['Client Home', 'Clinic', 'Virtual'], 1)
+      ]],
+      ['1. Non-Clinical Wellness & Home Environment Observation', [
+        t('Mood, Energy & Cognitive Engagement'),
+        t('Nutrition, Hydration & Home Safety Check'),
+        c('Medication & Pillbox Logistical Check', ['Pillbox organized per bottle labels', 'Refills synced with pharmacy', 'N/A'])
+      ]],
+      ['2. Clinic Visit Accompaniment & Care Navigation Summary (if applicable)', [
+        f('Provider & Specialty Seen'),
+        f('Next Scheduled Appointment (Date/Time)', 0, 'datetime-local'),
+        t('Key Provider Takeaways, Medication Changes & Follow-Up Action Items')
+      ]],
+      ['3. 24-Hour Post-Visit Family Briefing Confirmation', [
+        c('Family Briefing Sent?', ['Yes', 'Pending'], 1),
+        c('Delivery Method', ['Encrypted Email', 'Family Portal'], 1),
+        f('Timestamp Sent', 0, 'datetime-local')
+      ]]
+    ]
+  }
+];
+
+const ce = (tag, a, ...k) => {
+  const x = document.createElement(tag);
+  Object.assign(x, a || {});
+  k.forEach(i => x.append(i));
+  return x;
+};
+
+function renderFormItem(it) {
+  const w = ce('div');
+  if (it.y == 'n') return ce('p', { className: 'note', style: 'margin:8px 0;font-style:italic;', textContent: it.x });
+  if (it.y == 'x') {
+    w.append(ce('span', { className: 'flab', textContent: it.l }), ce('div', { style: 'padding:8px 10px;background:#FFF;border:1px solid var(--line);border-radius:8px;font-weight:600;', textContent: it.x }));
+    return w;
+  }
+  if (it.y == 'f') {
+    w.append(ce('label', { className: 'fl', textContent: it.l }));
+    const inp = ce('input', { type: it.t, value: S[it.k] || '' });
+    inp.oninput = () => {
+      S[it.k] = inp.value;
+      saveForms();
+      if (it.k == 'client') {
+        document.querySelectorAll('input[data-c]').forEach(o => { if (o !== inp) o.value = inp.value; });
+      }
+    };
+    if (it.k == 'client') inp.dataset.c = 1;
+    w.append(inp);
+    return w;
+  }
+  if (it.y == 't') {
+    w.append(ce('label', { className: 'fl', textContent: it.l }));
+    const ta = ce('textarea', { value: S[it.k] || '' });
+    ta.oninput = () => { S[it.k] = ta.value; saveForms(); };
+    w.append(ta);
+    return w;
+  }
+  if (it.y == 'c') {
+    w.append(ce('span', { className: 'flab', textContent: it.l }));
+    const o = ce('div', { className: 'opts' + (it.o.some(x => x.length > 40) ? ' col' : '') });
+    const boxes = [];
+    it.o.forEach(v => {
+      const inp = ce('input', { type: 'checkbox', checked: (S[it.k] || []).includes(v) });
+      boxes.push([inp, v]);
+      inp.onchange = () => {
+        if (it.s && inp.checked) boxes.forEach(([b]) => { if (b !== inp) b.checked = false; });
+        S[it.k] = boxes.filter(([b]) => b.checked).map(([, x]) => x);
+        saveForms();
+      };
+      o.append(ce('label', { className: 'opt' }, inp, ce('span', { textContent: v })));
+    });
+    w.append(o);
+    return w;
+  }
+  if (it.y == 'i') {
+    const inp = ce('input', { type: 'text', placeholder: 'Initials', maxLength: 4, value: S[it.k] || '' });
+    inp.oninput = () => { S[it.k] = inp.value; saveForms(); };
+    return ce('div', { className: 'scope-bar' }, ce('p', { textContent: it.x }), inp);
+  }
+  if (it.y == 'b') {
+    const T = ce('table'), r = ce('tr');
+    it.h.forEach(h => r.append(ce('th', { textContent: h })));
+    T.append(r);
+    it.rows.forEach((rw, ri) => {
+      const tr = ce('tr');
+      it.h.forEach((_, ci) => {
+        const td = ce('td');
+        if (ci == 0 && it.fx && /[A-Za-z]/.test(rw) && rw.length > 3) {
+          td.style.fontWeight = 'bold';
+          td.style.padding = '8px 10px';
+          td.textContent = rw;
+        } else {
+          const key = it.k + '_' + ri + '_' + ci;
+          const inp = ce('input', { type: 'text', value: S[key] || '', style: 'width:100%;border:1px solid transparent;background:transparent;padding:6px;' });
+          inp.oninput = () => { S[key] = inp.value; saveForms(); };
+          inp.onfocus = () => { inp.style.background = '#FFF'; inp.style.borderColor = '#B08D57'; };
+          inp.onblur = () => { inp.style.background = 'transparent'; inp.style.borderColor = 'transparent'; };
+          td.append(inp);
+        }
+        tr.append(td);
+      });
+      T.append(tr);
+    });
+    return ce('div', { className: 'tw', style: 'margin:10px 0;' }, T);
+  }
+  if (it.y == 's') {
+    w.append(ce('span', { className: 'flab', textContent: it.l }));
+    const cv = ce('canvas', { className: 'sig-pad', width: 500, height: 120 });
+    const g = cv.getContext('2d');
+    g.lineWidth = 2;
+    g.lineCap = 'round';
+    g.strokeStyle = '#16263B';
+    if (S[it.k]) {
+      const im = new Image();
+      im.onload = () => g.drawImage(im, 0, 0);
+      im.src = S[it.k];
+    }
+    let drawing = 0;
+    const getPos = ev => {
+      const rect = cv.getBoundingClientRect();
+      return [(ev.clientX - rect.left) * 500 / rect.width, (ev.clientY - rect.top) * 120 / rect.height];
+    };
+    cv.onpointerdown = ev => {
+      drawing = 1;
+      cv.setPointerCapture(ev.pointerId);
+      const [x, y] = getPos(ev);
+      g.beginPath();
+      g.moveTo(x, y);
+      g.lineTo(x + .1, y);
+      g.stroke();
+    };
+    cv.onpointermove = ev => {
+      if (!drawing) return;
+      const [x, y] = getPos(ev);
+      g.lineTo(x, y);
+      g.stroke();
+    };
+    cv.onpointerup = () => {
+      drawing = 0;
+      try { S[it.k] = cv.toDataURL(); saveForms(); } catch(e) {}
+    };
+    const clrBtn = ce('button', { className: 'btn alt', textContent: 'Clear signature', type: 'button', style: 'margin-top:8px;padding:6px 12px;font-size:12px;' });
+    clrBtn.onclick = () => {
+      g.clearRect(0, 0, 500, 120);
+      delete S[it.k];
+      saveForms();
+    };
+    w.append(cv, clrBtn);
+    return w;
+  }
+}
+
+function formsView() {
+  const container = ce('div');
+  const head = ce('div', { className: 'hd' },
+    ce('h2', { textContent: 'Enrollment & Required Forms (5-Stage Operational Suite)' }),
+    ce('span', { className: 'pill', style: 'background:#F5EBD9;color:#7A551E;border-color:rgba(176,141,87,0.4);' }, 'Confidential Client Record')
+  );
+  container.append(head);
+
+  const nav = ce('div', { className: 'forms-nav' });
+  const stagesWrap = ce('div');
+
+  FORMS_DATA.forEach((st, i) => {
+    const sBox = ce('section', { className: 'stage-box' + (i === curStage ? ' on' : ''), id: 'stg' + i });
+    sBox.append(
+      ce('h2', { textContent: st.h }),
+      ce('p', { className: 'stage-sub', textContent: st.s })
+    );
+
+    st.x.forEach(([secTitle, items]) => {
+      const card = ce('div', { className: 'form-card' });
+      card.append(ce('h3', { textContent: secTitle }));
+      const body = ce('div', { className: 'form-body' });
+      
+      let gr = null;
+      items.forEach(it => {
+        const el = renderFormItem(it);
+        if (it.y == 'f' || it.y == 'x') {
+          if (!gr) {
+            gr = ce('div', { className: 'form-grid' });
+            body.append(gr);
+          }
+          gr.append(el);
+        } else {
+          gr = null;
+          body.append(el);
+        }
+      });
+      card.append(body);
+      sBox.append(card);
+    });
+
+    const ctl = ce('div', { className: 'forms-ctl' });
+    const btnBack = ce('button', { className: 'btn alt', textContent: '← Previous Stage', type: 'button' });
+    btnBack.onclick = () => switchStage(i - 1);
+    const btnPrint = ce('button', { className: 'btn alt', textContent: 'Print Stage ' + (i + 1), type: 'button' });
+    btnPrint.onclick = () => window.print();
+
+    ctl.append(btnBack, btnPrint);
+    if (i < 4) {
+      const btnNext = ce('button', { className: 'btn', textContent: 'Next Stage →', type: 'button' });
+      btnNext.onclick = () => switchStage(i + 1);
+      ctl.append(btnNext);
+    } else {
+      const btnAll = ce('button', { className: 'btn', textContent: 'Print All 5 Stages', type: 'button' });
+      btnAll.onclick = () => window.print();
+      ctl.append(btnAll);
+    }
+
+    sBox.append(ctl);
+    stagesWrap.append(sBox);
+
+    const navBtn = ce('button', { textContent: 'Stage ' + (i + 1), type: 'button', className: (i === curStage ? 'on' : '') });
+    navBtn.onclick = () => switchStage(i);
+    nav.append(navBtn);
+  });
+
+  const btnReset = ce('button', { textContent: 'Reset Forms', type: 'button', style: 'margin-left:auto;border-color:var(--err);color:var(--err);' });
+  btnReset.onclick = () => {
+    if (confirm('Clear every field in all 5 enrollment stages? This action cannot be undone.')) {
+      S = {};
+      saveForms();
+      render();
+    }
+  };
+  nav.append(btnReset);
+
+  container.append(nav, stagesWrap);
+  return container;
+}
+
+function switchStage(idx) {
+  if (idx < 0 || idx > 4) return;
+  curStage = idx;
+  document.querySelectorAll('.stage-box').forEach((box, j) => box.classList.toggle('on', j === idx));
+  document.querySelectorAll('.forms-nav button').forEach((b, j) => {
+    if (j < 5) b.classList.toggle('on', j === idx);
+  });
+  window.scrollTo({ top: 100, behavior: 'smooth' });
+}
+
+/* ========================================================================= */
+/* INTEGRATED MEDICATION SCREENING INSTRUMENTS                               */
+/* ========================================================================= */
+const yn = [["No", 1], ["Yes", 0]], ny = [["Yes", 1], ["No", 0]];
+const MMAS_Q = [
+  ["Do you sometimes forget to take your medication?", yn],
+  ["People sometimes forget to take their medications for reasons other than forgetting. Thinking over the past two weeks, were there any days when you did not take your medication?", yn],
+  ["Have you ever cut back or stopped taking your medication without telling your doctor, because you felt worse when you took it?", yn],
+  ["When you travel or leave home, do you sometimes forget to bring your medication?", yn],
+  ["Did you take your medication the last time you were supposed to take it?", ny],
+  ["When you feel like your symptoms are under control, do you sometimes stop taking your medication?", yn],
+  ["Taking medication every day is a real inconvenience for some people. Do you ever feel hassled about sticking to your treatment plan?", yn],
+  ["How often do you have difficulty remembering to take all your medications?", [["Never/Rarely", 1], ["Once in a while", 0.75], ["Sometimes", 0.5], ["Usually", 0.25], ["All the time", 0]]]
+];
+
+const BHLS_Q = [
+  ["How confident are you filling out medical forms by yourself?", [["Extremely", 5], ["Quite a bit", 4], ["Somewhat", 3], ["A little bit", 2], ["Not at all", 1]]],
+  ["How often do you have someone help you read health-related materials?", [["Always", 1], ["Often", 2], ["Sometimes", 3], ["Occasionally", 4], ["Never", 5]]],
+  ["How often do you have problems learning about your medical condition because of difficulty understanding written information?", [["Always", 1], ["Often", 2], ["Sometimes", 3], ["Occasionally", 4], ["Never", 5]]]
+];
+
+function medsView() {
+  const q = Q();
+  let h = '<div class="hd"><h2>Medication Tracker & Clinical Screening Suite</h2>' +
+          '<button class="btn" data-add="meds">+ Add Medication Item</button></div>' +
+          '<div class="tw"><table><tr>' +
+          '<th>Client ID</th><th>Item as supplied (no doses)</th><th>Supplied by</th><th>Refill Reminder</th><th>Pharmacy</th><th>Done</th><th></th></tr>';
+
+  D.meds.forEach(function(r, i) {
+    if (q && JSON.stringify(r).toLowerCase().indexOf(q) < 0) return;
+    h += '<tr>' +
+         '<td>' + cell('meds', i, ["client", "Client ID", "cl"], r.client) + '</td>' +
+         '<td>' + cell('meds', i, ["item", "Item as supplied"], r.item) + '</td>' +
+         '<td>' + cell('meds', i, ["src", "Supplied by", "sel", ["Client", "Provider"]], r.src) + '</td>' +
+         '<td>' + cell('meds', i, ["refill", "Refill reminder", "date"], r.refill) + '</td>' +
+         '<td>' + cell('meds', i, ["pharm", "Pharmacy"], r.pharm) + '</td>' +
+         '<td>' + cell('meds', i, ["done", "Done", "bool"], r.done) + '</td>' +
+         '<td><button class="x" data-del="meds:' + i + '" aria-label="Delete row">&times;</button></td></tr>';
+  });
+  h += '</table></div><p class="note" style="margin-top:10px">Medication list reflects bottle labels strictly. No medical dosing changes or clinical prescriptions are made.</p>';
+
+  // Clinical Assessment Module
+  h += '<div class="card" style="margin-top:24px;">' +
+       '<div class="hd"><div><h3 style="font-size:22px;color:var(--pri);">Clinical Screening Suite: Auto-Scoring Instruments</h3>' +
+       '<p class="note" style="margin-top:2px;">Fillable template for Medication Adherence (MMAS-8) & Brief Health Literacy (BHLS)</p></div>' +
+       '<span class="pill" style="background:#E5EFE9;color:#3D5A4C;">Validated Protocol</span></div>' +
+       '<div class="form-grid" style="margin-bottom:16px;">' +
+       '<label class="fl">Client ID / Name<input type="text" id="scr_name" placeholder="SW-RM-4081"></label>' +
+       '<label class="fl">Assessment Date<input type="date" id="scr_date" value="' + day(0) + '"></label>' +
+       '<label class="fl">Completed by<input type="text" id="scr_by" value="Jasmeen Williams, LPN"></label>' +
+       '<label class="fl">Method<input type="text" id="scr_method" placeholder="Home visit, Phone, Video"></label>' +
+       '</div>';
+
+  h += '<div class="form-card"><h3>Part 1: Medication Adherence (8 Items — MMAS)</h3><div class="form-body" id="mmas_wrap"></div>' +
+       '<div class="form-body" style="padding-top:0;"><div class="screen-res" id="mmasRes">Answer all 8 items to see the adherence score & protocol.</div></div></div>';
+
+  h += '<div class="form-card"><h3>Part 2: Brief Health Literacy Screen (3 Items — BHLS)</h3><div class="form-body" id="bhls_wrap"></div>' +
+       '<div class="form-body" style="padding-top:0;"><div class="screen-res" id="bhlsRes">Answer all 3 items to see the health literacy score.</div></div></div>';
+
+  h += '<div class="form-card"><h3>Follow-Up Care Navigation Plan</h3><div class="form-body">' +
+       '<label class="fl">Coordinator Action Notes<textarea id="scr_notes" placeholder="Teach-back, large print, pill box setup, provider sync..."></textarea></label>' +
+       '<div class="noprint" style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">' +
+       '<button class="btn" onclick="window.print()">Print / Save PDF</button>' +
+       '<button class="btn alt" onclick="copyScreenSummary()">Copy Summary</button>' +
+       '<button class="btn alt" onclick="resetScreenForm()">Clear Screening Form</button>' +
+       '<span id="scr_status" class="note" style="align-self:center;font-weight:700;color:var(--sec);"></span>' +
+       '</div></div></div></div>';
+
+  return h;
+}
+
+function initScreens() {
+  const mw = document.getElementById("mmas_wrap");
+  if (!mw) return;
+  mw.innerHTML = MMAS_Q.map((q, i) =>
+    `<div class="screen-q"><p><b>${i + 1}.</b> ${q[0]}</p><div class="screen-opts">${q[1].map(o => `<label><input type="radio" name="m${i}" value="${o[1]}" data-l="${o[0]}">${o[0]}</label>`).join("")}</div></div>`
+  ).join("");
+
+  const bw = document.getElementById("bhls_wrap");
+  if (!bw) return;
+  bw.innerHTML = BHLS_Q.map((q, i) =>
+    `<div class="screen-q"><p><b>${i + 1}.</b> ${q[0]}</p><div class="screen-opts">${q[1].map(o => `<label><input type="radio" name="b${i}" value="${o[1]}" data-l="${o[0]}">${o[0]}</label>`).join("")}</div></div>`
+  ).join("");
+}
+
+function getScreenScore(pre, n) {
+  let s = 0, a = [];
+  for (let i = 0; i < n; i++) {
+    const r = document.querySelector(`input[name=${pre}${i}]:checked`);
+    if (!r) return null;
+    s += parseFloat(r.value);
+    a.push(r.value);
+  }
+  return { s, a };
+}
+
+let screenSummaryText = {};
+function calcScreens() {
+  const m = getScreenScore("m", 8), b = getScreenScore("b", 3);
+  const mr = document.getElementById("mmasRes"), br = document.getElementById("bhlsRes");
+  if (!mr || !br) return;
+  screenSummaryText = {};
+
+  if (m) {
+    const lvl = m.s < 6 ? "Low" : m.s < 8 ? "Medium" : "High";
+    const act = m.s < 6 ? "Explore adherence barriers with family, review regimen with prescribing physician, consider pill box synchronization and daily reminder support." :
+                m.s < 8 ? "Discuss missed-dose triggers, reinforce daily routine, offer structured pillbox setup and pharmacy auto-refill alignment." :
+                "Reinforce current medication routine; rescreen during the next scheduled quarterly check-in.";
+    mr.innerHTML = `<b>Score: ${m.s} / 8 (${lvl} Adherence)</b><br>${act}`;
+    screenSummaryText.m = `Medication Adherence: ${m.s}/8 (${lvl})`;
+  } else {
+    mr.textContent = "Answer all 8 items to calculate the adherence score.";
+  }
+
+  if (b) {
+    const lvl = b.s <= 9 ? "Likely Inadequate" : b.s <= 12 ? "Marginal" : "Adequate";
+    const flag = b.a.some(v => v <= 3) && b.s > 9 ? " (At least one item scored ≤3: potential comprehension friction flagged)" : "";
+    const act = b.s <= 12 ? "Apply teach-back methods, plain-language summaries, large print labels, and in-person verbal review of doctor instructions; involve authorized family proxy." :
+                "Standard care coordination approach; continue teach-back as standard best practice.";
+    br.innerHTML = `<b>Score: ${b.s} / 15 (${lvl} Health Literacy)${flag}</b><br>${act}`;
+    screenSummaryText.b = `Health Literacy: ${b.s}/15 (${lvl})`;
+  } else {
+    br.textContent = "Answer all 3 items to calculate the health literacy score.";
+  }
+}
+
+function copyScreenSummary() {
+  const g = id => {
+    const el = document.getElementById(id);
+    return el ? el.value : '';
+  };
+  const t = [
+    `Client: ${g("scr_name")} | Date: ${g("scr_date")} | Coordinator: ${g("scr_by")} | Method: ${g("scr_method")}`,
+    screenSummaryText.m || "Medication Adherence: Incomplete",
+    screenSummaryText.b || "Health Literacy: Incomplete",
+    `Action Notes: ${g("scr_notes")}`
+  ].join("\n");
+
+  const st = document.getElementById("scr_status");
+  try {
+    navigator.clipboard.writeText(t).then(() => {
+      if (st) st.textContent = "✓ Summary copied to clipboard";
+    }, () => {
+      if (st) st.textContent = "Select & copy manually.";
+    });
+  } catch(e) {
+    if (st) st.textContent = "Copy unavailable in this browser context.";
+  }
+}
+
+function resetScreenForm() {
+  document.querySelectorAll('#mmas_wrap input, #bhls_wrap input').forEach(r => r.checked = false);
+  const notes = document.getElementById("scr_notes");
+  if (notes) notes.value = "";
+  calcScreens();
+  const st = document.getElementById("scr_status");
+  if (st) st.textContent = "";
+}
+
+function renderNav() {
+  var el = document.getElementById("nav");
+  if (!el) return;
+  var h = '<div class="brand"><div class="brand-lockup">' +
+          '<div class="brand-mark">' + iconSvg("mark") + '</div>' +
+          '<div><b>SOUTHERN WELL</b><small>Senior Concierge</small></div>' +
+          '</div></div>';
+  NAV.forEach(function(item) {
+    var active = V === item[0] ? ' class="on"' : '';
+    h += '<a href="#' + item[0] + '" data-nav="' + item[0] + '"' + active + '>' +
+         '<span class="nav-icon">' + iconSvg(item[2]) + '</span>' +
+         '<span>' + item[1] + '</span></a>';
+  });
+  el.innerHTML = h;
+}
+
+function render() {
+  load();
+  renderNav();
+  var v = document.getElementById("v");
+  if (!v) return;
+  if (V === "dashboard") v.innerHTML = dash();
+  else if (V === "workflow") v.innerHTML = flow();
+  else if (V === "forms") {
+    v.innerHTML = "";
+    v.append(formsView());
+  } else if (V === "meds") {
+    v.innerHTML = medsView();
+    initScreens();
+  } else if (M[V]) v.innerHTML = mod(V);
+  else v.innerHTML = '<div class="card"><h3>' + V.toUpperCase() + '</h3><p class="note">Section active.</p></div>';
+}
+
+// Global Operations Event Listeners
+document.addEventListener("click", function(e) {
+  var nav = e.target.closest("[data-nav]");
+  if (nav) {
+    e.preventDefault();
+    V = nav.getAttribute("data-nav");
+    render();
+    return;
+  }
+  var pre = e.target.closest("[data-pre]");
+  if (pre) {
+    D.preset = pre.getAttribute("data-pre");
+    save();
+    render();
+    return;
+  }
+  var add = e.target.closest("[data-add]");
+  if (add) {
+    var k = add.getAttribute("data-add");
+    if (k === "clients") {
+      var nextNum = D.clients.length + 1;
+      D.clients.unshift({
+        id: "SW-NEW-" + nextNum,
+        ini: "N.C.",
+        county: "Forrest",
+        pkg: "Essentials",
+        step: 0,
+        next: day(3),
+        visit: "Discovery Call",
+        status: "Active",
+        contact: "Phone",
+        packet: "Not started",
+        consent: false,
+        porch: "Standard",
+        needs: "Intake scheduled"
+      });
+    } else if (M[k]) {
+      var emptyRow = {};
+      M[k].c.forEach(function(col) { emptyRow[col[0]] = ""; });
+      D[k].unshift(emptyRow);
+    }
+    save();
+    render();
+    return;
+  }
+  var del = e.target.closest("[data-del]");
+  if (del) {
+    var parts = del.getAttribute("data-del").split(":");
+    D[parts[0]].splice(parseInt(parts[1], 10), 1);
+    save();
+    render();
+    return;
+  }
+  var mv = e.target.closest("[data-mv]");
+  if (mv) {
+    var p = mv.getAttribute("data-mv").split(":");
+    var idx = parseInt(p[0], 10), diff = parseInt(p[1], 10);
+    if (D.clients[idx]) {
+      D.clients[idx].step = Math.max(0, Math.min(9, (D.clients[idx].step || 0) + diff));
+      save();
+      render();
+    }
+    return;
+  }
+  var exp = e.target.closest("[data-export-caseload]");
+  if (exp) {
+    var csv = "Client ID,Initials,County,Package,Status,Next Check-In\n";
+    D.clients.forEach(function(c) {
+      csv += [c.id, c.ini, c.county, c.pkg, c.status, c.next].join(",") + "\n";
+    });
+    var blob = new Blob([csv], { type: "text/csv" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "southernwell_caseload_ledger.csv";
+    a.click();
+    return;
+  }
+});
+
+document.addEventListener("change", function(e) {
+  var t = e.target;
+  if (t.dataset && t.dataset.k) {
+    var k = t.dataset.k, i = parseInt(t.dataset.i, 10), f = t.dataset.f;
+    var val = t.type === "checkbox" ? t.checked : t.dataset.t === "n" ? parseInt(t.value, 10) : t.value;
+    if (D[k] && D[k][i]) {
+      D[k][i][f] = val;
+      save();
+    }
+  }
+  if (t.name && (t.name.startsWith("m") || t.name.startsWith("b"))) {
+    calcScreens();
+  }
+});
+
+// Auto-check session storage on startup
+document.addEventListener("DOMContentLoaded", function() {
+  if (sessionStorage.getItem(PIN_SESSION_KEY) === "authenticated") {
+    unlockHub();
+  }
+  render();
+});
+
+render();
+</script>
+</body>
+</html>

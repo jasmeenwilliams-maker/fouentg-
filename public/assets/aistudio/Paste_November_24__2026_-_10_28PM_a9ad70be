@@ -1,0 +1,1505 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Southern Well Senior Concierge | South Mississippi Senior Care Navigation</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "canvas": "#F7F5F0",
+            "obsidian": "#1A1B1E",
+            "oxford": "#16263B",
+            "oxford-dark": "#0B1623",
+            "brass": "#B08D57",
+            "brass-light": "#DFC9A2",
+            "sage": "#3D5A4C",
+            "sage-light": "#E5EFE9",
+            "card-bg": "#FFFFFF",
+            "card-border": "#E8E5DD"
+          },
+          fontFamily: {
+            serif: ["Cormorant Garamond", "EB Garamond", "serif"],
+            sans: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body {
+      background-color: #F7F5F0;
+      color: #1A1B1E;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-heading {
+      font-family: 'Cormorant Garamond', 'EB Garamond', serif;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-obsidian antialiased selection:bg-brass-light selection:text-oxford">
+<!-- ========================================================================= -->
+<!-- SECTION 1: TOP NAVIGATION BAR                                             -->
+<!-- ========================================================================= -->
+<header class="sticky top-0 z-50 bg-[#F7F5F0]/95 backdrop-blur-md border-b border-[#E8E5DD] shadow-[0_2px_12px_rgba(22,38,59,0.04)]">
+<div class="max-w-[1240px] mx-auto px-5 sm:px-8 h-20 sm:h-24 flex items-center justify-between gap-4">
+<!-- Left Brand Mark -->
+<a class="flex items-center gap-3 sm:gap-4 group" href="#">
+<div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full p-0.5 bg-white border border-[#B08D57]/40 shadow-sm flex items-center justify-center shrink-0 transition-transform group-hover:scale-105">
+<img alt="Southern Well Botanical Crest Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0AdRksm9RWAlop7eypjUwEeyQV8b5JFBSOhCAwGD3NO6PCZHcoJKl9Yaa9_89aByV9qxzADHugL_OFcS0UOt9O4z3dL8Z20XRdU1dYQAJGIF1s53rGqoBiiBFxRPJunIrOqF065y0CjaFYqH-H_IutaMHHhoP4ljTziaicsROvc4bOeAW1r4lZOdiRLJS6YCbzjotZzcvsxdIQxFIWzzSMWMPiYt7Ol9QQnnkeaq7Hhe-JVkuF_tw">
+</div>
+<div class="flex flex-col">
+<span class="font-heading font-bold text-xl sm:text-2xl tracking-wide text-oxford leading-none">
+          SOUTHERN WELL
+        </span>
+<span class="font-sans text-[11px] sm:text-xs tracking-[0.2em] uppercase font-semibold text-brass mt-1">
+          Senior Concierge
+        </span>
+</div>
+</a>
+<!-- Center Anchor Links -->
+<nav class="hidden xl:flex items-center gap-7 text-[15px] font-medium text-obsidian/85">
+<a class="hover:text-sage transition-colors py-1 relative hover:after:w-full after:w-0 after:h-0.5 after:bg-brass after:absolute after:bottom-0 after:left-0 after:transition-all" href="#who-we-serve">Who We Serve</a>
+<a class="hover:text-sage transition-colors py-1 relative hover:after:w-full after:w-0 after:h-0.5 after:bg-brass after:absolute after:bottom-0 after:left-0 after:transition-all" href="#workflow">How It Works</a>
+<a class="hover:text-sage transition-colors py-1 relative hover:after:w-full after:w-0 after:h-0.5 after:bg-brass after:absolute after:bottom-0 after:left-0 after:transition-all" href="#services-pricing">Services &amp; Pricing</a>
+<a class="hover:text-sage transition-colors py-1 relative hover:after:w-full after:w-0 after:h-0.5 after:bg-brass after:absolute after:bottom-0 after:left-0 after:transition-all" href="#dossier-system">Care Dossier</a>
+<a class="hover:text-sage transition-colors py-1 relative hover:after:w-full after:w-0 after:h-0.5 after:bg-brass after:absolute after:bottom-0 after:left-0 after:transition-all" href="#service-area">Service Area</a>
+<a class="hover:text-sage transition-colors py-1 relative hover:after:w-full after:w-0 after:h-0.5 after:bg-brass after:absolute after:bottom-0 after:left-0 after:transition-all" href="#about-jasmeen">About Jasmeen</a>
+<a class="hover:text-sage transition-colors py-1 relative hover:after:w-full after:w-0 after:h-0.5 after:bg-brass after:absolute after:bottom-0 after:left-0 after:transition-all" href="#faq">FAQ</a>
+<a class="client-portal-trigger hover:text-sage transition-colors py-1 relative flex items-center gap-1.5 cursor-pointer hover:after:w-full after:w-0 after:h-0.5 after:bg-brass after:absolute after:bottom-0 after:left-0 after:transition-all" href="javascript:void(0)" onclick="openClientPortalModal()"><span class="material-symbols-outlined text-[17px] text-brass">lock</span><span>Client Portal</span></a></nav>
+<!-- Right CTA Button -->
+<div class="flex items-center gap-3"><button type="button" onclick="openClientPortalModal()" class="client-portal-trigger inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 sm:py-2.5 rounded border border-brass/40 bg-white hover:bg-canvas text-oxford text-xs sm:text-sm font-semibold tracking-wide shadow-xs hover:border-brass transition-all"><span class="material-symbols-outlined text-[16px] sm:text-[18px] text-brass">lock</span><span class="hidden sm:inline">Client Portal</span><span class="sm:hidden">Portal</span></button>
+<a class="hidden sm:flex items-center gap-1.5 text-xs font-semibold text-oxford hover:text-sage transition-colors px-2 py-1" href="tel:6015546067">
+<span class="material-symbols-outlined text-[17px] text-brass">call</span>
+<span>601-554-6067</span>
+</a>
+<a class="inline-flex items-center justify-center px-4 sm:px-5 py-2.5 sm:py-3 rounded bg-oxford hover:bg-oxford-dark text-canvas text-xs sm:text-sm font-semibold tracking-wide shadow-sm hover:shadow transition-all" href="#schedule-intake">
+        Book Free Consultation
+      </a>
+</div>
+</div>
+</header>
+<main class="w-full">
+<!-- ========================================================================= -->
+<!-- SECTION 2: HERO SECTION                                                   -->
+<!-- ========================================================================= -->
+<section class="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-[#E8E5DD]">
+<div class="max-w-[1240px] mx-auto px-5 sm:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Text Content -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<!-- Eyebrow -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E8E5DD] shadow-xs w-fit">
+<span class="w-2 h-2 rounded-full bg-sage"></span>
+<span class="text-[11px] sm:text-xs font-semibold tracking-widest text-oxford uppercase">
+              Private-Pay Non-Clinical Care Navigation • South Mississippi
+            </span>
+</div>
+<!-- Headline H1 -->
+<h1 class="font-heading text-4xl sm:text-5xl lg:text-[62px] leading-[1.08] text-oxford font-semibold tracking-tight">
+            Steady advocacy for every season of aging.
+          </h1>
+<!-- Subheadline -->
+<p class="text-base sm:text-lg lg:text-[19px] leading-relaxed text-obsidian/80 max-w-2xl">
+            A dedicated local partner providing dignified independence for older adults and reassuring clarity for families across Hattiesburg, Laurel, and the Mississippi Gulf Coast.
+          </p>
+<!-- CTA Actions -->
+<div class="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
+<a class="inline-flex items-center justify-center h-14 px-7 sm:px-8 rounded bg-oxford hover:bg-oxford-dark text-canvas font-semibold text-sm sm:text-base shadow-md hover:shadow-lg transition-all text-center" href="#schedule-intake">
+<span>Book a 30-Minute Discovery Call</span>
+<span class="material-symbols-outlined text-[20px] ml-2 text-brass-light">calendar_today</span>
+</a>
+<a class="inline-flex items-center justify-center h-14 px-6 rounded bg-white hover:bg-canvas text-oxford font-semibold text-sm sm:text-base shadow-sm border border-[#E8E5DD] transition-all text-center" href="#dossier-system">
+<span>Explore the 5-Tab Care Dossier</span>
+<span class="material-symbols-outlined text-[18px] ml-2 text-brass">arrow_forward</span>
+</a>
+</div>
+<!-- Secondary Callout -->
+<div class="flex items-center gap-2.5 text-sm sm:text-base font-medium text-oxford/90 pt-1">
+<span class="material-symbols-outlined text-sage text-[20px]">phone_in_talk</span>
+<span>Prefer to talk right away? Call or text <a class="font-bold underline decoration-brass hover:text-sage transition-colors" href="tel:601-554-6067">601-554-6067</a> or <a class="font-bold underline decoration-brass hover:text-sage transition-colors" href="tel:2285550199">(228) 555-0199</a></span>
+</div>
+<!-- Trust Proof Row -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-[#E8E5DD] mt-3">
+<div class="p-4 rounded-lg bg-white/80 border border-[#E8E5DD] flex flex-col gap-1.5 shadow-xs">
+<div class="flex items-center gap-2 text-sage">
+<span class="material-symbols-outlined text-[22px]">workspace_premium</span>
+<span class="text-xs uppercase tracking-wider font-semibold text-oxford">Clinical Fluency</span>
+</div>
+<h4 class="font-bold text-sm text-oxford">Led by Jasmeen Williams, LPN, BS-HHS</h4>
+<p class="text-xs text-obsidian/70">8+ years healthcare &amp; coordination experience</p>
+</div>
+<div class="p-4 rounded-lg bg-white/80 border border-[#E8E5DD] flex flex-col gap-1.5 shadow-xs">
+<div class="flex items-center gap-2 text-sage">
+<span class="material-symbols-outlined text-[22px]">location_on</span>
+<span class="text-xs uppercase tracking-wider font-semibold text-oxford">Regional Reach</span>
+</div>
+<h4 class="font-bold text-sm text-oxford">25-Mile Hub Travel Radius Included</h4>
+<p class="text-xs text-obsidian/70">Hattiesburg, Laurel, Gulfport, Biloxi &amp; Coast</p>
+</div>
+<div class="p-4 rounded-lg bg-white/80 border border-[#E8E5DD] flex flex-col gap-1.5 shadow-xs">
+<div class="flex items-center gap-2 text-sage">
+<span class="material-symbols-outlined text-[22px]">shield_person</span>
+<span class="text-xs uppercase tracking-wider font-semibold text-oxford">Pure Advocacy</span>
+</div>
+<h4 class="font-bold text-sm text-oxford">Strict Non-Clinical Confidential Care</h4>
+<p class="text-xs text-obsidian/70">100% independent private-pay; sliding scale available</p>
+</div>
+</div>
+</div>
+<!-- Right Visual: Care Dossier Presentation -->
+<div class="lg:col-span-5 relative">
+<div class="relative bg-white rounded-2xl p-6 sm:p-8 shadow-xl border border-[#E8E5DD]">
+<div class="flex items-center justify-between border-b border-[#E8E5DD] pb-4 mb-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brass text-[22px]">verified</span>
+<span class="text-xs font-semibold uppercase tracking-wider text-oxford">Your Dedicated Local Advocate</span>
+</div>
+<span class="text-xs font-medium text-sage">South Mississippi</span>
+</div>
+<div class="relative rounded-xl overflow-hidden shadow-md border border-[#E8E5DD] mb-5 aspect-[4/5] bg-canvas">
+<img alt="Jasmeen Williams, LPN, BS-HHS - Founder &amp; Principal Care Navigator" class="w-full h-full object-cover object-top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrPX58C7CKOmVJ62v2OUYoEKz34La84VIZghsc07l0FjDZNTzcIaDhSdLVOLD7XUvW_KxhunX3p-kDJwZcKu6jtwUJCS-8MhmCyoYBXxcB2yUef2oP93nG4UO5EThsTeiRJ7ZX_Te2ToLZX3zTqcAutfijKnv0utEgI9q4r3tlDiSxIoc49KrFg504v61GRaGdasMOHPYzvnEnYCvY6W0QYylU0Ecz3YNXoBdzn7pi5H7fv2PPbuCG1g">
+<div class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-oxford/90 backdrop-blur-md border border-brass/40 shadow-sm text-canvas">
+<span class="material-symbols-outlined text-brass text-[16px]">workspace_premium</span>
+<span class="text-[11px] font-semibold tracking-wider uppercase text-brass-light">Founder &amp; Principal Navigator</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-oxford/90 via-oxford/20 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 text-canvas flex items-end justify-between">
+<div>
+<span class="font-heading text-2xl font-bold text-white block leading-tight">Jasmeen Williams</span>
+<span class="text-xs uppercase tracking-widest text-brass-light font-semibold block mt-0.5">LPN, BS-HHS</span>
+</div>
+<div class="hidden sm:flex items-center gap-1 px-2.5 py-1 rounded bg-white/10 backdrop-blur-md border border-white/10 text-[11px] text-[#F7F5F0]">
+<span class="material-symbols-outlined text-brass-light text-[15px]">home_pin</span>
+<span>Hattiesburg &amp; Coast</span>
+</div>
+</div>
+</div>
+<div class="w-full bg-oxford rounded-xl p-5 text-canvas relative overflow-hidden shadow-lg border border-oxford-dark">
+<div class="absolute -top-12 -right-12 w-28 h-28 rounded-full border border-brass/20 pointer-events-none"></div>
+<div class="flex items-center justify-between border-b border-white/10 pb-3 mb-3">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-full bg-white p-1 shadow-sm flex items-center justify-center shrink-0">
+<img alt="Southern Well Crest" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0AdRksm9RWAlop7eypjUwEeyQV8b5JFBSOhCAwGD3NO6PCZHcoJKl9Yaa9_89aByV9qxzADHugL_OFcS0UOt9O4z3dL8Z20XRdU1dYQAJGIF1s53rGqoBiiBFxRPJunIrOqF065y0CjaFYqH-H_IutaMHHhoP4ljTziaicsROvc4bOeAW1r4lZOdiRLJS6YCbzjotZzcvsxdIQxFIWzzSMWMPiYt7Ol9QQnnkeaq7Hhe-JVkuF_tw">
+</div>
+<div>
+<span class="font-heading text-lg font-bold tracking-wider text-[#F7F5F0] block leading-none">SOUTHERN WELL</span>
+<span class="text-[10px] tracking-[0.2em] text-brass-light font-semibold uppercase block mt-1">Master Care Dossier Standard</span>
+</div>
+</div>
+<span class="text-[11px] font-semibold text-brass px-2 py-0.5 rounded bg-brass/10 border border-brass/20 shrink-0">Physical &amp; Cloud</span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-xs">
+<div class="p-2 rounded bg-oxford-dark/80 border border-white/5 flex items-center gap-2">
+<span class="material-symbols-outlined text-sage text-[18px]">kitchen</span>
+<span class="text-[#F7F5F0]/90 text-[11px]">EMS Refrigerator Log</span>
+</div>
+<div class="p-2 rounded bg-oxford-dark/80 border border-white/5 flex items-center gap-2">
+<span class="material-symbols-outlined text-brass-light text-[18px]">event_note</span>
+<span class="text-[#F7F5F0]/90 text-[11px]">24-Hr Family Briefings</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 3: WHO WE SERVE (3 CORE AUDIENCES)                                -->
+<!-- ========================================================================= -->
+<section class="py-16 md:py-24 bg-[#EFECE5]/60 border-b border-[#E8E5DD]" id="who-we-serve">
+<div class="max-w-[1240px] mx-auto px-5 sm:px-8">
+<div class="max-w-3xl mb-14">
+<span class="text-xs sm:text-sm font-semibold tracking-widest text-brass uppercase block mb-2">
+          TAILORED SUPPORT SYSTEMS
+        </span>
+<h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-semibold text-oxford leading-tight mb-4">
+          Who we stand beside across South Mississippi
+        </h2>
+<p class="text-base sm:text-lg text-obsidian/80 leading-relaxed">
+          Whether you are an independent elder safeguarding your autonomy or an adult daughter coordinating care from afar, our boots-on-the-ground advocacy brings reliable stability.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Audience Card 1 -->
+<div class="bg-white rounded-xl p-7 border border-[#E8E5DD] shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="w-12 h-12 rounded-lg bg-sage/10 text-sage flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[26px]">chair</span>
+</div>
+<span class="text-xs font-semibold tracking-wider text-brass uppercase block mb-1">Ages 70 – 95+</span>
+<h3 class="font-heading text-2xl font-bold text-oxford mb-3">
+              Older Adults Seeking Dignified Independence
+            </h3>
+<p class="text-base text-obsidian/75 leading-relaxed mb-4">
+              You cherish living in your own South Mississippi home with freedom and personal privacy. We organize confusing medication schedules, eliminate missed specialist visits, and safeguard your voice without imposing patronizing oversight.
+            </p>
+</div>
+<div class="pt-4 mt-2 bg-canvas/70 rounded-lg p-3.5 flex flex-col gap-1 text-xs border border-[#E8E5DD]">
+<span class="font-bold text-oxford uppercase tracking-wider text-[11px] mb-0.5">Key Priorities:</span>
+<span class="text-obsidian/80 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sage"></span>Maintaining familiar routines at home</span>
+<span class="text-obsidian/80 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sage"></span>Accompanied clinic visits without rush</span>
+<span class="text-obsidian/80 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sage"></span>Streamlined, transparent home emergency binders</span>
+</div>
+</div>
+<!-- Audience Card 2 -->
+<div class="bg-white rounded-xl p-7 border border-[#E8E5DD] shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="w-12 h-12 rounded-lg bg-sage/10 text-sage flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[26px]">work_history</span>
+</div>
+<span class="text-xs font-semibold tracking-wider text-brass uppercase block mb-1">Local Sandwiched Generation</span>
+<h3 class="font-heading text-2xl font-bold text-oxford mb-3">
+              Busy Local Adult Children
+            </h3>
+<p class="text-base text-obsidian/75 leading-relaxed mb-4">
+              You are navigating demanding careers, active children, and aging parents across Forrest, Lamar, or Harrison counties. You cannot afford to take off 4 hours mid-Tuesday for every specialty clinic wait. We bridge the logistical gap.
+            </p>
+</div>
+<div class="pt-4 mt-2 bg-canvas/70 rounded-lg p-3.5 flex flex-col gap-1 text-xs border border-[#E8E5DD]">
+<span class="font-bold text-oxford uppercase tracking-wider text-[11px] mb-0.5">Key Priorities:</span>
+<span class="text-obsidian/80 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sage"></span>24-hour post-consultation clinic debriefs</span>
+<span class="text-obsidian/80 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sage"></span>Objective third-party mediator for safety adjustments</span>
+<span class="text-obsidian/80 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sage"></span>Regaining quality time as a son or daughter</span>
+</div>
+</div>
+<!-- Audience Card 3 -->
+<div class="bg-white rounded-xl p-7 border border-[#E8E5DD] shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="w-12 h-12 rounded-lg bg-sage/10 text-sage flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[26px]">flight_takeoff</span>
+</div>
+<span class="text-xs font-semibold tracking-wider text-brass uppercase block mb-1">Regional Distance Stewards</span>
+<h3 class="font-heading text-2xl font-bold text-oxford mb-3">
+              Long-Distance Family Advocates
+            </h3>
+<p class="text-base text-obsidian/75 leading-relaxed mb-4">
+              Living in New Orleans, Mobile, Jackson, Houston, or Atlanta while your parents remain in South Mississippi creates chronic tension. We serve as your trusted, skilled local presence ensuring nothing slips between institutional gaps.
+            </p>
+</div>
+<div class="pt-4 mt-2 bg-canvas/70 rounded-lg p-3.5 flex flex-col gap-1 text-xs border border-[#E8E5DD]">
+<span class="font-bold text-oxford uppercase tracking-wider text-[11px] mb-0.5">Key Priorities:</span>
+<span class="text-obsidian/80 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sage"></span>Monthly proactive wellness walkthroughs</span>
+<span class="text-obsidian/80 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sage"></span>Direct phone liaison with hospital discharge desks</span>
+<span class="text-obsidian/80 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sage"></span>Unbiased eyes and ears on the ground</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 4: 5-STAGE CARE NAVIGATION WORKFLOW                               -->
+<!-- ========================================================================= -->
+<section class="py-16 md:py-24 bg-canvas border-b border-[#E8E5DD] relative overflow-hidden" id="workflow">
+<div class="max-w-[1240px] mx-auto px-5 sm:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E8E5DD] shadow-xs mb-3">
+<span class="w-2 h-2 rounded-full bg-brass"></span>
+<span class="text-[11px] sm:text-xs font-semibold tracking-widest text-oxford uppercase">
+            CLEAR, STRUCTURED ONBOARDING &amp; CONTINUING CARE
+          </span>
+</div>
+<h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-semibold text-oxford leading-tight mb-4">
+          Our 5-Stage Care Navigation Process
+        </h2>
+<p class="text-base sm:text-lg text-obsidian/80 leading-relaxed">
+          From your first discovery conversation to routine clinic accompaniment, here is how we partner with older adults and their families across South Mississippi.
+        </p>
+</div>
+<!-- 5 Stages Grid / Timeline -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 relative items-stretch">
+<!-- Stage 1 -->
+<div class="bg-white rounded-xl p-6 border border-[#E8E5DD] shadow-xs flex flex-col justify-between hover:border-brass/70 hover:shadow-md transition-all relative group">
+<div class="absolute -top-3 left-6 px-3 py-0.5 rounded-full bg-oxford text-brass-light font-sans text-[10px] font-bold tracking-wider uppercase shadow-xs">
+            Stage 1 • Day 1
+          </div>
+<div class="pt-2">
+<div class="w-11 h-11 rounded-lg bg-sage/10 text-sage flex items-center justify-center mb-4 mt-2 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[24px]">support_agent</span>
+</div>
+<h3 class="font-heading text-xl font-bold text-oxford mb-2 leading-snug">
+              Initial Consultation &amp; Discovery
+            </h3>
+<p class="text-xs sm:text-[13px] text-obsidian/75 leading-relaxed mb-4">
+              Complimentary 30-minute phone, video, or in-person discovery call to verify service radius (Hattiesburg/Pine Belt &amp; Gulf Coast), screen non-clinical boundaries, assess needs, and determine recommended tier.
+            </p>
+</div>
+<div class="pt-3 border-t border-[#E8E5DD] text-[11px] font-semibold text-sage flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span>Clear fit &amp; care plan scope</span>
+</div>
+</div>
+<!-- Stage 2 -->
+<div class="bg-white rounded-xl p-6 border border-[#E8E5DD] shadow-xs flex flex-col justify-between hover:border-brass/70 hover:shadow-md transition-all relative group">
+<div class="absolute -top-3 left-6 px-3 py-0.5 rounded-full bg-oxford text-brass-light font-sans text-[10px] font-bold tracking-wider uppercase shadow-xs">
+            Stage 2 • Days 2–3
+          </div>
+<div class="pt-2">
+<div class="w-11 h-11 rounded-lg bg-sage/10 text-sage flex items-center justify-center mb-4 mt-2 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[24px]">assignment</span>
+</div>
+<h3 class="font-heading text-xl font-bold text-oxford mb-2 leading-snug">
+              Onboarding, Scope Waiver &amp; HIPAA Sync
+            </h3>
+<p class="text-xs sm:text-[13px] text-obsidian/75 leading-relaxed mb-4">
+              Secure client intake, legal authority verification (POA/self), clear non-clinical scope agreement, and execution of clinic HIPAA releases for primary care physicians, specialists, and pharmacies.
+            </p>
+</div>
+<div class="pt-3 border-t border-[#E8E5DD] text-[11px] font-semibold text-sage flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span>Authorized medical sync</span>
+</div>
+</div>
+<!-- Stage 3 -->
+<div class="bg-white rounded-xl p-6 border border-[#E8E5DD] shadow-xs flex flex-col justify-between hover:border-brass/70 hover:shadow-md transition-all relative group">
+<div class="absolute -top-3 left-6 px-3 py-0.5 rounded-full bg-brass text-oxford-dark font-sans text-[10px] font-bold tracking-wider uppercase shadow-xs">
+            Stage 3 • Days 4–7
+          </div>
+<div class="pt-2">
+<div class="w-11 h-11 rounded-lg bg-sage/10 text-sage flex items-center justify-center mb-4 mt-2 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[24px]">home_health</span>
+</div>
+<h3 class="font-heading text-xl font-bold text-oxford mb-2 leading-snug">
+              90-Min In-Home Foundation Assessment
+            </h3>
+<p class="text-xs sm:text-[13px] text-obsidian/75 leading-relaxed mb-4">
+              Unhurried kitchen-table visit: comprehensive home safety &amp; fall hazard walkthrough, lifestyle assessment, and full kitchen-table medication &amp; supplement reconciliation audit.
+            </p>
+</div>
+<div class="pt-3 border-t border-[#E8E5DD] text-[11px] font-semibold text-sage flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span>Full environmental &amp; Rx audit</span>
+</div>
+</div>
+<!-- Stage 4 -->
+<div class="bg-white rounded-xl p-6 border border-[#E8E5DD] shadow-xs flex flex-col justify-between hover:border-brass/70 hover:shadow-md transition-all relative group">
+<div class="absolute -top-3 left-6 px-3 py-0.5 rounded-full bg-oxford text-brass-light font-sans text-[10px] font-bold tracking-wider uppercase shadow-xs">
+            Stage 4 • Days 7–10
+          </div>
+<div class="pt-2">
+<div class="w-11 h-11 rounded-lg bg-sage/10 text-sage flex items-center justify-center mb-4 mt-2 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[24px]">menu_book</span>
+</div>
+<h3 class="font-heading text-xl font-bold text-oxford mb-1.5 leading-snug">
+              Care Dossier Assembly &amp; Provider Sync
+            </h3>
+<p class="text-xs text-obsidian/75 leading-relaxed mb-3">
+              Assembly of the Deep Oxford Navy linen binder with encrypted digital archive &amp; 5 structured divider tabs:
+            </p>
+<div class="space-y-1.5 mb-3.5 bg-canvas/60 p-2.5 rounded-lg border border-[#E8E5DD]">
+<div class="text-[10px] font-bold uppercase tracking-wider text-oxford mb-1 flex items-center justify-between">
+<span>5 Color-Coded Divider Tabs</span>
+<span class="text-[9px] font-semibold text-brass">Physical Binder</span>
+</div>
+<div class="flex items-center gap-1.5 text-[11px] text-obsidian/85"><span class="w-4 h-4 rounded-full bg-oxford text-brass-light text-[9px] font-bold flex items-center justify-center shrink-0">1</span><span class="font-medium truncate">Emergency &amp; Provider Contacts</span></div>
+<div class="flex items-center gap-1.5 text-[11px] text-obsidian/85"><span class="w-4 h-4 rounded-full bg-oxford text-brass-light text-[9px] font-bold flex items-center justify-center shrink-0">2</span><span class="font-medium truncate">Master Medication Log</span></div>
+<div class="flex items-center gap-1.5 text-[11px] text-obsidian/85"><span class="w-4 h-4 rounded-full bg-oxford text-brass-light text-[9px] font-bold flex items-center justify-center shrink-0">3</span><span class="font-medium truncate">Clinic Visit Summaries (AVS)</span></div>
+<div class="flex items-center gap-1.5 text-[11px] text-obsidian/85"><span class="w-4 h-4 rounded-full bg-oxford text-brass-light text-[9px] font-bold flex items-center justify-center shrink-0">4</span><span class="font-medium truncate">Advance Directives &amp; HIPAA</span></div>
+<div class="flex items-center gap-1.5 text-[11px] text-obsidian/85"><span class="w-4 h-4 rounded-full bg-oxford text-brass-light text-[9px] font-bold flex items-center justify-center shrink-0">5</span><span class="font-medium truncate">Family Briefings &amp; Wellness</span></div>
+<div class="pt-1.5 mt-1 border-t border-[#E8E5DD] flex items-center gap-1.5 text-[10px] text-sage font-semibold"><span class="material-symbols-outlined text-[13px] text-brass">kitchen</span><span>+ Laminated 1-Page EMS Snapshot</span></div>
+</div>
+</div>
+<div class="pt-3 border-t border-[#E8E5DD] text-[11px] font-semibold text-sage flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span>Physical binder + cloud archive</span>
+</div>
+</div>
+<!-- Stage 5 -->
+<div class="bg-oxford text-canvas rounded-xl p-6 border-2 border-brass shadow-md flex flex-col justify-between hover:shadow-lg transition-all relative group">
+<div class="absolute -top-3 left-6 px-3 py-0.5 rounded-full bg-brass text-oxford-dark font-sans text-[10px] font-bold tracking-wider uppercase shadow-xs">
+            Stage 5 • Day 11+ Ongoing
+          </div>
+<div class="pt-2">
+<div class="w-11 h-11 rounded-lg bg-brass/20 text-brass-light flex items-center justify-center mb-4 mt-2 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[24px]">event_available</span>
+</div>
+<h3 class="font-heading text-xl font-bold text-white mb-2 leading-snug">
+              Active Stewardship &amp; 24-Hr Briefings
+            </h3>
+<p class="text-xs sm:text-[13px] text-[#F7F5F0]/80 leading-relaxed mb-4">
+              Scheduled in-home wellness visits, proactive pillbox and refill checks, clinic appointment accompaniment with note-taking, and detailed family debrief briefings delivered within 24 hours.
+            </p>
+</div>
+<div class="pt-3 border-t border-white/10 text-[11px] font-semibold text-brass-light flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span>Unbroken, responsive advocacy</span>
+</div>
+</div>
+</div>
+<!-- Bottom Assurance & CTA Strip -->
+<div class="mt-12 p-6 sm:p-8 rounded-2xl bg-white border border-[#E8E5DD] shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-sage/10 text-sage flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">handshake</span>
+</div>
+<div>
+<h4 class="font-heading text-xl font-bold text-oxford">
+              Ready to start with an unhurried conversation?
+            </h4>
+<p class="text-xs sm:text-sm text-obsidian/75">
+              No pressure, no complicated paperwork to start—just compassionate guidance tailored to your parent's unique needs.
+            </p>
+</div>
+</div>
+<a class="inline-flex items-center justify-center px-6 py-3 rounded bg-oxford hover:bg-oxford-dark text-canvas text-xs font-bold tracking-wider uppercase shadow-sm hover:shadow transition-all shrink-0" href="#schedule-intake">
+<span>Schedule Stage 1 Consultation</span>
+<span class="material-symbols-outlined text-[16px] ml-1.5 text-brass-light">calendar_today</span>
+</a>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 5: SERVICES & TRANSPARENT PRICING MENU                            -->
+<!-- ========================================================================= -->
+<section class="py-16 md:py-24 bg-canvas border-b border-[#E8E5DD]" id="services-pricing">
+<div class="max-w-[1240px] mx-auto px-5 sm:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="text-xs sm:text-sm font-semibold tracking-widest text-brass uppercase block mb-2">
+          TRANSPARENT PRACTICE ENGAGEMENT
+        </span>
+<h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-semibold text-oxford leading-tight mb-4">
+          Dignified Private-Pay Concierge Services
+        </h2>
+<p class="text-base sm:text-lg text-obsidian/80">
+          No insurance pre-authorizations, no rushed 8-minute quotas. Direct, unhurried personal stewardship with clear upfront flat fees.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+<!-- Tier 1 -->
+<div class="bg-white rounded-xl p-6 border border-[#E8E5DD] shadow-xs flex flex-col justify-between">
+<div>
+<span class="text-xs font-bold text-brass tracking-wider uppercase block mb-1">01. Entry Foundation</span>
+<h3 class="font-heading text-2xl font-bold text-oxford mb-2 leading-snug">
+              90-Minute In-Home Foundation Assessment
+            </h3>
+<div class="my-4">
+<span class="text-3xl font-heading font-bold text-oxford">$225</span>
+<span class="text-xs font-semibold text-obsidian/60 uppercase ml-1">One-Time Flat Fee</span>
+</div>
+<ul class="space-y-3 text-sm text-obsidian/80 pt-2 border-t border-[#E8E5DD]">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-sage text-[18px] shrink-0 mt-0.5">check</span>
+<span>Complete kitchen-table medication bottle inventory and reconciliation log</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-sage text-[18px] shrink-0 mt-0.5">check</span>
+<span>Home hazard &amp; mobility path safety assessment</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-sage text-[18px] shrink-0 mt-0.5">check</span>
+<span>Setup of the 1-Page Laminated Emergency Refrigerator Guide</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-sage text-[18px] shrink-0 mt-0.5">check</span>
+<span>Sliding scale arrangements available for qualifying fixed incomes</span>
+</li>
+</ul>
+</div>
+<a class="mt-6 w-full py-2.5 rounded bg-canvas hover:bg-[#EFECE5] text-oxford font-semibold text-xs tracking-wider uppercase text-center block transition-colors border border-[#E8E5DD]" href="#schedule-intake">
+            Inquire About Assessment
+          </a>
+</div>
+<!-- Tier 2 -->
+<div class="bg-white rounded-xl p-6 border border-[#E8E5DD] shadow-xs flex flex-col justify-between">
+<div>
+<span class="text-xs font-bold text-brass tracking-wider uppercase block mb-1">02. Bi-Weekly Oversight</span>
+<h3 class="font-heading text-2xl font-bold text-oxford mb-2 leading-snug">
+              Essential Stewardship
+            </h3>
+<div class="my-4">
+<span class="text-3xl font-heading font-bold text-oxford">$275</span>
+<span class="text-xs font-semibold text-obsidian/60 uppercase ml-1">/ month</span>
+</div>
+<ul class="space-y-3 text-sm text-obsidian/80 pt-2 border-t border-[#E8E5DD]">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-sage text-[18px] shrink-0 mt-0.5">check</span>
+<span>2 scheduled check-ins per month (1 in-home, 1 virtual/phone)</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-sage text-[18px] shrink-0 mt-0.5">check</span>
+<span>Monthly medication refill &amp; pillbox organization audit</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-sage text-[18px] shrink-0 mt-0.5">check</span>
+<span>Appointment calendar management &amp; reminder calls</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-sage text-[18px] shrink-0 mt-0.5">check</span>
+<span>Monthly structured wellness report sent to authorized family</span>
+</li>
+</ul>
+</div>
+<a class="mt-6 w-full py-2.5 rounded bg-canvas hover:bg-[#EFECE5] text-oxford font-semibold text-xs tracking-wider uppercase text-center block transition-colors border border-[#E8E5DD]" href="#schedule-intake">
+            Select Essential
+          </a>
+</div>
+<!-- Tier 3 -->
+<div class="bg-oxford text-canvas rounded-xl p-6 shadow-lg flex flex-col justify-between relative border-2 border-brass">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-brass text-oxford-dark font-sans font-bold text-[10px] tracking-widest uppercase rounded-full shadow-sm">
+            Most Comprehensive
+          </div>
+<div>
+<span class="text-xs font-bold text-brass-light tracking-wider uppercase block mb-1">03. Weekly Retainer</span>
+<h3 class="font-heading text-2xl font-bold text-white mb-2 leading-snug">
+              Comprehensive Concierge
+            </h3>
+<div class="my-4">
+<span class="text-3xl font-heading font-bold text-white">$345–$375</span>
+<span class="text-xs font-semibold text-brass-light uppercase ml-1">/ month</span>
+</div>
+<ul class="space-y-3 text-sm text-[#F7F5F0]/90 pt-2 border-t border-white/10">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-brass-light text-[18px] shrink-0 mt-0.5">check</span>
+<span>Weekly in-home wellness &amp; medication organization check-ins</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-brass-light text-[18px] shrink-0 mt-0.5">check</span>
+<span>Pharmacy refill synchronization &amp; specialty delivery tracking</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-brass-light text-[18px] shrink-0 mt-0.5">check</span>
+<span>Physician office liaison, lab results archival &amp; visit prep</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-brass-light text-[18px] shrink-0 mt-0.5">check</span>
+<span>Up to 2 clinic accompaniments per month + 24-hr debrief briefings</span>
+</li>
+</ul>
+</div>
+<a class="mt-6 w-full py-2.5 rounded bg-brass hover:bg-brass-light text-oxford font-bold text-xs tracking-wider uppercase text-center block transition-colors" href="#schedule-intake">
+            Select Comprehensive
+          </a>
+</div>
+<!-- Tier 4 -->
+<div class="bg-white rounded-xl p-6 border border-[#E8E5DD] shadow-xs flex flex-col justify-between">
+<div>
+<span class="text-xs font-bold text-brass tracking-wider uppercase block mb-1">04. Targeted Advocacy</span>
+<h3 class="font-heading text-2xl font-bold text-oxford mb-2 leading-snug">
+              Clinic Visit Accompaniment &amp; Advocacy
+            </h3>
+<div class="my-4">
+<span class="text-3xl font-heading font-bold text-oxford">$75</span>
+<span class="text-xs font-semibold text-obsidian/60 uppercase ml-1">/ visit (Up to 2 hrs; $35/hr thereafter)</span>
+</div>
+<ul class="space-y-3 text-sm text-obsidian/80 pt-2 border-t border-[#E8E5DD]">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-sage text-[18px] shrink-0 mt-0.5">check</span>
+<span>Pre-appointment question preparation with family members</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-sage text-[18px] shrink-0 mt-0.5">check</span>
+<span>Presence inside exam room &amp; meticulous note-taking</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-sage text-[18px] shrink-0 mt-0.5">check</span>
+<span>Doctor clarification on orders, new prescriptions, and follow-ups</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-sage text-[18px] shrink-0 mt-0.5">check</span>
+<span>Digital voice debrief &amp; written After-Visit Summary (AVS)</span>
+</li>
+</ul>
+</div>
+<a class="mt-6 w-full py-2.5 rounded bg-canvas hover:bg-[#EFECE5] text-oxford font-semibold text-xs tracking-wider uppercase text-center block transition-colors border border-[#E8E5DD]" href="#schedule-intake">
+            Book Clinic Accompaniment
+          </a>
+</div>
+</div>
+<!-- Scope Boundary Notification Banner -->
+<div class="mt-8 p-6 rounded-xl bg-white border border-[#E8E5DD] flex items-start gap-4 shadow-xs">
+<div class="w-10 h-10 rounded-full bg-oxford text-canvas flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px] text-brass-light">policy</span>
+</div>
+<div>
+<h4 class="font-bold text-base text-oxford mb-1">
+            Strict Non-Clinical Boundary Scope
+          </h4>
+<p class="text-sm text-obsidian/80 leading-relaxed">
+            Southern Well Senior Concierge operates strictly as a professional healthcare navigator, family liaison, and institutional coordinator. Jasmeen Williams uses her licensed nursing background (LPN) to interpret records and guide conversations; however, Southern Well does <em>not</em> administer physical medications, injectables, wound dressing, or direct custodial nursing care.
+          </p>
+</div>
+</div>
+<!-- Sibling Cost-Share Calculator Widget -->
+<div class="mt-12 bg-white rounded-2xl border border-[#E8E5DD] shadow-lg overflow-hidden">
+<div class="bg-gradient-to-r from-oxford via-oxford to-oxford-dark px-6 py-6 sm:px-10 border-b border-brass/30 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-center gap-3.5">
+<div class="w-11 h-11 rounded-full bg-brass/15 border border-brass/30 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-brass-light text-[24px]">diversity_3</span>
+</div>
+<div>
+<div class="inline-flex items-center gap-2 mb-0.5">
+<span class="text-[11px] font-bold tracking-[0.2em] uppercase text-brass-light">Interactive Tool</span>
+<span class="w-1 h-1 rounded-full bg-brass-light"></span>
+<span class="text-xs text-canvas/70">Family Financial Transparency</span>
+</div>
+<h3 class="font-heading text-2xl sm:text-3xl font-bold text-white leading-tight">
+                Family Cost-Sharing Calculator
+              </h3>
+</div>
+</div>
+<p class="text-xs sm:text-sm text-canvas/75 md:max-w-md md:text-right font-sans">
+            See how easily ongoing senior care stewardship divides among adult siblings or contributing family members.
+          </p>
+</div>
+<div class="p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+<!-- Left: Interactive Controls -->
+<div class="lg:col-span-7 flex flex-col justify-between space-y-6">
+<!-- 1. Plan Selector -->
+<div>
+<label class="block text-xs font-bold tracking-wider text-oxford uppercase mb-2.5">
+                1. Select Monthly Retainer Plan
+              </label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="plan-buttons">
+<button class="plan-btn text-left p-3.5 rounded-xl border-2 border-[#E8E5DD] bg-canvas hover:border-brass/70 transition-all flex flex-col justify-between" data-plan="essential" data-price="275" onclick="selectPlan('essential', 275, this)" type="button">
+<div class="flex items-center justify-between">
+<span class="font-heading font-bold text-base text-oxford">Essential Stewardship</span>
+<span class="w-4 h-4 rounded-full border-2 border-oxford/40 flex items-center justify-center plan-radio-indicator">
+<span class="w-2 h-2 rounded-full bg-oxford hidden radio-dot"></span>
+</span>
+</div>
+<div class="mt-1 flex items-baseline gap-1">
+<span class="text-xl font-bold text-oxford font-heading">$275</span>
+<span class="text-xs text-obsidian/60">/ month</span>
+</div>
+<span class="text-[11px] text-obsidian/60 mt-1">2 scheduled visits &amp; pillbox audit</span>
+</button>
+<button class="plan-btn active text-left p-3.5 rounded-xl border-2 border-brass bg-oxford/5 shadow-xs transition-all flex flex-col justify-between" data-plan="comprehensive" data-price="360" onclick="selectPlan('comprehensive', 360, this)" type="button">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="font-heading font-bold text-base text-oxford">Comprehensive</span>
+<span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-brass text-oxford-dark uppercase">Popular</span>
+</div>
+<span class="w-4 h-4 rounded-full border-2 border-brass flex items-center justify-center plan-radio-indicator">
+<span class="w-2 h-2 rounded-full bg-brass block radio-dot"></span>
+</span>
+</div>
+<div class="mt-1 flex items-baseline gap-1">
+<span class="text-xl font-bold text-oxford font-heading">$360</span>
+<span class="text-xs text-obsidian/60">/ month ($345–$375)</span>
+</div>
+<span class="text-[11px] text-obsidian/60 mt-1">Weekly visits + 2 clinic accompaniments</span>
+</button>
+</div>
+</div>
+<!-- 2. Sibling Count Selector -->
+<div>
+<div class="flex items-center justify-between mb-2.5">
+<label class="block text-xs font-bold tracking-wider text-oxford uppercase">
+                  2. Number of Contributing Siblings / Members
+                </label>
+<span class="text-xs text-sage font-semibold" id="sibling-count-summary">Split 3 ways</span>
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<div class="inline-flex items-center rounded-lg border border-[#E8E5DD] bg-white p-1 shadow-xs">
+<button aria-label="Decrease siblings" class="w-9 h-9 rounded bg-canvas hover:bg-[#EFECE5] text-oxford font-bold flex items-center justify-center transition-colors" onclick="adjustSiblings(-1)" type="button">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<span class="w-12 text-center font-heading font-bold text-xl text-oxford" id="sibling-count-display">3</span>
+<button aria-label="Increase siblings" class="w-9 h-9 rounded bg-canvas hover:bg-[#EFECE5] text-oxford font-bold flex items-center justify-center transition-colors" onclick="adjustSiblings(1)" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<button class="sibling-pill px-3 py-1.5 text-xs font-semibold rounded-lg border border-[#E8E5DD] bg-canvas text-obsidian/80 hover:border-brass transition-all" data-siblings="2" onclick="setSiblings(2, this)" type="button">2 Siblings</button>
+<button class="sibling-pill active px-3 py-1.5 text-xs font-bold rounded-lg border border-brass bg-brass text-oxford-dark transition-all" data-siblings="3" onclick="setSiblings(3, this)" type="button">3 Siblings</button>
+<button class="sibling-pill px-3 py-1.5 text-xs font-semibold rounded-lg border border-[#E8E5DD] bg-canvas text-obsidian/80 hover:border-brass transition-all" data-siblings="4" onclick="setSiblings(4, this)" type="button">4 Siblings</button>
+<button class="sibling-pill px-3 py-1.5 text-xs font-semibold rounded-lg border border-[#E8E5DD] bg-canvas text-obsidian/80 hover:border-brass transition-all" data-siblings="5" onclick="setSiblings(5, this)" type="button">5 Siblings</button>
+</div>
+</div>
+</div>
+<!-- 3. Foundation Assessment Toggle -->
+<div class="p-3.5 rounded-xl bg-canvas border border-[#E8E5DD] flex items-center justify-between gap-3">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-brass text-[22px] shrink-0 mt-0.5">folder_shared</span>
+<div>
+<span class="text-xs font-bold text-oxford block">Include One-Time Foundation Assessment ($225)?</span>
+<span class="text-[12px] text-obsidian/70">Calculates initial Month 1 onboarding cost split evenly across members.</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" id="foundation-toggle" onchange="recalculateCost()" type="checkbox">
+<div class="w-11 h-6 bg-[#C4C6CD] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sage"></div>
+</label>
+</div>
+<!-- 4. Sliding Scale Option -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-bold tracking-wider text-oxford uppercase">Community Sliding Scale Simulation</span>
+<span class="text-[11px] text-brass font-medium">Income-Qualified Families</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="scale-btn active py-2 px-2 text-center rounded-lg border border-oxford bg-oxford text-canvas text-xs font-semibold transition-all" data-scale="1" onclick="setScale(1, this)" type="button">
+                  Standard (100%)
+                </button>
+<button class="scale-btn py-2 px-2 text-center rounded-lg border border-[#E8E5DD] bg-canvas text-obsidian/80 text-xs font-medium hover:border-brass transition-all" data-scale="0.8" onclick="setScale(0.8, this)" type="button">
+                  Tier A (20% off)
+                </button>
+<button class="scale-btn py-2 px-2 text-center rounded-lg border border-[#E8E5DD] bg-canvas text-obsidian/80 text-xs font-medium hover:border-brass transition-all" data-scale="0.65" onclick="setScale(0.65, this)" type="button">
+                  Tier B (35% off)
+                </button>
+</div>
+</div>
+</div>
+<!-- Right: Result Card -->
+<div class="lg:col-span-5 bg-oxford rounded-xl p-6 sm:p-7 text-canvas flex flex-col justify-between border-2 border-brass/50 shadow-xl relative overflow-hidden">
+<div class="absolute -top-16 -right-16 w-36 h-36 rounded-full bg-brass/10 pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
+<span class="text-[11px] font-bold tracking-[0.2em] text-brass-light uppercase">Share Per Family Member</span>
+<span class="text-xs px-2.5 py-0.5 rounded-full bg-white/10 text-brass-light font-medium" id="display-plan-tag">Comprehensive Concierge</span>
+</div>
+<!-- Main Big Number -->
+<div class="text-center py-2">
+<div class="text-[11px] font-semibold text-[#F7F5F0]/70 uppercase tracking-widest mb-1">Your Monthly Share</div>
+<div class="flex items-baseline justify-center gap-1">
+<span class="font-heading text-4xl sm:text-5xl lg:text-[46px] font-bold text-white tracking-tight" id="share-monthly-display">$120.00</span>
+<span class="text-sm sm:text-base text-brass-light font-medium">/ mo per member</span>
+</div>
+<div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-xs text-[#E5EFE9]">
+<span class="material-symbols-outlined text-[15px] text-brass-light">coffee</span>
+<span id="daily-share-display">Just ~$4.00 / day per member</span>
+</div>
+</div>
+<!-- Breakdown Rows -->
+<div class="mt-6 pt-5 border-t border-white/10 space-y-2.5 text-xs text-[#F7F5F0]/85">
+<div class="flex justify-between items-center">
+<span class="text-canvas/60">Total Monthly Retainer:</span>
+<span class="font-bold text-white" id="total-retainer-display">$360.00 / mo</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-canvas/60">Contributing Members:</span>
+<span class="font-semibold text-brass-light" id="breakdown-siblings-display">3 Contributing Siblings</span>
+</div>
+<div class="flex justify-between items-center" id="row-sliding-scale" style="display: none;">
+<span class="text-canvas/60">Sliding Scale Adjusted:</span>
+<span class="font-semibold text-[#E5EFE9]" id="sliding-discount-display">None</span>
+</div>
+<div class="flex justify-between items-center pt-2 border-t border-white/5" id="row-foundation" style="display: flex;">
+<span class="text-canvas/60">Month 1 Onboarding Share:</span>
+<span class="font-bold text-brass-light" id="foundation-share-display">+$75.00 one-time ($195.00 total M1)</span>
+</div>
+</div>
+</div>
+<!-- Call to action inside widget -->
+<div class="mt-6 pt-4 border-t border-white/10">
+<a class="w-full py-3 rounded-lg bg-brass hover:bg-brass-light text-oxford font-bold text-xs tracking-wider uppercase text-center block transition-all shadow-md" href="#schedule-intake">
+                Discuss Shared Family Billing in Consultation
+              </a>
+<p class="text-[11px] text-center text-canvas/60 mt-2 font-light">
+                Southern Well supports direct split billing or coordinated monthly invoices across family members.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 6: THE SIGNATURE 5-TAB CARE DOSSIER SHOWCASE                      -->
+<!-- ========================================================================= -->
+<section class="py-16 md:py-24 bg-[#EFECE5]/60 border-b border-[#E8E5DD]" id="dossier-system">
+<div class="max-w-[1240px] mx-auto px-5 sm:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- 5 Tabs List Column -->
+<div class="lg:col-span-6 flex flex-col gap-5">
+<span class="text-xs sm:text-sm font-semibold tracking-widest text-brass uppercase block">
+            INSTITUTIONAL CLARITY AT HOME
+          </span>
+<h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-semibold text-oxford leading-tight">
+            The Signature 5-Tab Care Dossier
+          </h2>
+<p class="text-base sm:text-lg text-obsidian/80 leading-relaxed">
+            Placed prominently on the home credenza or kitchen console, this custom Deep Oxford Navy binder serves as the single source of truth for family members, EMS responders, and visiting physicians.
+          </p>
+<div class="flex flex-col gap-3 pt-2">
+<!-- Tab 1 -->
+<div class="p-4 rounded-xl bg-white flex items-start gap-3.5 shadow-xs border border-[#E8E5DD]">
+<span class="w-8 h-8 rounded-full bg-oxford text-brass-light font-heading font-bold text-sm flex items-center justify-center shrink-0 border border-brass/40">1</span>
+<div>
+<h4 class="font-heading font-bold text-lg text-oxford">Emergency &amp; Provider Directory</h4>
+<p class="text-xs text-obsidian/75 leading-relaxed">Instant contact protocols, primary care physician, specialists, preferred hospital, pharmacy, and primary adult child proxy contacts.</p>
+</div>
+</div>
+<!-- Tab 2 -->
+<div class="p-4 rounded-xl bg-white flex items-start gap-3.5 shadow-xs border border-[#E8E5DD]">
+<span class="w-8 h-8 rounded-full bg-oxford text-brass-light font-heading font-bold text-sm flex items-center justify-center shrink-0 border border-brass/40">2</span>
+<div>
+<h4 class="font-heading font-bold text-lg text-oxford">Master Medication Reconciliation Log</h4>
+<p class="text-xs text-obsidian/75 leading-relaxed">Full photographic record of actual prescription bottles, dosage timings, prescribing doctors, indication, and allergy warnings.</p>
+</div>
+</div>
+<!-- Tab 3 -->
+<div class="p-4 rounded-xl bg-white flex items-start gap-3.5 shadow-xs border border-[#E8E5DD]">
+<span class="w-8 h-8 rounded-full bg-oxford text-brass-light font-heading font-bold text-sm flex items-center justify-center shrink-0 border border-brass/40">3</span>
+<div>
+<h4 class="font-heading font-bold text-lg text-oxford">Clinic After-Visit Summaries (AVS)</h4>
+<p class="text-xs text-obsidian/75 leading-relaxed">Chronological, plain-language notes taken during doctor consultations, highlighting adjustments in prognosis, therapies, and scheduled diagnostics.</p>
+</div>
+</div>
+<!-- Tab 4 -->
+<div class="p-4 rounded-xl bg-white flex items-start gap-3.5 shadow-xs border border-[#E8E5DD]">
+<span class="w-8 h-8 rounded-full bg-oxford text-brass-light font-heading font-bold text-sm flex items-center justify-center shrink-0 border border-brass/40">4</span>
+<div>
+<h4 class="font-heading font-bold text-lg text-oxford">Advance Directives, Living Will &amp; HIPAA</h4>
+<p class="text-xs text-obsidian/75 leading-relaxed">Verified Mississippi Healthcare Power of Attorney records, DNR directives, and legal release authorizations accessible instantly in high-stress moments.</p>
+</div>
+</div>
+<!-- Tab 5 -->
+<div class="p-4 rounded-xl bg-white flex items-start gap-3.5 shadow-xs border border-[#E8E5DD]">
+<span class="w-8 h-8 rounded-full bg-oxford text-brass-light font-heading font-bold text-sm flex items-center justify-center shrink-0 border border-brass/40">5</span>
+<div>
+<h4 class="font-heading font-bold text-lg text-oxford">Family Wellness Briefings &amp; 30-Day Plan</h4>
+<p class="text-xs text-obsidian/75 leading-relaxed">Actionable rolling checklist for seasonal home maintenance, nutritional preferences, church transportation, and social engagement goals.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Specimen Preview Visual Column -->
+<div class="lg:col-span-6 flex flex-col gap-6">
+<div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-[#E8E5DD]">
+<div class="flex items-center justify-between pb-4 mb-4 border-b border-[#E8E5DD]">
+<span class="text-xs uppercase font-bold tracking-wider text-brass">Physical Hardware Inclusions</span>
+<span class="text-xs font-semibold text-oxford">Delivered at Foundation Visit</span>
+</div>
+<!-- Simulated Binder Preview -->
+<div class="rounded-xl bg-oxford p-6 text-canvas border border-brass/40 shadow-inner">
+<div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+<div class="flex items-center gap-2.5">
+<span class="w-3 h-3 rounded-full bg-brass"></span>
+<span class="font-heading font-bold text-lg text-white">Southern Well Care System</span>
+</div>
+<span class="text-[11px] font-bold text-brass-light uppercase tracking-widest">Version 4.2</span>
+</div>
+<!-- Tab Header Bar -->
+<div class="grid grid-cols-5 gap-1.5 text-center text-[10px] sm:text-[11px] font-bold uppercase mb-4">
+<div class="bg-white/15 border border-brass py-1.5 rounded text-brass-light">TAB 1</div>
+<div class="bg-white/5 py-1.5 rounded text-[#F7F5F0]/60">TAB 2</div>
+<div class="bg-white/5 py-1.5 rounded text-[#F7F5F0]/60">TAB 3</div>
+<div class="bg-white/5 py-1.5 rounded text-[#F7F5F0]/60">TAB 4</div>
+<div class="bg-white/5 py-1.5 rounded text-[#F7F5F0]/60">TAB 5</div>
+</div>
+<!-- Inner Sample Sheet -->
+<div class="bg-canvas rounded-lg p-5 text-obsidian shadow-sm border border-[#E8E5DD]">
+<div class="flex items-center justify-between pb-2 mb-3 border-b border-[#E8E5DD]">
+<span class="text-xs font-bold uppercase tracking-wider text-oxford">Section 1: Critical Emergency Snapshot</span>
+<span class="text-[11px] text-sage font-semibold">Updated 3 Days Ago</span>
+</div>
+<div class="space-y-2 text-xs text-obsidian/80">
+<p><strong class="text-oxford">Client:</strong> Robert H. McAllister (DOB: 04/12/1941)</p>
+<p><strong class="text-oxford">Cardiologist:</strong> Forrest General Heart Center • Dr. K. Sterling</p>
+<p><strong class="text-oxford">Allergies:</strong> Penicillin (Anaphylaxis), Contrast Dye (Mild rash)</p>
+<p><strong class="text-oxford">Healthcare Proxy:</strong> Sarah M. McAllister (Daughter • Atlanta, GA)</p>
+</div>
+</div>
+</div>
+<!-- Refrigerator Magnet Snapshot Highlight -->
+<div class="mt-5 p-4 rounded-xl bg-canvas border border-[#E8E5DD] flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-sage/10 text-sage flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">kitchen</span>
+</div>
+<div>
+<span class="text-sm font-bold text-oxford block">The Laminated Refrigerator Snapshot</span>
+<span class="text-xs text-obsidian/75">Emergency medics verify this exact form before transport.</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded bg-sage-light text-sage font-bold text-xs uppercase shrink-0">Included</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-14 pt-12 border-t border-[#E8E5DD]"><div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4"><div><div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#E8E5DD] shadow-xs mb-2.5"><span class="material-symbols-outlined text-brass text-[16px]">file_download</span><span class="text-[11px] font-bold tracking-widest text-oxford uppercase">Printable Practice Resources</span></div><h3 class="font-heading text-2xl sm:text-3xl font-bold text-oxford leading-snug">Downloadable Care Dossier Guides &amp; Specimens</h3><p class="text-xs sm:text-sm text-obsidian/75 max-w-2xl mt-1">Printable reference files designed to share directly with family trustees, distant siblings, and emergency healthcare proxies.</p></div><div class="flex items-center gap-2 text-xs text-sage font-medium bg-white px-3.5 py-2 rounded-lg border border-[#E8E5DD] shadow-xs shrink-0"><span class="material-symbols-outlined text-[18px]">verified_user</span><span>Direct, unhurried family guidance</span></div></div><div class="grid grid-cols-1 md:grid-cols-3 gap-6"><div class="bg-white rounded-xl p-6 border border-[#E8E5DD] shadow-xs flex flex-col justify-between hover:shadow-md hover:border-brass/60 transition-all"><div class="flex flex-col"><div class="flex items-center justify-between mb-4"><div class="w-11 h-11 rounded-lg bg-oxford text-brass-light flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[22px]">menu_book</span></div><span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-brass/10 border border-brass/20 text-brass uppercase tracking-wider">PDF • 2.4 MB</span></div><h4 class="font-heading font-bold text-xl text-oxford mb-2 leading-snug">5-Tab Care Dossier Family Overview Guide</h4><p class="text-xs sm:text-[13px] text-obsidian/75 leading-relaxed mb-4">A comprehensive 6-page printable family guide detailing binder architecture, divider tabs, critical emergency contact assembly, and monthly review routines.</p></div><div class="pt-4 border-t border-[#E8E5DD] flex items-center gap-2.5"><a class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded bg-oxford hover:bg-oxford-dark text-canvas text-xs font-semibold tracking-wide transition-colors shadow-xs" download="" href="#"><span class="material-symbols-outlined text-[16px] text-brass-light">download</span><span>Download PDF</span></a><a class="inline-flex items-center justify-center px-3 py-2.5 rounded bg-canvas hover:bg-[#EFECE5] text-oxford text-xs font-semibold border border-[#E8E5DD] transition-colors" href="#dossier-system"><span class="material-symbols-outlined text-[16px] text-oxford">visibility</span></a></div></div><div class="bg-white rounded-xl p-6 border border-[#E8E5DD] shadow-xs flex flex-col justify-between hover:shadow-md hover:border-brass/60 transition-all"><div class="flex flex-col"><div class="flex items-center justify-between mb-4"><div class="w-11 h-11 rounded-lg bg-oxford text-brass-light flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[22px]">kitchen</span></div><span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-sage-light text-sage uppercase tracking-wider border border-sage/30">Print-Ready PDF • 1.1 MB</span></div><h4 class="font-heading font-bold text-xl text-oxford mb-2 leading-snug">Emergency Refrigerator Medication Log Specimen</h4><p class="text-xs sm:text-[13px] text-obsidian/75 leading-relaxed mb-4">Single-page print-ready emergency medical summary and allergy ledger formatted specifically for home first responders, EMS crews, and emergency rooms.</p></div><div class="pt-4 border-t border-[#E8E5DD] flex items-center gap-2.5"><a class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded bg-oxford hover:bg-oxford-dark text-canvas text-xs font-semibold tracking-wide transition-colors shadow-xs" download="" href="#"><span class="material-symbols-outlined text-[16px] text-brass-light">print</span><span>Download PDF</span></a><a class="inline-flex items-center justify-center px-3 py-2.5 rounded bg-canvas hover:bg-[#EFECE5] text-oxford text-xs font-semibold border border-[#E8E5DD] transition-colors" href="#dossier-system"><span class="material-symbols-outlined text-[16px] text-oxford">visibility</span></a></div></div><div class="bg-white rounded-xl p-6 border border-[#E8E5DD] shadow-xs flex flex-col justify-between hover:shadow-md hover:border-brass/60 transition-all"><div class="flex flex-col"><div class="flex items-center justify-between mb-4"><div class="w-11 h-11 rounded-lg bg-oxford text-brass-light flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[22px]">contact_page</span></div><span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-brass/10 border border-brass/20 text-brass uppercase tracking-wider">PDF Brochure • 3.8 MB</span></div><h4 class="font-heading font-bold text-xl text-oxford mb-2 leading-snug">Southern Well Practice Brochure &amp; Service Guide</h4><p class="text-xs sm:text-[13px] text-obsidian/75 leading-relaxed mb-4">Full clinical fluency credentials, service tier comparisons, upfront transparent pricing schedule, and Hattiesburg &amp; Coastal Mississippi service boundaries.</p></div><div class="pt-4 border-t border-[#E8E5DD] flex items-center gap-2.5"><a class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded bg-oxford hover:bg-oxford-dark text-canvas text-xs font-semibold tracking-wide transition-colors shadow-xs" download="" href="#"><span class="material-symbols-outlined text-[16px] text-brass-light">download</span><span>Download PDF</span></a><a class="inline-flex items-center justify-center px-3 py-2.5 rounded bg-canvas hover:bg-[#EFECE5] text-oxford text-xs font-semibold border border-[#E8E5DD] transition-colors" href="#services-pricing"><span class="material-symbols-outlined text-[16px] text-oxford">visibility</span></a></div></div></div><div class="mt-6 p-4 rounded-xl bg-canvas border border-[#E8E5DD] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-obsidian/75"><div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-brass text-[20px] shrink-0">info</span><span>Need physical binder inserts printed and mailed to out-of-town siblings or legal counsel? We provide full postal fulfillment.</span></div><a class="text-oxford font-bold hover:text-sage transition-colors underline shrink-0" href="#schedule-intake">Request Printed Specimen Kit →</a></div></div></div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 7: DUAL-JURISDICTION REGIONAL SERVICE COVERAGE                   -->
+<!-- ========================================================================= -->
+<section class="py-16 md:py-24 bg-canvas border-b border-[#E8E5DD]" id="service-area">
+<div class="max-w-[1240px] mx-auto px-5 sm:px-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div>
+<span class="text-xs sm:text-sm font-semibold tracking-widest text-brass uppercase block mb-2">
+            BESPOKE REGIONAL FOOTPRINT
+          </span>
+<h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-semibold text-oxford leading-tight">
+            Dual-District Coverage in South Mississippi
+          </h2>
+</div>
+<div class="p-3.5 bg-white rounded-lg text-xs font-semibold text-obsidian/80 border border-[#E8E5DD] shadow-xs">
+<span class="font-bold text-oxford">Included Travel:</span> 25-mile radius from Hattiesburg &amp; Gulfport city centers.
+        </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- District 1: Pine Belt -->
+<div class="bg-white rounded-2xl p-7 shadow-xs border border-[#E8E5DD] flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2 text-sage">
+<span class="material-symbols-outlined text-[26px]">forest</span>
+<span class="font-heading font-bold text-2xl text-oxford">Pine Belt District</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-sage-light text-sage text-xs font-bold uppercase">Hub: Hattiesburg</span>
+</div>
+<p class="text-sm sm:text-base text-obsidian/75 leading-relaxed mb-5">
+              Serving our inland communities with regular in-person home visits, clinic accompaniment at Forrest General Hospital and Hattiesburg Clinic facilities, and comprehensive care logistics.
+            </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 rounded-md bg-canvas text-xs font-semibold text-oxford border border-[#E8E5DD]">Hattiesburg</span>
+<span class="px-3 py-1 rounded-md bg-canvas text-xs font-semibold text-oxford border border-[#E8E5DD]">Laurel</span>
+<span class="px-3 py-1 rounded-md bg-canvas text-xs font-semibold text-oxford border border-[#E8E5DD]">Petal</span>
+<span class="px-3 py-1 rounded-md bg-canvas text-xs font-semibold text-oxford border border-[#E8E5DD]">Purvis</span>
+<span class="px-3 py-1 rounded-md bg-canvas text-xs font-semibold text-oxford border border-[#E8E5DD]">Ellisville</span>
+</div>
+</div>
+<div class="w-full h-48 rounded-xl bg-cover bg-center overflow-hidden shadow-inner flex items-end p-3 border border-[#E8E5DD]" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDO3ZpYqPFPGiolYfRayiIpczo--2uuKaVNho3TW2yVrbLvhgFldIpcUeeOBUxsINrVK-KzIDDSw2e3x_HxpZlqTVnUGF5c-uqKbsYRH3DnBvFPNR-SRjpdl2KZCpohEBrTEmCwky68oe_xtwCKC-XQ1vqMdDvb1_jaOgH7gDGoGev8AT4AKaAYq73kqTghg6__Igqp7sjA_u1fWhn-P-IZ7_gnhzQz3IL41A1GKhQ&quot;);">
+<span class="px-3 py-1 rounded bg-oxford/90 text-canvas text-xs font-semibold backdrop-blur-sm border border-brass/30">
+              Pine Belt Practice Region
+            </span>
+</div>
+</div>
+<!-- District 2: Gulf Coast -->
+<div class="bg-white rounded-2xl p-7 shadow-xs border border-[#E8E5DD] flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2 text-sage">
+<span class="material-symbols-outlined text-[26px]">waves</span>
+<span class="font-heading font-bold text-2xl text-oxford">Mississippi Gulf Coast</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-sage-light text-sage text-xs font-bold uppercase">Hub: Gulfport</span>
+</div>
+<p class="text-sm sm:text-base text-obsidian/75 leading-relaxed mb-5">
+              Supporting coastal residences across Harrison and Jackson counties, coordinating closely with Memorial Hospital Gulfport, Singing River Health System, and local specialist centers.
+            </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 rounded-md bg-canvas text-xs font-semibold text-oxford border border-[#E8E5DD]">Gulfport</span>
+<span class="px-3 py-1 rounded-md bg-canvas text-xs font-semibold text-oxford border border-[#E8E5DD]">Biloxi</span>
+<span class="px-3 py-1 rounded-md bg-canvas text-xs font-semibold text-oxford border border-[#E8E5DD]">Ocean Springs</span>
+<span class="px-3 py-1 rounded-md bg-canvas text-xs font-semibold text-oxford border border-[#E8E5DD]">Long Beach</span>
+<span class="px-3 py-1 rounded-md bg-canvas text-xs font-semibold text-oxford border border-[#E8E5DD]">Bay St. Louis</span>
+<span class="px-3 py-1 rounded-md bg-canvas text-xs font-semibold text-oxford border border-[#E8E5DD]">Pascagoula</span>
+</div>
+</div>
+<div class="w-full h-48 rounded-xl bg-cover bg-center overflow-hidden shadow-inner flex items-end p-3 border border-[#E8E5DD]" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCjxXf5PX-oeOLjSzG_TSGMhyBN9qw-fGkIYDnZb2IsJwmkJ7MsNB8KjhtYNDjjLH4zVEyU_NTkriBkvjN6XsDsm768HQ0or9AVB6yMTm7qEe-F0_ZbK-z6PQqgK0NjgJT9__TqiYXOu7LMUtfgDHaWr73StA_jS3nKZKJChaWyQhKfEsNifO7CvfHnmWo6yE9dcxPGC2DuRlEnhcW0WtnNkOhpokFcVVRDMJ02Kww&quot;);">
+<span class="px-3 py-1 rounded bg-oxford/90 text-canvas text-xs font-semibold backdrop-blur-sm border border-brass/30">
+              Gulf Coast Practice Region
+            </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 8: EDITORIAL TESTIMONIAL QUOTE                                    -->
+<!-- ========================================================================= -->
+<section class="py-16 md:py-20 bg-canvas border-b border-[#E8E5DD]">
+<div class="max-w-[960px] mx-auto px-5 sm:px-8 text-center">
+<div class="w-14 h-14 mx-auto rounded-full bg-white flex items-center justify-center text-brass mb-6 border border-[#E8E5DD] shadow-sm">
+
+</div>
+
+<div class="flex flex-col items-center gap-1">
+
+
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 9: MEET THE FOUNDER                                               -->
+<!-- ========================================================================= -->
+<section class="py-16 md:py-24 bg-[#EFECE5]/50 border-b border-[#E8E5DD]" id="about-jasmeen">
+<div class="max-w-[1240px] mx-auto px-5 sm:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Founder Image Card -->
+<div class="lg:col-span-5">
+<div class="relative rounded-2xl overflow-hidden shadow-xl border border-[#E8E5DD] bg-white group">
+<div class="flex items-center justify-between border-b border-[#E8E5DD] pb-4 mb-5 p-6 pb-0">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brass text-[22px]">verified</span>
+<span class="text-xs font-semibold uppercase tracking-wider text-oxford">Your Dedicated Local Advocate</span>
+</div>
+<span class="text-xs font-medium text-sage">South Mississippi</span>
+</div>
+<div class="p-6 pt-4">
+<div class="relative rounded-xl overflow-hidden shadow-md border border-[#E8E5DD] mb-5 aspect-[4/5] bg-canvas">
+<img alt="Jasmeen Williams, LPN, BS-HHS - Founder and Principal Care Navigator" class="w-full h-full object-cover object-top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg9-kpwFU-Zed94PsayzuiPSXFa9sKyvA5s6UaoJ4ONg32GNawctqorHxT29yO0Y1E3qsUqEPF8T8I8KOTxsQR7TVtVlWgAMSI1kKRpBtTZrM9677ohnMvihsL6G9DG0j3ah7mZoCrM-HUrtSNXK6eoA01-JjTAiOar8YYtcb7KBkBy5vfWIwq57AdfCQN91Fs3rVfn2PY6yhwVOlyrA78J49onzyH599PRWkGQPMt7LTQbUL_xwB1PQ">
+<div class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-oxford/90 backdrop-blur-md border border-brass/40 shadow-sm text-canvas">
+<span class="material-symbols-outlined text-brass text-[16px]">workspace_premium</span>
+<span class="text-[11px] font-semibold tracking-wider uppercase text-brass-light">Founder &amp; Principal Navigator</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-oxford/90 via-oxford/20 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 text-canvas flex items-end justify-between">
+<div>
+<span class="font-heading text-2xl font-bold text-white block leading-tight">Jasmeen Williams</span>
+<span class="text-xs uppercase tracking-widest text-brass-light font-semibold block mt-0.5">LPN, BS-HHS</span>
+</div>
+<div class="hidden sm:flex items-center gap-1 px-2.5 py-1 rounded bg-white/10 backdrop-blur-md border border-white/10 text-[11px] text-[#F7F5F0]">
+<span class="material-symbols-outlined text-brass-light text-[15px]">home_pin</span>
+<span>Hattiesburg &amp; Coast</span>
+</div>
+</div>
+</div>
+<div class="w-full bg-oxford rounded-xl p-5 text-canvas relative overflow-hidden shadow-lg border border-oxford-dark">
+<div class="flex items-center justify-between border-b border-white/10 pb-3 mb-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-white p-1 shadow-sm flex items-center justify-center shrink-0">
+<img alt="Southern Well Crest" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0AdRksm9RWAlop7eypjUwEeyQV8b5JFBSOhCAwGD3NO6PCZHcoJKl9Yaa9_89aByV9qxzADHugL_OFcS0UOt9O4z3dL8Z20XRdU1dYQAJGIF1s53rGqoBiiBFxRPJunIrOqF065y0CjaFYqH-H_IutaMHHhoP4ljTziaicsROvc4bOeAW1r4lZOdiRLJS6YCbzjotZzcvsxdIQxFIWzzSMWMPiYt7Ol9QQnnkeaq7Hhe-JVkuF_tw">
+</div>
+<div>
+<span class="font-heading text-base font-bold tracking-wider text-[#F7F5F0] block leading-none">SOUTHERN WELL</span>
+<span class="text-[9px] tracking-[0.2em] text-brass-light font-semibold uppercase block mt-1">Master Care Dossier Standard</span>
+</div>
+</div>
+<span class="text-[10px] font-semibold text-brass px-2 py-0.5 rounded bg-brass/10 border border-brass/20 shrink-0">Physical &amp; Cloud</span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-xs">
+<div class="p-2 rounded bg-oxford-dark/80 border border-white/5 flex items-center gap-2">
+<span class="material-symbols-outlined text-sage text-[16px]">assignment_turned_in</span>
+<span class="text-[#F7F5F0]/90 text-[10px]">All Records In One Place</span>
+</div>
+<div class="p-2 rounded bg-oxford-dark/80 border border-white/5 flex items-center gap-2">
+<span class="material-symbols-outlined text-brass-light text-[16px]">event_note</span>
+<span class="text-[#F7F5F0]/90 text-[10px]">Prompt Family Updates</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Founder Bio Content -->
+<div class="lg:col-span-7 flex flex-col gap-5">
+<span class="text-xs sm:text-sm font-semibold tracking-widest text-brass uppercase block">
+            ABOUT YOUR ADVOCATE
+          </span>
+<h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-semibold text-oxford leading-tight">
+            Meet Jasmeen Williams, LPN, BS-HHS
+          </h2>
+<h3 class="font-heading text-2xl italic text-sage">
+            “Aging should feel dignified, cherished, and free of bureaucratic fear.”
+          </h3>
+<div class="space-y-4 text-base sm:text-[17px] text-obsidian/85 leading-relaxed">
+<p>
+              I founded Southern Well Senior Concierge right here in South Mississippi after observing too many devoted families flounder in high-stress hospital hallways and rushed doctor offices. Our healthcare landscape is complex, fragmented, and notoriously impersonal.
+            </p>
+<p>
+              With my background as a Licensed Practical Nurse paired with a Bachelor of Science in Health &amp; Human Services, I do not arrive with a hurried clipboard or clinical coldness. I come to your kitchen table with deep respect for your family's history, practical knowledge of South Mississippi hospital networks, and absolute dedication to your loved one’s comfort.
+            </p>
+</div>
+<!-- Credentials / Core Pillars Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+<div class="p-3.5 rounded-lg bg-white flex items-start gap-3 border border-[#E8E5DD] shadow-xs">
+<span class="material-symbols-outlined text-sage text-[22px] shrink-0 mt-0.5">school</span>
+<div>
+<span class="font-bold text-sm text-oxford block">Clinical &amp; Advisory Education</span>
+<span class="text-xs text-obsidian/75">Licensed Practical Nurse • BS Health &amp; Human Services</span>
+</div>
+</div>
+<div class="p-3.5 rounded-lg bg-white flex items-start gap-3 border border-[#E8E5DD] shadow-xs">
+<span class="material-symbols-outlined text-brass text-[22px] shrink-0 mt-0.5">home_pin</span>
+<div>
+<span class="font-bold text-sm text-oxford block">Deep Regional Roots</span>
+<span class="text-xs text-obsidian/75">Lifelong Mississippi native with established specialist ties</span>
+</div>
+</div>
+</div>
+<!-- Signature block -->
+<div class="pt-3 pb-1 flex flex-col items-start gap-1">
+
+<span class="text-xs font-heading italic text-obsidian/70 tracking-wide">Jasmeen Williams, LPN, BS-HHS — Founder &amp; Principal Care Navigator</span>
+</div>
+<div class="mt-2 p-4 rounded-lg bg-white border border-[#B08D57]/40 shadow-xs flex items-start gap-3">
+<span class="material-symbols-outlined text-brass text-[22px] shrink-0 mt-0.5">info</span>
+<p class="text-xs sm:text-sm text-obsidian/80 leading-normal">
+<strong>Important Scope Note:</strong> While Jasmeen brings over eight years of nursing and health leadership experience, Southern Well Senior Concierge operates strictly as a non-clinical care navigation and advocacy practice and does not provide skilled nursing or medical care.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 10: FREQUENTLY ASKED QUESTIONS (FAQ)                              -->
+<!-- ========================================================================= -->
+<section class="py-16 md:py-24 bg-canvas border-b border-[#E8E5DD]" id="faq">
+<div class="max-w-[880px] mx-auto px-5 sm:px-8">
+<div class="text-center mb-12">
+<span class="text-xs sm:text-sm font-semibold tracking-widest text-brass uppercase block mb-2">
+          CLARITY &amp; COMMON QUESTIONS
+        </span>
+<h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-semibold text-oxford leading-tight">
+          Frequently Asked Questions
+        </h2>
+</div>
+<div class="space-y-4">
+<details class="group bg-white rounded-xl border border-[#E8E5DD] shadow-xs overflow-hidden transition-colors open:border-sage/40" open="">
+<summary class="flex items-center justify-between p-6 cursor-pointer font-heading text-xl sm:text-2xl font-bold text-oxford list-none select-none">
+<span>Is Southern Well Senior Concierge a home health or medical agency?</span>
+<span class="material-symbols-outlined text-sage text-[24px] transition-transform duration-200 group-open:rotate-180 shrink-0 ml-4">
+              keyboard_arrow_down
+            </span>
+</summary>
+<div class="px-6 pb-6 pt-1 text-base text-obsidian/80 leading-relaxed border-t border-[#E8E5DD]/60">
+            No. Although founded by an experienced Licensed Practical Nurse (LPN, BS-HHS), Southern Well operates strictly as a non-clinical care navigation and advocacy service. We do not dispense medications, perform skilled nursing assessments, or provide medical or clinical mental health treatment. Instead, we handle the logistical, organizational, and communication details—and coordinate warm referrals to licensed physicians, home health agencies, and Licensed Clinical Social Workers (LCSWs) whenever clinical care is needed.
+          </div>
+</details>
+<details class="group bg-white rounded-xl border border-[#E8E5DD] shadow-xs overflow-hidden transition-colors open:border-sage/40">
+<summary class="flex items-center justify-between p-6 cursor-pointer font-heading text-xl sm:text-2xl font-bold text-oxford list-none select-none">
+<span>How do you help with medications if your service is non-clinical?</span>
+<span class="material-symbols-outlined text-sage text-[24px] transition-transform duration-200 group-open:rotate-180 shrink-0 ml-4">
+              keyboard_arrow_down
+            </span>
+</summary>
+<div class="px-6 pb-6 pt-1 text-base text-obsidian/80 leading-relaxed border-t border-[#E8E5DD]/60">
+            We provide organizational medication oversight: keeping an up-to-date master medication list, checking expiration dates, helping organize weekly pillboxes strictly according to existing prescription bottle labels, flagging potential refill gaps or duplicate prescriptions for your pharmacist or doctor to review, and coordinating timely pharmacy refills.
+          </div>
+</details>
+<details class="group bg-white rounded-xl border border-[#E8E5DD] shadow-xs overflow-hidden transition-colors open:border-sage/40">
+<summary class="flex items-center justify-between p-6 cursor-pointer font-heading text-xl sm:text-2xl font-bold text-oxford list-none select-none">
+<span>Which areas in South Mississippi do you serve?</span>
+<span class="material-symbols-outlined text-sage text-[24px] transition-transform duration-200 group-open:rotate-180 shrink-0 ml-4">
+              keyboard_arrow_down
+            </span>
+</summary>
+<div class="px-6 pb-6 pt-1 text-base text-obsidian/80 leading-relaxed border-t border-[#E8E5DD]/60">
+            We serve families across two primary hubs: Hattiesburg &amp; the Pine Belt (including Laurel, Petal, Purvis, and Ellisville) and Gulfport &amp; the Mississippi Gulf Coast (including Biloxi, Long Beach, Ocean Springs, Bay St. Louis, and Pascagoula). Included service includes up to 25 miles from either hub.
+          </div>
+</details>
+<details class="group bg-white rounded-xl border border-[#E8E5DD] shadow-xs overflow-hidden transition-colors open:border-sage/40">
+<summary class="flex items-center justify-between p-6 cursor-pointer font-heading text-xl sm:text-2xl font-bold text-oxford list-none select-none">
+<span>How do we get started?</span>
+<span class="material-symbols-outlined text-sage text-[24px] transition-transform duration-200 group-open:rotate-180 shrink-0 ml-4">
+              keyboard_arrow_down
+            </span>
+</summary>
+<div class="px-6 pb-6 pt-1 text-base text-obsidian/80 leading-relaxed border-t border-[#E8E5DD]/60">
+            Begin with a complimentary 30-minute phone, video, or in-person family consultation. We will listen to your current concerns, verify your service radius, answer your questions, and recommend the right starting tier.
+          </div>
+</details>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SECTION 11: CONSULTATION BOOKING & CONTACT SECTION                        -->
+<!-- ========================================================================= -->
+<section class="py-16 md:py-24 bg-[#EFECE5]/60 border-b border-[#E8E5DD]" id="schedule-intake">
+<div class="max-w-[1100px] mx-auto px-5 sm:px-8">
+<div class="bg-white rounded-2xl p-8 sm:p-12 border border-[#E8E5DD] shadow-lg">
+<div class="text-center max-w-2xl mx-auto mb-10">
+<span class="text-xs sm:text-sm font-semibold tracking-widest text-brass uppercase block mb-2">
+            COMPLIMENTARY FAMILY DISCOVERY
+          </span>
+<h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-semibold text-oxford leading-tight mb-3">
+            Let's talk about how we can support your family.
+          </h2>
+<p class="text-base sm:text-lg text-obsidian/80">
+            Schedule a complimentary, no-obligation 30-minute consultation with Jasmeen Williams, LPN, BS-HHS.
+          </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+<!-- Direct Contact Info Side Panel -->
+<div class="lg:col-span-5 bg-canvas rounded-xl p-6 sm:p-8 border border-[#E8E5DD] flex flex-col gap-6">
+<h3 class="font-heading text-2xl font-bold text-oxford">
+              Direct Practice Inquiries
+            </h3>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-full bg-sage/10 text-sage flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</div>
+<div>
+<span class="text-xs uppercase tracking-wider font-semibold text-obsidian/60 block">Call or Text</span>
+<a class="text-base font-bold text-oxford hover:text-sage transition-colors block" href="tel:601-554-6067">601-554-6067</a>
+<a class="text-sm font-semibold text-oxford hover:text-sage transition-colors block mt-0.5" href="tel:2285550199">(228) 555-0199</a>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-full bg-sage/10 text-sage flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+<div>
+<span class="text-xs uppercase tracking-wider font-semibold text-obsidian/60 block">Direct Email</span>
+<a class="text-sm sm:text-base font-bold text-oxford hover:text-sage transition-colors break-all" href="mailto:jasmeenwilliams@southernwellofsouthms.com">
+                    jasmeenwilliams@southernwellofsouthms.com
+                  </a>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-full bg-sage/10 text-sage flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+</div>
+<div>
+<span class="text-xs uppercase tracking-wider font-semibold text-obsidian/60 block">Service Area</span>
+<span class="text-sm font-semibold text-oxford">
+                    Hattiesburg / Pine Belt &amp; Gulfport / Mississippi Gulf Coast
+                  </span>
+</div>
+</div>
+</div>
+<div class="pt-4 border-t border-[#E8E5DD] text-xs text-obsidian/70">
+              All inquiries are received directly by Jasmeen and handled with strict personal discretion.
+            </div>
+</div>
+<!-- Comprehensive Intake Contact Form -->
+<div class="lg:col-span-7">
+<form class="space-y-4" onsubmit="event.preventDefault(); document.getElementById('consultation-success').classList.remove('hidden'); this.classList.add('hidden');">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-semibold uppercase tracking-wider text-oxford mb-1.5" for="full_name">Your Name (Inquirer) *</label>
+<input class="w-full px-4 py-3 rounded-lg border border-[#E8E5DD] bg-white focus:outline-none focus:border-brass text-sm text-obsidian" id="full_name" placeholder="Sarah Jenkins" required="" type="text">
+</div>
+<div>
+<label class="block text-xs font-semibold uppercase tracking-wider text-oxford mb-1.5" for="senior_name">Senior / Parent Name *</label>
+<input class="w-full px-4 py-3 rounded-lg border border-[#E8E5DD] bg-white focus:outline-none focus:border-brass text-sm text-obsidian" id="senior_name" placeholder="Margaret Jenkins" required="" type="text">
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-semibold uppercase tracking-wider text-oxford mb-1.5" for="phone">Phone Number *</label>
+<input class="w-full px-4 py-3 rounded-lg border border-[#E8E5DD] bg-white focus:outline-none focus:border-brass text-sm text-obsidian" id="phone" placeholder="(601) 555-0199" required="" type="tel">
+</div>
+<div>
+<label class="block text-xs font-semibold uppercase tracking-wider text-oxford mb-1.5" for="email">Email Address *</label>
+<input class="w-full px-4 py-3 rounded-lg border border-[#E8E5DD] bg-white focus:outline-none focus:border-brass text-sm text-obsidian" id="email" placeholder="sarah@example.com" required="" type="email">
+</div>
+</div>
+<div>
+<label class="block text-xs font-semibold uppercase tracking-wider text-oxford mb-1.5" for="location">Primary Service Hub / City</label>
+<select class="w-full px-4 py-3 rounded-lg border border-[#E8E5DD] bg-white focus:outline-none focus:border-brass text-sm text-obsidian" id="location">
+<option value="hattiesburg">Hattiesburg / Petal / Pine Belt District</option>
+<option value="gulfport">Gulfport / Biloxi / Mississippi Gulf Coast</option>
+<option value="laurel">Laurel / Ellisville / Surrounding Areas</option>
+<option value="coastal_islands">Ocean Springs / Long Beach / Bay St. Louis</option>
+<option value="other">Other South Mississippi Community</option>
+</select>
+</div>
+<!-- Care Needs Checkboxes -->
+<div>
+<span class="block text-xs font-semibold uppercase tracking-wider text-oxford mb-2">Key Areas of Interest:</span>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-obsidian/85 bg-canvas/70 p-3.5 rounded-lg border border-[#E8E5DD]">
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="rounded border-[#E8E5DD] text-oxford focus:ring-brass" type="checkbox">
+<span>90-Min Foundation Assessment</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="rounded border-[#E8E5DD] text-oxford focus:ring-brass" type="checkbox">
+<span>Clinic Visit Accompaniment</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="rounded border-[#E8E5DD] text-oxford focus:ring-brass" type="checkbox">
+<span>Medication Organization &amp; Refills</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="rounded border-[#E8E5DD] text-oxford focus:ring-brass" type="checkbox">
+<span>Long-Distance Family Oversight</span>
+</label>
+</div>
+</div>
+<div>
+<label class="block text-xs font-semibold uppercase tracking-wider text-oxford mb-1.5" for="situation">How can Jasmeen best assist your family?</label>
+<textarea class="w-full px-4 py-3 rounded-lg border border-[#E8E5DD] bg-white focus:outline-none focus:border-brass text-sm text-obsidian" id="situation" placeholder="Tell us about your parent's current situation, upcoming appointments, or care coordination needs..." rows="3"></textarea>
+</div>
+<button class="w-full py-4 rounded-lg bg-oxford hover:bg-oxford-dark text-canvas font-semibold text-sm tracking-wider uppercase transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2" type="submit">
+<span>Request Free 30-Minute Consultation</span>
+<span class="material-symbols-outlined text-[18px] text-brass-light">send</span>
+</button>
+<p class="text-center text-xs text-obsidian/60">
+                Strictly confidential. No sales pressure. We will respond within 24 hours.
+              </p>
+</form>
+<div class="hidden p-8 rounded-xl bg-sage-light/80 border border-sage/40 text-center space-y-3" id="consultation-success">
+<span class="material-symbols-outlined text-sage text-4xl">check_circle</span>
+<h4 class="font-heading text-2xl font-bold text-oxford">Thank You for Reaching Out</h4>
+<p class="text-sm text-obsidian/85 max-w-md mx-auto">
+                Jasmeen has received your message and will reach out personally within 24 hours to schedule your complimentary discovery consultation.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- ========================================================================= -->
+<!-- SECTION 12: FOOTER                                                        -->
+<!-- ========================================================================= -->
+<footer class="bg-oxford text-canvas pt-16 pb-12 border-t border-brass/20">
+<div class="max-w-[1240px] mx-auto px-5 sm:px-8">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+<div class="md:col-span-5 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full p-0.5 bg-white border border-[#B08D57]/40 shadow-sm flex items-center justify-center shrink-0">
+<img alt="Southern Well Botanical Crest Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0AdRksm9RWAlop7eypjUwEeyQV8b5JFBSOhCAwGD3NO6PCZHcoJKl9Yaa9_89aByV9qxzADHugL_OFcS0UOt9O4z3dL8Z20XRdU1dYQAJGIF1s53rGqoBiiBFxRPJunIrOqF065y0CjaFYqH-H_IutaMHHhoP4ljTziaicsROvc4bOeAW1r4lZOdiRLJS6YCbzjotZzcvsxdIQxFIWzzSMWMPiYt7Ol9QQnnkeaq7Hhe-JVkuF_tw">
+</div>
+<div>
+<span class="font-heading font-bold text-xl tracking-wide text-white block leading-none">
+              SOUTHERN WELL
+            </span>
+<span class="font-sans text-[10px] tracking-[0.2em] uppercase font-semibold text-brass-light block mt-1">
+              Senior Concierge
+            </span>
+</div>
+</div>
+<p class="text-sm text-[#F7F5F0]/75 max-w-sm leading-relaxed">
+          Dedicated, non-clinical senior care navigation, clinic accompaniment, and medication oversight serving families across South Mississippi with unhurried dignity.
+        </p>
+</div>
+<div class="md:col-span-3">
+<span class="text-xs font-bold tracking-widest text-brass-light uppercase block mb-3">Navigation</span>
+<ul class="space-y-2 text-sm text-[#F7F5F0]/80">
+<li><a class="hover:text-brass-light transition-colors" href="#who-we-serve">Who We Serve</a></li>
+<li><a class="hover:text-brass-light transition-colors" href="#workflow">How It Works</a></li>
+<li><a class="hover:text-brass-light transition-colors" href="#services-pricing">Services &amp; Pricing</a></li>
+<li><a class="hover:text-brass-light transition-colors" href="#dossier-system">The 5-Tab Care Dossier</a></li>
+<li><a class="hover:text-brass-light transition-colors" href="#service-area">Service Area Coverage</a></li>
+<li><a class="hover:text-brass-light transition-colors" href="#about-jasmeen">About Jasmeen</a></li>
+<li><a class="hover:text-brass-light transition-colors" href="#faq">Frequently Asked Questions</a></li>
+<li><a class="hover:text-brass-light transition-colors" href="#schedule-intake">Book Discovery Call</a></li>
+<li><a class="client-portal-trigger hover:text-brass-light transition-colors flex items-center gap-1.5 cursor-pointer" href="javascript:void(0)" onclick="openClientPortalModal()"><span class="material-symbols-outlined text-[15px] text-brass-light">lock</span><span>Client &amp; Family Forms Portal</span></a></li></ul>
+</div>
+<div class="md:col-span-4">
+<span class="text-xs font-bold tracking-widest text-brass-light uppercase block mb-3">Service Areas &amp; Practice</span>
+<div class="text-sm text-[#F7F5F0]/80 space-y-2">
+<p class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-brass-light">location_on</span>
+<span>Hattiesburg, Laurel, Petal &amp; Pine Belt</span>
+</p>
+<p class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-brass-light">location_on</span>
+<span>Gulfport, Biloxi, Ocean Springs &amp; Coast</span>
+</p>
+<p class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-brass-light">call</span>
+<a class="hover:underline" href="tel:601-554-6067">601-554-6067</a>
+<span class="text-white/40">•</span>
+<a class="hover:underline" href="tel:2285550199">(228) 555-0199</a>
+</p>
+</div>
+</div>
+</div>
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#F7F5F0]/60 gap-4">
+<p>© 2025 Southern Well Senior Concierge LLC. All rights reserved.</p>
+<p class="text-center sm:text-right">
+        Non-Clinical Healthcare Navigation &amp; Senior Advocacy Practice.
+      </p>
+</div>
+</div>
+</footer>
+<!-- Sibling Calculator JavaScript -->
+<script>
+  let currentPlanPrice = 360;
+  let currentPlanName = "Comprehensive Concierge";
+  let siblings = 3;
+  let scaleFactor = 1.0;
+  const FOUNDATION_FEE = 225;
+
+  function selectPlan(plan, price, el) {
+    currentPlanPrice = price;
+    currentPlanName = (plan === 'essential') ? "Essential Stewardship" : "Comprehensive Concierge";
+    
+    document.querySelectorAll('.plan-btn').forEach(btn => {
+      btn.classList.remove('active', 'border-brass', 'bg-oxford/5', 'shadow-xs');
+      btn.classList.add('border-[#E8E5DD]', 'bg-canvas');
+      const dot = btn.querySelector('.radio-dot');
+      if (dot) dot.classList.add('hidden');
+    });
+
+    el.classList.add('active', 'border-brass', 'bg-oxford/5', 'shadow-xs');
+    el.classList.remove('border-[#E8E5DD]', 'bg-canvas');
+    const activeDot = el.querySelector('.radio-dot');
+    if (activeDot) activeDot.classList.remove('hidden');
+
+    document.getElementById('display-plan-tag').textContent = currentPlanName;
+    recalculateCost();
+  }
+
+  function adjustSiblings(delta) {
+    const next = siblings + delta;
+    if (next >= 1 && next <= 8) {
+      siblings = next;
+      syncSiblingUI();
+    }
+  }
+
+  function setSiblings(count, el) {
+    siblings = count;
+    syncSiblingUI();
+  }
+
+  function syncSiblingUI() {
+    document.getElementById('sibling-count-display').textContent = siblings;
+    document.getElementById('sibling-count-summary').textContent = siblings === 1 ? 'Individual Member' : `Split ${siblings} ways`;
+    document.getElementById('breakdown-siblings-display').textContent = siblings === 1 ? '1 Family Member' : `${siblings} Contributing Members`;
+
+    document.querySelectorAll('.sibling-pill').forEach(pill => {
+      const pillCount = parseInt(pill.getAttribute('data-siblings'));
+      if (pillCount === siblings) {
+        pill.classList.add('active', 'border-brass', 'bg-brass', 'text-oxford-dark', 'font-bold');
+        pill.classList.remove('bg-canvas', 'border-[#E8E5DD]', 'text-obsidian/80', 'font-semibold');
+      } else {
+        pill.classList.remove('active', 'border-brass', 'bg-brass', 'text-oxford-dark', 'font-bold');
+        pill.classList.add('bg-canvas', 'border-[#E8E5DD]', 'text-obsidian/80', 'font-semibold');
+      }
+    });
+
+    recalculateCost();
+  }
+
+  function setScale(scale, el) {
+    scaleFactor = scale;
+    document.querySelectorAll('.scale-btn').forEach(btn => {
+      btn.classList.remove('active', 'border-oxford', 'bg-oxford', 'text-canvas', 'font-semibold');
+      btn.classList.add('border-[#E8E5DD]', 'bg-canvas', 'text-obsidian/80', 'font-medium');
+    });
+    el.classList.add('active', 'border-oxford', 'bg-oxford', 'text-canvas', 'font-semibold');
+    el.classList.remove('border-[#E8E5DD]', 'bg-canvas', 'text-obsidian/80', 'font-medium');
+
+    const slidingRow = document.getElementById('row-sliding-scale');
+    const slidingDiscount = document.getElementById('sliding-discount-display');
+    if (scaleFactor < 1) {
+      slidingRow.style.display = 'flex';
+      slidingDiscount.textContent = scaleFactor === 0.8 ? 'Tier A (-20%)' : 'Tier B (-35%)';
+    } else {
+      slidingRow.style.display = 'none';
+    }
+
+    recalculateCost();
+  }
+
+  function recalculateCost() {
+    const adjustedRetainer = currentPlanPrice * scaleFactor;
+    const monthlyPerMember = adjustedRetainer / siblings;
+    const dailyPerMember = monthlyPerMember / 30;
+
+    const includeFoundation = document.getElementById('foundation-toggle').checked;
+    const foundationRow = document.getElementById('row-foundation');
+    const foundationShareDisplay = document.getElementById('foundation-share-display');
+
+    document.getElementById('share-monthly-display').textContent = '$' + monthlyPerMember.toFixed(2);
+    document.getElementById('daily-share-display').textContent = 'Just ~$' + dailyPerMember.toFixed(2) + ' / day per member';
+    document.getElementById('total-retainer-display').textContent = '$' + adjustedRetainer.toFixed(2) + ' / mo';
+
+    if (includeFoundation) {
+      foundationRow.style.display = 'flex';
+      const foundationPerMember = (FOUNDATION_FEE * scaleFactor) / siblings;
+      const totalMonth1 = monthlyPerMember + foundationPerMember;
+      foundationShareDisplay.textContent = `+$${foundationPerMember.toFixed(2)} one-time ($${totalMonth1.toFixed(2)} total M1)`;
+    } else {
+      foundationRow.style.display = 'none';
+    }
+  }
+
+  // Initialize calculation on load
+  recalculateCost();
+</script>
+
+
+
+
+<div id="client-portal-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-oxford-dark/80 backdrop-blur-sm p-4 sm:p-6 md:p-10 flex items-center justify-center transition-all duration-300" role="dialog" aria-modal="true" aria-labelledby="portal-modal-title" onclick="handlePortalBackdropClick(event)"><div class="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl border border-brass/30 overflow-hidden transform transition-all my-8"><div class="bg-oxford px-6 py-5 sm:px-8 border-b border-brass/30 flex items-center justify-between"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-brass/20 border border-brass/40 flex items-center justify-center text-brass-light shrink-0"><span class="material-symbols-outlined text-[22px]">lock_person</span></div><div><div class="flex items-center gap-2"><span class="text-[10px] font-bold tracking-[0.2em] text-brass-light uppercase">Client &amp; Family Portal</span><span class="px-2 py-0.5 rounded-full bg-sage-light text-sage text-[9px] font-bold uppercase tracking-wider">256-Bit Encrypted</span></div><h3 id="portal-modal-title" class="font-heading text-xl sm:text-2xl font-bold text-white leading-tight">Southern Well Care Portal &amp; Forms</h3></div></div><button type="button" onclick="closeClientPortalModal()" aria-label="Close modal" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-[#F7F5F0] flex items-center justify-center transition-colors"><span class="material-symbols-outlined text-[20px]">close</span></button></div><div id="portal-auth-view" class="p-6 sm:p-8 bg-canvas"><div class="max-w-xl mx-auto"><div class="text-center mb-6"><span class="w-12 h-12 rounded-full bg-white border border-[#E8E5DD] shadow-sm flex items-center justify-center mx-auto mb-3 text-brass"><span class="material-symbols-outlined text-[26px]">verified_user</span></span><h4 class="font-heading text-2xl font-bold text-oxford mb-1.5">Secure Family Access</h4><p class="text-xs sm:text-sm text-obsidian/75 leading-relaxed">Enter your client household passcode or PIN to view, fill, and download your 5-Tab Care Dossier onboarding and medical coordination forms.</p></div><form id="portal-auth-form" onsubmit="handlePortalUnlock(event)" class="space-y-4 bg-white p-6 rounded-xl border border-[#E8E5DD] shadow-sm"><div><label for="portal-client-id" class="block text-xs font-bold uppercase tracking-wider text-oxford mb-1.5">Household Name or ID (Optional)</label><input type="text" id="portal-client-id" placeholder="e.g., McAllister Family (Hattiesburg)" class="w-full px-3.5 py-2.5 rounded-lg border border-[#E8E5DD] bg-canvas text-sm text-obsidian focus:outline-none focus:border-brass"></div><div><div class="flex items-center justify-between mb-1.5"><label for="portal-passcode" class="block text-xs font-bold uppercase tracking-wider text-oxford">Access Passcode / Security PIN *</label><span class="text-[11px] text-sage font-medium flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">info</span>Demo: southernwell2025</span></div><div class="relative"><input type="password" id="portal-passcode" required="" placeholder="Enter passcode..." class="w-full px-3.5 py-2.5 pr-10 rounded-lg border border-[#E8E5DD] bg-canvas text-sm text-obsidian focus:outline-none focus:border-brass"><button type="button" onclick="togglePasscodeVisibility()" class="absolute right-3 top-1/2 -translate-y-1/2 text-obsidian/60 hover:text-oxford transition-colors"><span id="passcode-toggle-icon" class="material-symbols-outlined text-[18px]">visibility</span></button></div><p id="portal-error-msg" class="hidden text-xs text-red-600 font-semibold mt-1.5 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">error</span><span>Incorrect passcode. Please try "southernwell2025" or "2025".</span></p></div><button type="submit" class="w-full py-3.5 rounded-lg bg-oxford hover:bg-oxford-dark text-canvas font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all"><span class="material-symbols-outlined text-[18px] text-brass-light">key</span><span>Unlock Care Enrollment Forms</span></button><div class="flex items-center justify-between pt-2 border-t border-[#E8E5DD] text-[11px] text-obsidian/70"><span>HIPAA-compliant client records portal</span><a href="#schedule-intake" onclick="closeClientPortalModal()" class="font-semibold text-oxford hover:text-sage underline">Need a new access PIN?</a></div></form></div></div><div id="portal-unlocked-view" class="hidden p-6 sm:p-8 bg-white max-h-[75vh] overflow-y-auto"><div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-[#E8E5DD] gap-3"><div class="flex items-center gap-2.5"><span class="w-3 h-3 rounded-full bg-emerald-500"></span><div><span class="font-heading font-bold text-xl text-oxford block leading-none">Client Workspace: Active Enrollment &amp; Records</span><span class="text-[11px] text-obsidian/60 mt-0.5 block">Authorized Family Member: Verified Access</span></div></div><div class="flex items-center gap-2"><button type="button" onclick="resetPortalAuth()" class="px-3 py-1.5 rounded text-xs font-semibold text-obsidian/75 hover:text-oxford border border-[#E8E5DD] bg-canvas hover:bg-[#EFECE5] flex items-center gap-1 transition-colors"><span class="material-symbols-outlined text-[15px]">lock_reset</span><span>Lock Portal</span></button><button type="button" onclick="window.print()" class="px-3 py-1.5 rounded bg-oxford text-canvas hover:bg-oxford-dark text-xs font-semibold flex items-center gap-1 shadow-xs transition-colors"><span class="material-symbols-outlined text-[15px] text-brass-light">print</span><span>Print Dossier Forms</span></button></div></div><div class="space-y-4"><div class="p-4 rounded-xl border border-sage/40 bg-sage-light/60 flex items-start justify-between gap-3"><div class="flex items-start gap-3"><span class="material-symbols-outlined text-sage text-[24px] shrink-0 mt-0.5">verified</span><div><h5 class="font-bold text-sm text-oxford">Form Pack: 5-Tab Care Dossier Onboarding Suite (v4.2)</h5><p class="text-xs text-obsidian/80 mt-0.5">All HIPAA disclosures, emergency escalation directives, and medication ledger printables are ready for review and signature.</p></div></div><span class="px-2.5 py-1 rounded bg-white border border-sage/30 text-sage font-bold text-[10px] uppercase tracking-wider shrink-0">Active</span></div><div class="grid grid-cols-1 md:grid-cols-2 gap-3.5"><div class="p-4 rounded-lg bg-canvas border border-[#E8E5DD] flex items-start justify-between gap-3"><div class="space-y-1"><span class="text-[10px] font-bold text-brass uppercase tracking-wider">Tab 1 Specimen</span><h6 class="font-bold text-sm text-oxford">Emergency &amp; Provider Contacts Sheet</h6><p class="text-xs text-obsidian/70">Direct phone tree, hospital choice, primary care and pharmacy.</p></div><button type="button" onclick="alert('Emergency &amp; Provider Contacts sheet generated in print view.')" class="px-2.5 py-1.5 rounded bg-white hover:bg-canvas text-oxford border border-[#E8E5DD] text-xs font-semibold flex items-center gap-1 shrink-0"><span class="material-symbols-outlined text-[15px] text-brass">download</span><span>Fill</span></button></div><div class="p-4 rounded-lg bg-canvas border border-[#E8E5DD] flex items-start justify-between gap-3"><div class="space-y-1"><span class="text-[10px] font-bold text-brass uppercase tracking-wider">Tab 2 Specimen</span><h6 class="font-bold text-sm text-oxford">Master Medication Reconciliation Log</h6><p class="text-xs text-obsidian/70">Bottle photo records, dosages, timings, prescribers, allergy alerts.</p></div><button type="button" onclick="alert('Master Medication Reconciliation Log loaded.')" class="px-2.5 py-1.5 rounded bg-white hover:bg-canvas text-oxford border border-[#E8E5DD] text-xs font-semibold flex items-center gap-1 shrink-0"><span class="material-symbols-outlined text-[15px] text-brass">download</span><span>Fill</span></button></div><div class="p-4 rounded-lg bg-canvas border border-[#E8E5DD] flex items-start justify-between gap-3"><div class="space-y-1"><span class="text-[10px] font-bold text-brass uppercase tracking-wider">Tab 4 Specimen</span><h6 class="font-bold text-sm text-oxford">Mississippi Medical Scope &amp; HIPAA Waiver</h6><p class="text-xs text-obsidian/70">Authorized non-clinical advocacy representation for doctor visits.</p></div><button type="button" onclick="alert('HIPAA Release authorization document ready for electronic signature.')" class="px-2.5 py-1.5 rounded bg-white hover:bg-canvas text-oxford border border-[#E8E5DD] text-xs font-semibold flex items-center gap-1 shrink-0"><span class="material-symbols-outlined text-[15px] text-brass">edit_document</span><span>Sign</span></button></div><div class="p-4 rounded-lg bg-canvas border border-[#E8E5DD] flex items-start justify-between gap-3"><div class="space-y-1"><span class="text-[10px] font-bold text-brass uppercase tracking-wider">Fridge Specimen</span><h6 class="font-bold text-sm text-oxford">Laminated EMS Emergency Summary</h6><p class="text-xs text-obsidian/70">One-page rapid paramedic overview for kitchen refrigerator magnet.</p></div><button type="button" onclick="alert('EMS Refrigerator Guide opened for download.')" class="px-2.5 py-1.5 rounded bg-white hover:bg-canvas text-oxford border border-[#E8E5DD] text-xs font-semibold flex items-center gap-1 shrink-0"><span class="material-symbols-outlined text-[15px] text-brass">download</span><span>Fill</span></button></div></div><div class="p-4 rounded-xl bg-oxford text-canvas flex flex-col sm:flex-row sm:items-center justify-between gap-3 mt-4 border border-brass/40"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-brass-light text-[24px]">support_agent</span><div><div class="text-xs font-bold text-white">Need Jasmeen to complete onboarding in person?</div><div class="text-[11px] text-canvas/70">In-home kitchen-table setup is included with all Foundation Assessments.</div></div></div><button type="button" onclick="closeClientPortalModal(); location.hash='#schedule-intake';" class="px-4 py-2 rounded bg-brass hover:bg-brass-light text-oxford text-xs font-bold uppercase tracking-wider shrink-0 transition-colors">Book Kitchen-Table Session</button></div></div></div></div></div><script>function openClientPortalModal(){const modal=document.getElementById('client-portal-modal');if(!modal)return;modal.classList.remove('hidden');modal.classList.add('flex');document.body.style.overflow='hidden';setTimeout(()=>{const input=document.getElementById('portal-passcode');if(input)input.focus();},100);}function closeClientPortalModal(){const modal=document.getElementById('client-portal-modal');if(!modal)return;modal.classList.add('hidden');modal.classList.remove('flex');document.body.style.overflow='';}function handlePortalBackdropClick(e){if(e.target===document.getElementById('client-portal-modal')){closeClientPortalModal();}}function togglePasscodeVisibility(){const input=document.getElementById('portal-passcode');const icon=document.getElementById('passcode-toggle-icon');if(!input||!icon)return;if(input.type==='password'){input.type='text';icon.textContent='visibility_off';}else{input.type='password';icon.textContent='visibility';}}function handlePortalUnlock(e){e.preventDefault();const passcode=(document.getElementById('portal-passcode')?.value||'').trim().toLowerCase();const errorEl=document.getElementById('portal-error-msg');if(passcode==='southernwell2025'||passcode==='2025'||passcode==='southernwell'||passcode==='welcome'){if(errorEl)errorEl.classList.add('hidden');document.getElementById('portal-auth-view')?.classList.add('hidden');document.getElementById('portal-unlocked-view')?.classList.remove('hidden');}else{if(errorEl)errorEl.classList.remove('hidden');}}function resetPortalAuth(){document.getElementById('portal-unlocked-view')?.classList.add('hidden');document.getElementById('portal-auth-view')?.classList.remove('hidden');const passcode=document.getElementById('portal-passcode');if(passcode){passcode.value='';passcode.focus();}document.getElementById('portal-error-msg')?.classList.add('hidden');}document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeClientPortalModal();}});</script></body></html>

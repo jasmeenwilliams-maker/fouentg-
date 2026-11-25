@@ -1,0 +1,6 @@
+{
+  "name": "SouthernWell Case Management Services",
+  "description": "SouthernWell of South Mississippi — private, strictly non-clinical care navigation, family advocacy, and care coordination. No skilled nursing or medical care is performed.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Southern Well Senior Concierge — Enrollment Forms</title>
+  <style>
+    :root {
+      --bg: #FDFBF7;
+      --card: #ffffff;
+      --ink: #1A1B1E;
+      --head: #16263B;
+      --olive: #16263B;
+      --sage: #7C8797;
+      --grass: #9FB0C6;
+      --line: #d9d4c7;
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    @media(prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #1A1B1E;
+        --card: #22252b;
+        --ink: #e8e8ea;
+        --head: #cfd9e8;
+        --olive: #2c4468;
+        --line: #3a3f4a;
+      }
+    }
+    html {
+      scroll-padding-top: env(safe-area-inset-top, 0px);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 15px/1.45 Georgia, 'Times New Roman', serif;
+    }
+    header {
+      background: var(--olive);
+      color: #fff;
+      text-align: center;
+      padding: 18px 12px;
+      border-bottom: 4px solid var(--grass);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: .5px;
+    }
+    header p {
+      margin: 4px 0 0;
+      font-size: 13px;
+      opacity: .9;
+      font-style: italic;
+    }
+    nav {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px;
+      position: sticky;
+      top: env(safe-area-inset-top, 0px);
+      background: var(--bg);
+      z-index: 5;
+      border-bottom: 1px solid var(--line);
+    }
+    nav button {
+      font: inherit;
+      font-size: 13px;
+      border: 1px solid var(--sage);
+      background: var(--card);
+      color: var(--ink);
+      padding: 6px 10px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    nav button.on {
+      background: var(--olive);
+      color: #fff;
+      border-color: var(--olive);
+    }
+    nav button.done::after {
+      content: " ✓";
+    }
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 14px;
+    }
+    .stage {
+      display: none;
+    }
+    .stage.on {
+      display: block;
+    }
+    .stage > h2 {
+      color: var(--head);
+      margin: 6px 0 0;
+      font-size: 20px;
+    }
+    .sub {
+      font-style: italic;
+      margin: 2px 0 10px;
+      font-size: 13px;
+      color: var(--sage);
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      margin: 12px 0;
+      overflow: hidden;
+    }
+    .card h3 {
+      margin: 0;
+      background: var(--olive);
+      color: #fff;
+      font-size: 13px;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      padding: 8px 12px;
+    }
+    .body {
+      padding: 12px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+    }
+    label.l, .lab {
+      display: block;
+      font-size: 12px;
+      font-weight: bold;
+      color: var(--head);
+      margin: 6px 0 3px;
+    }
+    input[type=text], input[type=date], input[type=datetime-local], textarea {
+      width: 100%;
+      font: inherit;
+      padding: 7px;
+      border: 0;
+      border-bottom: 1.5px solid var(--sage);
+      background: transparent;
+      color: var(--ink);
+      border-radius: 0;
+    }
+    textarea {
+      border: 1.5px solid var(--sage);
+      min-height: 70px;
+      border-radius: 6px;
+    }
+    input:focus, textarea:focus {
+      outline: 2px solid var(--grass);
+    }
+    .opts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 16px;
+    }
+    .opts.col {
+      flex-direction: column;
+    }
+    .opt {
+      display: flex;
+      gap: 7px;
+      align-items: flex-start;
+      cursor: pointer;
+      padding: 2px 0;
+    }
+    .opt input {
+      margin-top: 4px;
+      accent-color: var(--olive);
+      width: 16px;
+      height: 16px;
+      flex: none;
+    }
+    .note {
+      font-size: 13px;
+      font-style: italic;
+      margin: 6px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th {
+      background: var(--sage);
+      color: #fff;
+      text-align: left;
+      padding: 5px 6px;
+    }
+    td {
+      border: 1px solid var(--line);
+      padding: 0;
+    }
+    td.fx {
+      padding: 6px;
+      font-weight: bold;
+      width: 28%;
+    }
+    td input {
+      border: 0;
+      padding: 7px 6px;
+    }
+    .scope {
+      border-top: 1px dashed var(--line);
+      padding: 8px 0;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .scope p {
+      margin: 0;
+      flex: 1;
+    }
+    .scope input {
+      width: 70px;
+      text-align: center;
+    }
+    canvas {
+      width: 100%;
+      max-width: 480px;
+      height: 120px;
+      border: 1.5px solid var(--sage);
+      border-radius: 6px;
+      background: #fff;
+      touch-action: none;
+      display: block;
+    }
+    .sigbar {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .btn {
+      font: inherit;
+      font-size: 14px;
+      border: 1px solid var(--olive);
+      background: var(--olive);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .btn.alt {
+      background: transparent;
+      color: var(--olive);
+    }
+    .ctl {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 16px 0;
+    }
+    .fixed {
+      padding: 7px 0;
+      border-bottom: 1.5px solid var(--sage);
+    }
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--sage);
+      padding: 14px;
+    }
+    @media print {
+      header p, nav, .ctl, .sigbar, footer {
+        display: none;
+      }
+      body {
+        background: #fff;
+        color: #000;
+        font-size: 12px;
+      }
+      .stage {
+        display: block !important;
+        page-break-after: always;
+      }
+      body[data-only] .stage:not(.only) {
+        display: none !important;
+      }
+      .card {
+        break-inside: avoid;
+        border-color: #999;
+      }
+      .card h3, th {
+        background: #16263B !important;
+        color: #fff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      header {
+        background: #fff;
+        color: #000;
+        border-bottom: 2px solid #16263B;
+        padding: 6px;
+      }
+      main {
+        padding: 0;
+      }
+      canvas {
+        border-color: #999;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Southern Well Senior Concierge</h1>
+    <p>Private-Pay Non-Clinical Care Navigation • Confidential Client Record</p>
+  </header>
+  
+  <nav id="nav"></nav>
+  <main id="app"></main>
+  
+  <footer>
+    Southern Well Senior Concierge • Administered by Jasmeen Williams, LPN, BS-HHS<br>
+    Entries save automatically in this browser only.
+  </footer>
+
+  <script>
+    let S = {};
+    try { S = JSON.parse(localStorage.getItem('swf') || '{}'); } catch(e) {}
+    const save = () => { try { localStorage.setItem('swf', JSON.stringify(S)); } catch(e) {} };
+    let cur = 0, n = 0;
+    
+    const f = (l, k, t) => ({ y: 'f', l, k: k || 'k' + (++n), t: t || 'text' }),
+          c = (l, o, s) => ({ y: 'c', l, o, s, k: 'k' + (++n) }),
+          t = (l) => ({ y: 't', l, k: 'k' + (++n) }),
+          nt = (x) => ({ y: 'n', x }),
+          ini = (x) => ({ y: 'i', x, k: 'k' + (++n) }),
+          sg = (l) => ({ y: 's', l, k: 'k' + (++n) }),
+          tb = (h, rows, fx) => ({ y: 'b', h, rows, fx, k: 'k' + (++n) }),
+          fx = (l, x) => ({ y: 'x', l, x });
+          
+    const cl = f('Client Name', 'client');
+    
+    const D = [
+      {
+        h: 'Stage 1 of 5 • Initial Consultation',
+        s: 'Inquiry & Discovery Call Form (30-Minute Consultation) — Phone, Video, or In-Person',
+        x: [
+          ['1. Contact & Geographic Screening', [
+            f('Date of Call', 0, 'date'),
+            c('Consultation Format', ['Phone', 'Video', 'In-Person'], 1),
+            f('Inquirer Full Name'),
+            f('Relationship to Senior'),
+            f('Phone Number'),
+            f('Email Address'),
+            f('Senior Client Name', 'client'),
+            f('Age (Target 70–95)'),
+            f('Senior City / Zip Code'),
+            f('Referral Source'),
+            c('Service Radius Verification', [
+              'Within 25-mile standard travel radius (Hattiesburg/Pine Belt or Gulfport/Coast)',
+              'Outside 25-mile radius (note additional mileage fee policy)'
+            ], 1)
+          ]],
+          ['2. Needs & Support Assessment', [
+            c('Primary Caller Profile', [
+              'Older Adult Seeking Independence',
+              'Busy Local Adult Child',
+              'Long-Distance Adult Child'
+            ], 1),
+            c('Primary Pain Points & Support Goals (check all that apply)', [
+              'Medication / pillbox confusion, duplicate bottles, or pharmacy refill gaps',
+              'Need accompaniment, advocacy, and structured notes for doctor/specialist appointments',
+              'Disorganized medical records / lack of an emergency 1-page medical snapshot',
+              'Need routine non-clinical home safety & wellness check-ins',
+              'Transition or professional referral support (LCSW, Elder Law Attorney, Licensed Home Health)'
+            ]),
+            t('Additional Consultation Notes & Family Concerns')
+          ]],
+          ['3. Non-Clinical Boundary Screening (Mandatory)', [
+            c('Acute Clinical Need Check', [
+              'No acute clinical care needed (eligible for Southern Well)',
+              'Yes — requires skilled nursing, wound care, injections, or emergency care (refer to Home Health / 911)'
+            ], 1),
+            c('Verbal Scope Disclosure', [
+              'Confirmed: explained that Southern Well Senior Concierge is a private-pay, non-clinical care navigation practice and does not administer medications, perform wound care, or provide hands-on medical treatment.'
+            ])
+          ]],
+          ['4. Recommended Service Tier & Sliding Scale Check', [
+            c('Required Onboarding', [
+              'Foundation Assessment — $225 flat fee (Tier A: $180 | Tier B: $145)'
+            ]),
+            c('Recommended Ongoing Tier', [
+              'Essential Stewardship ($275/mo | Tier A: $220 | Tier B: $180)',
+              'Comprehensive Concierge ($375/mo | Tier A: $300 | Tier B: $244)',
+              'À La Carte Clinic Visit Accompaniment ($75/visit)'
+            ], 1),
+            c('Fixed-Income Sliding Scale Requested?', [
+              'Yes (include Self-Attestation Form in Stage 2 packet)',
+              'No (standard private-pay rates)'
+            ], 1)
+          ]]
+        ]
+      },
+      {
+        h: 'Stage 2 of 5 • Days 2–3 Onboarding',
+        s: 'Client Intake, Scope Waiver & HIPAA Authorization Packet — complete and sign before scheduling the 90-Minute In-Home Foundation Assessment',
+        x: [
+          ['1. Client & Legal Authority Verification', [
+            f('Client Full Legal Name', 'client'),
+            f('Date of Birth', 0, 'date'),
+            f('Primary Residential Address'),
+            f('Home / Cell Phone'),
+            c('Legal Signatory Status', [
+              'Client (self — competent to contract)',
+              'Authorized Healthcare/Financial POA (attach POA copy)'
+            ], 1),
+            f('POA / Responsible Party Name'),
+            f('POA Phone / Email')
+          ]],
+          ['2. Non-Clinical Scope of Care Acknowledgment', [
+            nt('By initialing each item, the Client and/or Responsible Party acknowledges and agrees to the non-clinical boundaries of Southern Well Senior Concierge:'),
+            ini('No Medical Administration: Southern Well Senior Concierge does NOT place pills in a client’s mouth, administer injections, apply medicated patches, perform wound care, or take vital signs for clinical diagnosis.'),
+            ini('Logistical Medication Support Only: Weekly pillbox organization and medication list reconciliation are performed strictly according to existing prescription bottle labels and clinic After-Visit Summaries (AVS).'),
+            ini('Emergency Protocol: In the event of an acute medical emergency, Southern Well will immediately dial 911 and notify designated family emergency contacts.')
+          ]],
+          ['3. Clinic HIPAA & Family Communication Authorization', [
+            nt('I authorize the following healthcare providers, clinics, and pharmacies to share relevant care records, medication lists, and After-Visit Summaries with Southern Well Senior Concierge:'),
+            tb(['Provider / Pharmacy Role', 'Name / Practice', 'Phone / Fax / Location'], [
+              'Primary Care Physician (PCP)',
+              'Key Specialist #1',
+              'Key Specialist #2',
+              'Primary Pharmacy'
+            ], 1),
+            nt('Authorized Family Recipients (to receive 24-hour Post-Visit Briefings and Care Dossier updates):'),
+            tb(['Recipient Full Name', 'Relationship', 'Email Address', 'Cell Phone'], ['1.', '2.'], 1)
+          ]],
+          ['4. Onboarding Fee & Authorization Signature', [
+            c('Foundation Assessment Fee Remitted', [
+              '$225 Standard',
+              '$180 Tier A (20% Sliding Scale)',
+              '$145 Tier B (35% Sliding Scale)'
+            ], 1),
+            sg('Client or Authorized POA Signature'),
+            f('Printed Name & Title (Self / POA)'),
+            f('Date', 0, 'date')
+          ]]
+        ]
+      },
+      {
+        h: 'Stage 3 of 5 • Days 4–7 In-Home Visit',
+        s: '90-Minute In-Home Foundation Assessment Form — Non-Clinical Home Walkthrough, Care Dossier Intake & Medication Reconciliation Audit',
+        x: [
+          ['1. Medical Profile & Emergency Preferences', [
+            cl,
+            f('Assessment Date', 0, 'date'),
+            c('Preferred Hospital System', [
+              'Forrest General',
+              'Merit Health Wesley',
+              'Memorial Health',
+              'Singing River',
+              'Other'
+            ], 1),
+            f('If other, specify'),
+            t('Known Allergies (Drug / Food / Environmental)'),
+            c('Existing Advance Directives Located in Home', [
+              'Healthcare Power of Attorney (POA)',
+              'Living Will',
+              'DNR / POLST',
+              'None located (flag for Elder Law referral)'
+            ])
+          ]],
+          ['2. Non-Clinical Home Safety & Lifestyle Walkthrough', [
+            c('Environmental & Fall Hazards Observed', [
+              'Loose throw rugs',
+              'Dim hallways / stairs',
+              'Cluttered walkways / cords',
+              'Missing bathroom grab bars',
+              'None noted'
+            ]),
+            c('Mobility & Assistive Devices', [
+              'Independent',
+              'Cane',
+              'Walker / Rollator',
+              'Wheelchair',
+              'Equipment check needed (tips/brakes)'
+            ]),
+            c('Pantry & Refrigerator Status', [
+              'Well-stocked & fresh',
+              'Needs grocery/meal support'
+            ], 1),
+            t('Hydration & Meal Routine Notes'),
+            t('Home Safety Recommendations & Action Items')
+          ]],
+          ['3. Kitchen-Table Medication Reconciliation Audit', [
+            c('Audit Preparation', [
+              'All Rx bottles, OTC supplements, vitamins, eye drops & inhalers gathered',
+              'Compared against most recent clinic After-Visit Summary (AVS)',
+              'Weekly pillbox organized strictly per bottle labels'
+            ]),
+            tb(['Medication / Supplement Name & Dose', 'Bottle Directions', 'Discrepancy Flagged (Duplicate / Expired / Low Refill)'], [
+              '1.', '2.', '3.', '4.', '5.', '6.'
+            ], 1),
+            t('Yellow-Flagged Questions for Prescribing Physician or Pharmacist Clarification')
+          ]]
+        ]
+      },
+      {
+        h: 'Stage 4 of 5 • Days 7–10 Back-Office Setup',
+        s: 'Care Dossier Assembly & Provider Sync Checklist — internal quality-control verification completed prior to Active Stewardship launch',
+        x: [
+          ['Client & Coordinator', [
+            cl,
+            f('Digital Folder ID (LASTNAME_Firstname_DOB-YYYY)'),
+            fx('Care Coordinator', 'Jasmeen Williams, LPN, BS-HHS'),
+            f('Target Launch Date', 0, 'date')
+          ]],
+          ['1. Physical Care Dossier Binder Assembly', [
+            c('Checklist', [
+              'Assembled Deep Oxford Navy linen binder with 5 color-coded divider tabs (Tab 1: Emergency & Provider Contacts | Tab 2: Master Medication Log | Tab 3: Clinic Visit Summaries (AVS) | Tab 4: Advance Directives & HIPAA Releases | Tab 5: Family Briefing & Wellness Notes)',
+              'Printed 1-Page EMS Master Snapshot Sheet and inserted into front clear sleeve of binder',
+              'Prepared duplicate laminated/sleeved 1-Page EMS Master Snapshot Sheet for client’s refrigerator door'
+            ])
+          ]],
+          ['2. Encrypted Digital Workspace Setup', [
+            c('Checklist', [
+              'Created HIPAA-compliant encrypted client directory using naming convention LASTNAME_Firstname_DOB-YYYY',
+              'Uploaded signed Stage 2 Intake Agreement, Scope Waiver, POA documents, and Clinic HIPAA Releases',
+              'Uploaded baseline clinic After-Visit Summaries (AVS) and dated Master Medication Reconciliation Log'
+            ])
+          ]],
+          ['3. Provider Sync, Pharmacy Coordination & Warm Referrals', [
+            c('Checklist', [
+              'Faxed or hand-delivered executed HIPAA Authorization forms to Primary Care Physician and specialists',
+              'Synced medication list and refill schedule with client’s primary pharmacy'
+            ]),
+            c('Warm Professional Referrals Initiated (if identified during Stage 3)', [
+              'Licensed Clinical Social Worker (LCSW)',
+              'Elder Law Attorney',
+              'Licensed Home Health Agency',
+              'None needed at launch'
+            ])
+          ]],
+          ['4. Family Onboarding & 30-Day Action Plan', [
+            c('Checklist', [
+              'Delivered personalized 30-Day Stewardship Action Plan to all authorized family recipients',
+              'Confirmed recurring schedule for monthly wellness check-ins and upcoming medical appointments'
+            ]),
+            sg('Quality-Control Sign-Off (Jasmeen Williams, LPN)'),
+            f('Date Completed', 0, 'date')
+          ]]
+        ]
+      },
+      {
+        h: 'Stage 5 of 5 • Day 11+ Ongoing Care',
+        s: 'Active Stewardship Routine Visit & Clinic Accompaniment Log — complete within 24 hours of every scheduled wellness check-in or medical appointment',
+        x: [
+          ['Visit Details', [
+            cl,
+            f('Visit Date & Time', 0, 'datetime-local'),
+            c('Active Service Plan', [
+              'Essential ($275/mo)',
+              'Comprehensive ($375/mo)',
+              'À La Carte ($75)'
+            ], 1),
+            c('Visit Location', [
+              'Client Home',
+              'Clinic',
+              'Virtual'
+            ], 1)
+          ]],
+          ['1. Non-Clinical Wellness & Home Environment Observation', [
+            t('Mood, Energy & Cognitive Engagement'),
+            t('Nutrition, Hydration & Home Safety Check'),
+            c('Medication & Pillbox Logistical Check', [
+              'Pillbox organized per bottle labels',
+              'Refills synced with pharmacy',
+              'N/A'
+            ])
+          ]],
+          ['2. Clinic Visit Accompaniment & Care Navigation Summary (if applicable)', [
+            f('Provider & Specialty Seen'),
+            f('Next Scheduled Appointment (Date/Time)', 0, 'datetime-local'),
+            t('Key Provider Takeaways, Medication Changes & Follow-Up Action Items')
+          ]],
+          ['3. 24-Hour Post-Visit Family Briefing Confirmation', [
+            c('Family Briefing Sent?', ['Yes', 'Pending'], 1),
+            c('Delivery Method', ['Encrypted Email', 'Family Portal'], 1),
+            f('Timestamp Sent', 0, 'datetime-local')
+          ]]
+        ]
+      }
+    ];
+
+    const e = (tag, a, ...k) => {
+      const x = document.createElement(tag);
+      Object.assign(x, a || {});
+      k.forEach(i => x.append(i));
+      return x;
+    };
+
+    function item(it) {
+      const w = e('div');
+      if (it.y == 'n') return e('p', { className: 'note', textContent: it.x });
+      if (it.y == 'x') {
+        w.append(e('span', { className: 'lab', textContent: it.l }), e('div', { className: 'fixed', textContent: it.x }));
+        return w;
+      }
+      if (it.y == 'f') {
+        w.append(e('label', { className: 'l', textContent: it.l }));
+        const i = e('input', { type: it.t, value: S[it.k] || '' });
+        i.oninput = () => {
+          S[it.k] = i.value;
+          save();
+          if (it.k == 'client') {
+            document.querySelectorAll('input[data-c]').forEach(o => {
+              if (o !== i) o.value = i.value;
+            });
+          }
+        };
+        if (it.k == 'client') i.dataset.c = 1;
+        w.append(i);
+        return w;
+      }
+      if (it.y == 't') {
+        w.append(e('label', { className: 'l', textContent: it.l }));
+        const i = e('textarea', { value: S[it.k] || '' });
+        i.oninput = () => { S[it.k] = i.value; save(); };
+        w.append(i);
+        return w;
+      }
+      if (it.y == 'c') {
+        w.append(e('span', { className: 'lab', textContent: it.l }));
+        const o = e('div', { className: 'opts' + (it.o.some(x => x.length > 40) ? ' col' : '') });
+        const boxes = [];
+        it.o.forEach(v => {
+          const i = e('input', { type: 'checkbox', checked: (S[it.k] || []).includes(v) });
+          boxes.push([i, v]);
+          i.onchange = () => {
+            if (it.s && i.checked) {
+              boxes.forEach(([b]) => { if (b !== i) b.checked = false; });
+            }
+            S[it.k] = boxes.filter(([b]) => b.checked).map(([, x]) => x);
+            save();
+          };
+          o.append(e('label', { className: 'opt' }, i, e('span', { textContent: v })));
+        });
+        w.append(o);
+        return w;
+      }
+      if (it.y == 'i') {
+        const i = e('input', { type: 'text', placeholder: 'Initials', maxLength: 4, value: S[it.k] || '' });
+        i.oninput = () => { S[it.k] = i.value; save(); };
+        return e('div', { className: 'scope' }, e('p', { textContent: it.x }), i);
+      }
+      if (it.y == 'b') {
+        const T = e('table'), r = e('tr');
+        it.h.forEach(h => r.append(e('th', { textContent: h })));
+        T.append(r);
+        it.rows.forEach((rw, ri) => {
+          const tr = e('tr');
+          it.h.forEach((_, ci) => {
+            const td = e('td');
+            if (ci == 0 && it.fx && /[A-Za-z]/.test(rw) && rw.length > 3) {
+              td.className = 'fx';
+              td.textContent = rw;
+            } else {
+              const key = it.k + '_' + ri + '_' + ci;
+              const i = e('input', { type: 'text', value: S[key] || '' });
+              i.oninput = () => { S[key] = i.value; save(); };
+              td.append(i);
+            }
+            tr.append(td);
+          });
+          T.append(tr);
+        });
+        return e('div', { style: 'overflow-x:auto' }, T);
+      }
+      if (it.y == 's') {
+        w.append(e('span', { className: 'lab', textContent: it.l }));
+        const cv = e('canvas', { width: 480, height: 120 });
+        const g = cv.getContext('2d');
+        g.lineWidth = 2;
+        g.lineCap = 'round';
+        g.strokeStyle = '#222';
+        
+        if (S[it.k]) {
+          const im = new Image();
+          im.onload = () => g.drawImage(im, 0, 0);
+          im.src = S[it.k];
+        }
+        
+        let d = 0;
+        const p = ev => {
+          const r = cv.getBoundingClientRect();
+          return [(ev.clientX - r.left) * 480 / r.width, (ev.clientY - r.top) * 120 / r.height];
+        };
+        
+        cv.onpointerdown = ev => {
+          d = 1;
+          cv.setPointerCapture(ev.pointerId);
+          const [x, y] = p(ev);
+          g.beginPath();
+          g.moveTo(x, y);
+          g.lineTo(x + .1, y);
+          g.stroke();
+        };
+        cv.onpointermove = ev => {
+          if (!d) return;
+          const [x, y] = p(ev);
+          g.lineTo(x, y);
+          g.stroke();
+        };
+        cv.onpointerup = () => {
+          d = 0;
+          try { S[it.k] = cv.toDataURL(); save(); } catch(e) {}
+        };
+        
+        const cb = e('button', { className: 'btn alt', textContent: 'Clear signature', type: 'button' });
+        cb.onclick = () => {
+          g.clearRect(0, 0, 480, 120);
+          delete S[it.k];
+          save();
+        };
+        w.append(cv, e('div', { className: 'sigbar' }, cb));
+        return w;
+      }
+    }
+
+    const app = document.getElementById('app'), nav = document.getElementById('nav');
+    
+    D.forEach((st, i) => {
+      const s = e('section', { className: 'stage', id: 's' + i });
+      s.append(e('h2', { textContent: st.h }), e('p', { className: 'sub', textContent: st.s }));
+      
+      st.x.forEach(([h, items]) => {
+        const b = e('div', { className: 'body' });
+        b.innerHTML = '';
+        let gr = null;
+        items.forEach(it => {
+          const el = item(it);
+          if (it.y == 'f' || it.y == 'x') {
+            if (!gr) {
+              gr = e('div', { className: 'grid' });
+              b.append(gr);
+            }
+            gr.append(el);
+          } else {
+            gr = null;
+            b.append(el);
+          }
+        });
+        s.append(e('div', { className: 'card' }, e('h3', { textContent: h }), b));
+      });
+      
+      const ctl = e('div', { className: 'ctl' });
+      const mk = (t, fn, a) => {
+        const b = e('button', { className: 'btn' + (a ? ' alt' : ''), textContent: t, type: 'button' });
+        b.onclick = fn;
+        return b;
+      };
+      
+      ctl.append(
+        mk('← Back', () => go(i - 1), 1),
+        mk('Print this stage', () => pr(i), 1),
+        i < 4 ? mk('Next stage →', () => go(i + 1)) : mk('Print all stages', () => pr())
+      );
+      s.append(ctl);
+      app.append(s);
+      
+      const nb = e('button', { textContent: 'Stage ' + (i + 1), type: 'button' });
+      nb.onclick = () => go(i);
+      nav.append(nb);
+    });
+
+    const clr = e('button', { textContent: 'Clear all', type: 'button' });
+    clr.onclick = () => {
+      if (confirm('Clear every field on every stage? This cannot be undone.')) {
+        S = {};
+        save();
+        location.reload();
+      }
+    };
+    nav.append(clr);
+
+    function go(i) {
+      if (i < 0 || i > 4) return;
+      cur = i;
+      document.querySelectorAll('.stage').forEach((s, j) => s.classList.toggle('on', j == i));
+      [...nav.children].forEach((b, j) => b.classList.toggle('on', j == i));
+      scrollTo(0, 0);
+    }
+
+    function pr(i) {
+      document.querySelectorAll('.stage').forEach(s => s.classList.remove('only'));
+      if (i == null) {
+        document.body.removeAttribute('data-only');
+      } else {
+        document.body.dataset.only = 1;
+        document.getElementById('s' + i).classList.add('only');
+      }
+      window.print();
+    }
+
+    go(0);
+  </script>
+</body>
+</html>
+Instructions for Deployment:
+Save the above code as southern_well_enrollment_forms.html (or forms.html).
+Link it directly from your main landing page (for example in your header nav, footer, or discovery confirmation state) via <a href="southern_well_enrollment_forms.html">Client Enrollment Portal</a>.

@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #F7F5F0;
+  --color-canvas-muted: #EDEAE2;
+  --color-obsidian: #1A1B1E;
+  --color-obsidian-muted: #4B4E54;
+  --color-oxford: #16263B;
+  --color-oxford-dark: #0F1B2B;
+  --color-navy-slate: #2C4361;
+  --color-navy-soft: #E9EEF4;
+  --color-brass: #B08D57;
+  --color-brass-light: #C8A977;
+  --color-brass-deep: #7A551E;
+  --color-brass-soft: #F5EBD9;
+  --color-card-bg: #FFFFFF;
+  --color-card-border: #DFDBD2;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--color-canvas);
+    color: var(--color-obsidian);
+  }
+
+  h1, h2, h3, .font-heading {
+    font-family: var(--font-heading);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
