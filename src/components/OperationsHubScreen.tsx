@@ -157,6 +157,7 @@ export function OperationsHubScreen({
   });
   const [toastMsg, setToastMsg] = useState<string | null>(null);
   const [confirmReset, setConfirmReset] = useState(false);
+  const [confirmClearSample, setConfirmClearSample] = useState(false);
   const syncTimersRef = useRef<Map<string, number>>(new Map());
 
   useEffect(() => {
@@ -683,7 +684,27 @@ export function OperationsHubScreen({
   const handleResetDemoData = () => {
     setOps(createSeedOpsData());
     setConfirmReset(false);
+    setConfirmClearSample(false);
     showToast('Operations Hub restored to default South Mississippi seed caseload.');
+  };
+
+  const handleClearSampleData = () => {
+    const emptyState: OpsDataState = {
+      preset: ops.preset,
+      clients: [],
+      checkins: [],
+      actions: [],
+      referrals: [],
+      payments: [],
+      meds: [],
+      mmasResponses: { q1: 0, q2: 0, q3: 0, q4: 0, q5: 0, q6: 0, q7: 0, q8: 0 },
+      bhlsResponses: { q1: 0, q2: 0, q3: 0 },
+      launchDone: {},
+    };
+    persistOpsLocalFirst(emptyState);
+    setOps(emptyState);
+    setConfirmClearSample(false);
+    showToast('Sample caseload cleared from local browser storage.');
   };
 
   const clientIds = ops.clients.map((c) => c.id);
@@ -878,10 +899,10 @@ export function OperationsHubScreen({
               <div className="space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <h2 className="font-heading text-2xl sm:text-3xl font-semibold text-oxford-dark">
-                    Care Navigation &amp; Operations Command
+                    Operations Dashboard
                   </h2>
                   <span className="px-3 py-1 rounded-md bg-navy-soft text-navy-slate border border-oxford/20 text-xs font-bold">
-                    Pine Belt &amp; Coast Hubs
+                    South Mississippi
                   </span>
                 </div>
 
@@ -892,24 +913,24 @@ export function OperationsHubScreen({
                     onClick={handleAddClient}
                     className="px-4 py-2.5 rounded-xl bg-oxford hover:bg-oxford-dark text-white text-xs font-bold inline-flex items-center gap-2 shadow-sm transition-colors cursor-pointer whitespace-nowrap"
                   >
-                    <Users className="w-4 h-4" />
-                    <span>Enroll New Client</span>
+                    <Users className="w-4 h-4 text-brass-light" />
+                    <span>Enroll Client</span>
                   </button>
                   <button
                     type="button"
                     onClick={() => setActiveNav('checkins')}
                     className="px-4 py-2.5 rounded-xl bg-white border border-oxford/25 text-oxford-dark hover:bg-canvas-muted text-xs font-bold inline-flex items-center gap-2 cursor-pointer whitespace-nowrap"
                   >
-                    <Calendar className="w-4 h-4" />
-                    <span>View Check-Ins</span>
+                    <Calendar className="w-4 h-4 text-oxford" />
+                    <span>Check-Ins</span>
                   </button>
                   <button
                     type="button"
                     onClick={handleExportCaseloadCsv}
                     className="px-4 py-2.5 rounded-xl bg-white border border-oxford/25 text-oxford-dark hover:bg-canvas-muted text-xs font-bold inline-flex items-center gap-2 cursor-pointer whitespace-nowrap"
                   >
-                    <FileText className="w-4 h-4" />
-                    <span>Export Caseload CSV</span>
+                    <FileText className="w-4 h-4 text-oxford" />
+                    <span>Export CSV</span>
                   </button>
                 </div>
 
@@ -980,8 +1001,8 @@ export function OperationsHubScreen({
                         <span className="text-xs text-obsidian/70 font-medium block mt-0.5">
                           {kpi.max !== null
                             ? isBreached
-                              ? `Over alert limit (max ${kpi.max})`
-                              : `Within threshold (max ${kpi.max})`
+                              ? `Over limit (max ${kpi.max})`
+                              : `Within limit (max ${kpi.max})`
                             : kpi.sub}
                         </span>
                       </div>
@@ -989,69 +1010,14 @@ export function OperationsHubScreen({
                   })}
                 </div>
 
-                {/* Alert Threshold Preset Selector */}
-                <div className="rounded-2xl bg-white border border-card-border p-4 flex flex-wrap items-center gap-2.5 shadow-xs">
-                  <strong className="text-sm text-oxford-dark mr-1">Alert Thresholds:</strong>
-                  {(['strict', 'standard', 'high'] as AlertPreset[]).map((presetKey) => {
-                    const active = ops.preset === presetKey;
-                    return (
-                      <button
-                        key={presetKey}
-                        type="button"
-                        onClick={() => setOps((prev) => ({ ...prev, preset: presetKey }))}
-                        className={`px-3.5 py-1.5 rounded-xl text-xs font-bold border transition-colors cursor-pointer ${
-                          active
-                            ? 'bg-oxford text-white border-oxford ring-2 ring-brass/45'
-                            : 'bg-white text-oxford-dark border-oxford/25 hover:bg-canvas-muted'
-                        }`}
-                      >
-                        {presetKey.charAt(0).toUpperCase() + presetKey.slice(1)}
-                      </button>
-                    );
-                  })}
-                </div>
-
-                {/* Caseload by County / Hub */}
+                {/* Needs Attention */}
                 <div className="rounded-2xl bg-white border border-card-border p-4 shadow-xs">
-                  <strong className="text-sm text-oxford-dark block">Caseload by County / Hub</strong>
-                  <div className="flex h-3 rounded-full overflow-hidden bg-canvas-muted my-3 border border-oxford/10">
-                    {metrics.countyCounts.map((count, idx) => (
-                      <div
-                        key={OPS_COUNTIES[idx]}
-                        style={{
-                          width: `${(count / metrics.countyDenominator) * 100}%`,
-                          backgroundColor: OPS_COUNTY_COLORS[idx],
-                        }}
-                        title={`${OPS_COUNTIES[idx]}: ${count}`}
-                      />
-                    ))}
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {OPS_COUNTIES.map((county, idx) => (
-                      <span
-                        key={county}
-                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-navy-soft border border-oxford/20 text-xs font-bold text-navy-slate"
-                      >
-                        <span
-                          className="w-2.5 h-2.5 rounded-xs inline-block"
-                          style={{ backgroundColor: OPS_COUNTY_COLORS[idx] }}
-                        />
-                        <span>
-                          {county}: {metrics.countyCounts[idx]}
-                        </span>
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Priority Queue */}
-                <div className="rounded-2xl bg-white border border-card-border p-4 shadow-xs">
-                  <strong className="text-sm text-oxford-dark block mb-2">
-                    Priority Queue (Attention Needed)
+                  <strong className="text-sm font-bold text-oxford-dark block mb-2">
+                    Needs attention
                   </strong>
                   {metrics.priorityItems.length > 0 ? (
                     <div className="divide-y divide-card-border">
-                      {metrics.priorityItems.slice(0, 8).map((item, idx) => (
+                      {metrics.priorityItems.slice(0, 6).map((item, idx) => (
                         <div
                           key={`${item.text}-${idx}`}
                           className={`py-2.5 text-sm ${
@@ -1064,8 +1030,105 @@ export function OperationsHubScreen({
                     </div>
                   ) : (
                     <p className="text-xs text-obsidian/70 py-2">
-                      All operations, checks, and medication schedules are currently on track.
+                      Nothing needs attention right now.
                     </p>
+                  )}
+                </div>
+
+                {/* Collapsible County Breakdown & Alert Thresholds */}
+                <details className="rounded-2xl bg-white border border-card-border p-4 shadow-xs">
+                  <summary className="cursor-pointer font-bold text-sm text-oxford-dark select-none">
+                    County breakdown &amp; alert thresholds
+                  </summary>
+
+                  <div className="mt-3 pt-3 border-t border-card-border space-y-4">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <strong className="text-xs sm:text-sm text-oxford-dark mr-1">
+                        Alert thresholds:
+                      </strong>
+                      {(['strict', 'standard', 'high'] as AlertPreset[]).map((presetKey) => {
+                        const active = ops.preset === presetKey;
+                        return (
+                          <button
+                            key={presetKey}
+                            type="button"
+                            onClick={() => setOps((prev) => ({ ...prev, preset: presetKey }))}
+                            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold border transition-colors cursor-pointer ${
+                              active
+                                ? 'bg-oxford text-white border-oxford ring-2 ring-brass/45'
+                                : 'bg-white text-oxford-dark border-oxford/25 hover:bg-canvas-muted'
+                            }`}
+                          >
+                            {presetKey.charAt(0).toUpperCase() + presetKey.slice(1)}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    <div>
+                      <strong className="text-xs sm:text-sm text-oxford-dark block">
+                        Clients by county
+                      </strong>
+                      <div className="flex h-3 rounded-full overflow-hidden bg-canvas-muted my-3 border border-oxford/10">
+                        {metrics.countyCounts.map((count, idx) => (
+                          <div
+                            key={OPS_COUNTIES[idx]}
+                            style={{
+                              width: `${(count / metrics.countyDenominator) * 100}%`,
+                              backgroundColor: OPS_COUNTY_COLORS[idx],
+                            }}
+                            title={`${OPS_COUNTIES[idx]}: ${count}`}
+                          />
+                        ))}
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {OPS_COUNTIES.map((county, idx) => (
+                          <span
+                            key={county}
+                            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-navy-soft border border-oxford/20 text-xs font-bold text-navy-slate"
+                          >
+                            <span
+                              className="w-2.5 h-2.5 rounded-xs inline-block"
+                              style={{ backgroundColor: OPS_COUNTY_COLORS[idx] }}
+                            />
+                            <span>
+                              {county}: {metrics.countyCounts[idx]}
+                            </span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </details>
+
+                {/* Local Storage & Clear Sample Data Note */}
+                <div className="flex flex-wrap items-center gap-2 text-xs text-obsidian/70 pt-1">
+                  <span>Local browser storage active alongside live Google Sheets sync.</span>
+                  {confirmClearSample ? (
+                    <span className="inline-flex items-center gap-1.5">
+                      <button
+                        type="button"
+                        onClick={handleClearSampleData}
+                        className="px-2.5 py-1 rounded-lg bg-[#9E3524] text-white text-xs font-bold cursor-pointer"
+                      >
+                        Confirm Clear
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setConfirmClearSample(false)}
+                        className="px-2.5 py-1 rounded-lg border border-card-border bg-white text-oxford-dark text-xs font-semibold cursor-pointer"
+                      >
+                        Cancel
+                      </button>
+                    </span>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => setConfirmClearSample(true)}
+                      className="px-3 py-1 rounded-lg border border-oxford/25 bg-white hover:bg-canvas-muted text-oxford-dark text-xs font-semibold cursor-pointer"
+                    >
+                      Clear sample data
+                    </button>
                   )}
                 </div>
               </div>
