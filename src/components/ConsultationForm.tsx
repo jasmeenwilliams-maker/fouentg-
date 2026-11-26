@@ -4,6 +4,7 @@ import { BRAND_INFO } from '../data/southernWellData';
 import type { CostShareSelection } from './SiblingCostCalculator';
 import { syncRecordToSheet } from '../utils/sheetsSync';
 import { SheetsSyncControl } from './SheetsSyncControl';
+import { FounderPortrait } from './BrandImage';
 
 const CONSULTATION_STORAGE_KEY = 'sw_consultation_requests_v1';
 
@@ -118,9 +119,25 @@ export function ConsultationForm({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         {/* Direct Contact Info Side Panel */}
         <div className="lg:col-span-5 bg-canvas rounded-xl p-6 sm:p-8 border border-card-border flex flex-col gap-6">
-          <h3 className="font-heading text-2xl font-bold text-obsidian">
-            Direct Service Inquiries
-          </h3>
+          <div className="flex items-center gap-4 pb-5 border-b border-card-border">
+            <div className="w-20 h-24 rounded-xl overflow-hidden border border-brass/50 bg-white shrink-0 shadow-xs">
+              <FounderPortrait
+                src="/assets/aistudio/ns_78614831.webp"
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div className="min-w-0">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brass-deep block">
+                Your Dedicated Advocate
+              </span>
+              <h3 className="font-heading text-2xl font-bold text-obsidian leading-tight mt-0.5">
+                Direct Service Inquiries
+              </h3>
+              <p className="text-xs font-semibold text-oxford mt-1">
+                {BRAND_INFO.founder}
+              </p>
+            </div>
+          </div>
 
           <div className="space-y-4">
             <div className="flex items-start gap-3">

@@ -25,7 +25,6 @@ import {
   Menu,
   X,
   ArrowRight,
-  Utensils,
   Lock,
 } from 'lucide-react';
 import {
@@ -530,13 +529,7 @@ export default function App() {
                           </span>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-2 text-xs">
-                          <div className="p-2 rounded bg-oxford-dark/70 border border-white/15 flex items-center gap-2">
-                            <Utensils className="w-3.5 h-3.5 text-brass-light shrink-0" />
-                            <span className="text-canvas/95 text-[11px]">
-                              EMS Refrigerator Log
-                            </span>
-                          </div>
+                        <div className="grid grid-cols-1 gap-2 text-xs">
                           <div className="p-2 rounded bg-oxford-dark/70 border border-white/15 flex items-center gap-2">
                             <FileText className="w-3.5 h-3.5 text-brass-light shrink-0" />
                             <span className="text-canvas/95 text-[11px]">
@@ -903,7 +896,7 @@ export default function App() {
                     <div className="rounded-2xl overflow-hidden shadow-sm border border-card-border bg-white p-5">
                       <div className="aspect-[4/5] relative rounded-xl overflow-hidden border border-card-border bg-canvas">
                         <FounderPortrait
-                          src="/assets/aistudio/image__8__c9916ede.png"
+                          src="/assets/aistudio/image__11__5515befb.png"
                           className="w-full h-full object-cover object-top"
                         />
                       </div>

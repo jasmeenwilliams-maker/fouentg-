@@ -1,4 +1,4 @@
-export const FOUNDER_PORTRAIT_URL = '/assets/aistudio/image__6__5a6dba43.png';
+export const FOUNDER_PORTRAIT_URL = '/assets/aistudio/image__10__0fce033d.png';
 
 export const BRAND_INFO = {
   brand: 'SouthernWell Case Management Services',
