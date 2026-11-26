@@ -1,4 +1,6 @@
-export const FOUNDER_PORTRAIT_URL = '/assets/aistudio/image__10__0fce033d.png';
+import heroFounderPortrait from '../assets/images/regenerated_image_1795726607496.webp';
+
+export const FOUNDER_PORTRAIT_URL = heroFounderPortrait;
 
 export const BRAND_INFO = {
   brand: 'SouthernWell Case Management Services',

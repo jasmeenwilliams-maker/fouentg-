@@ -35,6 +35,7 @@ import {
   WORKFLOW_STAGES,
 } from './data/southernWellData';
 import { CrestLogo, FounderPortrait } from './components/BrandImage';
+import aboutFounderPortrait from './assets/images/regenerated_image_1795726606900.webp';
 import {
   SiblingCostCalculator,
   type CostShareSelection,
@@ -896,7 +897,7 @@ export default function App() {
                     <div className="rounded-2xl overflow-hidden shadow-sm border border-card-border bg-white p-5">
                       <div className="aspect-[4/5] relative rounded-xl overflow-hidden border border-card-border bg-canvas">
                         <FounderPortrait
-                          src="/assets/aistudio/image__11__5515befb.png"
+                          src={aboutFounderPortrait}
                           className="w-full h-full object-cover object-top"
                         />
                       </div>
